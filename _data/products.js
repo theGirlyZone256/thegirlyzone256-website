@@ -381,7 +381,37 @@ const products = [
     recommendations: [4, 6],
     tags: ["arm", "bag", "cotton", "tote"],
     featured: true
-  }
+  },
+  {
+    id: 11,
+    slug: "one-two-three",
+    title: "One Two Three",
+    shortDescription: "A Brown and White knit top, crew necked, short sleeves.",
+    price: 15000,
+    availability: true,
+    mainImages: ["tp1.webp", "tp1a.webp"],
+    secondaryImage: "tp1.webp",
+    colors: [
+      {
+        name: "Brown",
+        code: "#5f4230",
+        mainImages: ["tp1.webp"],
+        secondaryImage: "tp1.webpp",
+        availability: true
+      },
+      
+    ],
+    category: "tops",
+    mood: ["free", "casual"],
+    occasion: ["everyday"],
+    sizeRange: ["small", "medium", "large"],
+    colorNames: ["brown", "white"],
+    material: "cotton",
+    searchKeywords: ["short sleeve", "cotton", "tops"],
+    recommendations: [5, 10],
+    tags: ["short sleeve", "cotton", "tops", "brown"],
+    featured: true
+  },
 ];
 
 module.exports = products;
