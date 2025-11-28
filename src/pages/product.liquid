@@ -1,0 +1,1092 @@
+---
+pagination:
+  data: products
+  size: 1
+  alias: product
+  addAllPagesToCollections: true
+permalink: "product/{{ product.slug }}/"
+layout: null
+eleventyComputed:
+  title: "{{ product.title }} | theGirlyZone Uganda"
+  metaDescription: "{{ product.shortDescription }}"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 🎯 FAVICON CONFIGURATION -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+    
+    <title>{{ product.title }} | theGirlyZone Uganda</title>
+    <meta name="description" content="{{ product.shortDescription }}">
+    
+    <!-- 🎯 SOCIAL SHARING META TAGS -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thegirlyzone.netlify.app/product/{{ product.slug }}/">
+    <meta property="og:title" content="{{ product.title }} | theGirlyZone Uganda">
+    <meta property="og:description" content="{{ product.shortDescription }}">
+    <meta property="og:image" content="https://thegirlyzone.netlify.app/assets/images/main/{{ product.mainImages[0] }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="theGirlyZone Uganda">
+    
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://thegirlyzone.netlify.app/product/{{ product.slug }}/">
+    <meta property="twitter:title" content="{{ product.title }} | theGirlyZone Uganda">
+    <meta property="twitter:description" content="{{ product.shortDescription }}">
+    <meta property="twitter:image" content="https://thegirlyzone.netlify.app/assets/images/main/{{ product.mainImages[0] }}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --primary-color: #ff004d; --text-color: #000000; --background-color: #ffffff; --border-color: #e5e5e5; --success-color: #28a745; }
+body { font-family: Arial, Helvetica, sans-serif; color: var(--text-color); background-color: var(--background-color); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.header { background: var(--background-color); border-bottom: 1px solid var(--border-color); padding: 1rem 0; position: sticky; top: 0; z-index: 1000; }
+.header-content { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.2rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+.logo a { text-decoration: none; color: var(--text-color); }
+.desktop-nav { display: none; align-items: center; gap: 1.5rem; }
+.nav-icon { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--text-color); padding: 0.5rem; }
+.mobile-bottom-nav { display: flex; position: fixed; bottom: 0; left: 0; width: 100%; background: white; border-top: 1px solid var(--border-color); padding: 0.75rem 0; justify-content: space-around; z-index: 999; }
+.nav-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: var(--text-color); font-size: 0.8rem; gap: 0.1rem; background: none; border: none; cursor: pointer; padding: 0 rem; flex: 1; transition: color 0.2s ease; position: relative; }
+.nav-item i { font-size: 1.4rem; transition: transform 0.2s ease; }
+.nav-item:active i { transform: scale(0.9); }
+.nav-item:active { color: var(--primary-color); }
+.product-details { padding: 2rem 0; min-height: 70vh; }
+.product-content { display: block; }
+.product-gallery { margin-bottom: 2rem; position: relative; }
+.gallery-container { position: relative; aspect-ratio: 3/4; overflow: hidden; border-radius: 8px; }
+.gallery-slides { display: flex; transition: transform 0.3s ease; height: 100%; }
+.gallery-slide { min-width: 100%; height: 100%; position: relative; }
+.gallery-slide img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-nav { display: flex; gap: 0.5rem; margin-top: 1rem; justify-content: center; flex-wrap: wrap; }
+.gallery-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border-color); border: none; cursor: pointer; transition: background-color 0.3s ease; }
+.gallery-dot.active { background: var(--text-color); }
+.gallery-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.8); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: none; align-items: center; justify-content: center; font-size: 1.2rem; z-index: 10; }
+.gallery-arrow.prev { left: 1rem; }
+.gallery-arrow.next { right: 1rem; }
+.product-info-details h1 { font-size: 1.8rem; margin-bottom: 1rem; text-transform: uppercase; }
+.product-price-details { font-size: 1.5rem; font-weight: bold; margin-bottom: 1.5rem; color: var(--text-color); }
+.product-description { margin-bottom: 2rem; color: #666; line-height: 1.6; }
+.color-selector { margin: 1.5rem 0; }
+.color-selector h3 { margin-bottom: 1rem; font-size: 1rem; }
+.color-options { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.color-option { width: 40px; height: 40px; border: 2px solid var(--border-color); border-radius: 50%; cursor: pointer; position: relative; transition: border-color 0.3s ease; }
+.color-option.active { border-color: var(--text-color); }
+.color-option.active::after { content: "✓"; color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 0.8rem; font-weight: bold; text-shadow: 0 0 2px rgba(0,0,0,0.5); }
+.color-option.unavailable { opacity: 0.5; cursor: not-allowed; position: relative; }
+.color-option.unavailable::before { content: ""; position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: var(--primary-color); transform: rotate(-45deg); }
+.product-actions { margin: 2.5rem 0; }
+.add-to-cart { background: var(--text-color); color: var(--background-color); border: none; padding: 1.5rem 2rem; width: 100%; cursor: pointer; text-transform: uppercase; font-weight: bold; margin-bottom: 1rem; font-size: 1rem; transition: background-color 0.3s ease; }
+.add-to-cart:hover { background: #333; }
+.add-to-cart:disabled { background: #ccc; cursor: not-allowed; }
+.add-to-favourites { background: white; border: 1px solid #ff004d; color: #ff004d; padding: 1.5rem 2rem; width: 100%; cursor: pointer; text-transform: uppercase; font-size: 1rem; transition: all 0.3s ease; }
+.add-to-favourites:hover { background: white; color: #ff004d; border-color: #ff004d; }
+.product-meta { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border-color); }
+.product-meta p { margin-bottom: 0.75rem; font-size: 0.9rem; }
+.meta-label { font-weight: bold; display: inline-block; width: 100px; }
+.recommendations-section { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border-color); }
+.recommendations-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem; }
+.product-card { position: relative; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; transition: transform 0.3s ease; }
+.product-card:hover { transform: translateY(-5px); }
+.product-image { position: relative; aspect-ratio: 3/4; overflow: hidden; }
+.product-image img { width: 100%; height: 100%; object-fit: cover; }
+.favourite-btn { position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.product-info { padding: 1rem; }
+.product-title { font-size: 0.8rem; margin-bottom: 0.5rem; text-transform: uppercase; font-weight: bold; }
+.product-price { font-weight: 500; color: var(--text-color); }
+.toast { position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--text-color); color: var(--background-color); padding: 1rem 2rem; border-radius: 4px; z-index: 10000; opacity: 0; transition: all 0.3s ease; }
+.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+.toast.success { background: var(--success-color); }
+.footer { background: var(--text-color); color: var(--background-color); padding: 3rem 0; margin-top: 4rem; }
+.footer-content { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+@media (min-width: 768px) { .desktop-nav { display: flex; } .mobile-bottom-nav { display: none; } .product-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; } .gallery-arrow { display: flex; } .recommendations-grid { grid-template-columns: repeat(4, 1fr); } .footer-content { grid-template-columns: repeat(2, 1fr); } }
+.header-logo { height: 40px !important; width: auto; object-fit: contain; display: block; }
+.logo { display: flex; align-items: center; height: 100%; margin-left: 2px; }
+.logo a { display: flex; align-items: center; height: 100%; text-decoration: none; }
+@media (max-width: 767px) { .logo { margin-left: 3px !important; } }
+.cart-count, .favourites-count { background: #25D366 !important; color: white !important; border-radius: 50% !important; width: 18px !important; height: 18px !important; font-size: 0.7rem !important; position: absolute !important; text-align: center !important; line-height: 18px !important; }
+.favourites-count { background: #ff004d !important; }
+.desktop-nav .favourites-count { top: -6px !important; right: 10px !important; }
+.desktop-nav .cart-count { top: -6px !important; right: -5px !important; }
+.mobile-bottom-nav .cart-count, .mobile-bottom-nav .favourites-count { top: -6px !important; right: 15px !important; }
+.desktop-nav .nav-icon { font-size: 1.5rem !important; }
+.mobile-bottom-nav .cart-count, .mobile-bottom-nav .favourites-count { top: -6px !important; right: 15px !important; }
+.mobile-bottom-nav .nav-item { position: relative !important; }
+.mobile-bottom-nav .favourites-count { top: -6px !important; right: 15px !important; }
+.mobile-bottom-nav .cart-count { top: -6px !important; right: 15px !important; }
+.footer { background: #1f1f1f; color: var(--background-color); padding: 3rem 0 5rem; margin-top: auto; width: 100%; text-align: center; }
+.slogan-section { margin-bottom: 2rem; }
+.company-slogan { font-family: 'Pacifico', cursive; font-size: 1.3rem; color: white; margin: 0; text-align: center; }
+.footer-divider { height: 1px; background: rgba(255, 255, 255, 0.2); width: 80%; max-width: 400px; margin: 0 auto 2rem auto; }
+.copyright-section { text-align: center; }
+.copyright-text { font-size: 0.8rem; opacity: 0.7; margin: 0; line-height: 1.5; text-align: center; }
+.copyright-text strong { font-weight: bold; }
+body, h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, select, label, li, td, th { font-family: 'Montserrat', sans-serif; }
+h1, h2, h3, h4, h5, h6 { font-weight: 600; }
+body, p, span, div { font-weight: 400; }
+strong, b, .bold { font-weight: 700; }
+.product-title, .product-price, .favourite-item-title, .cart-item-title { font-weight: 500; }
+button, .btn, .action-btn, .submit-btn, .checkout-btn, .add-to-cart-btn { font-weight: 600; letter-spacing: 0.5px; }
+.nav-item, .desktop-nav, .mobile-bottom-nav { font-weight: 500; }
+.company-slogan { font-family: 'Pacifico', cursive !important; font-weight: 400; }
+.nav-icon, .nav-item, .favourite-btn, .color-option, .gallery-arrow, .share-btn, .filter-option, .action-btn, .add-to-cart-btn, .add-to-cart, .add-to-favourites, .remove-favourite-btn, .remove-btn, .checkout-btn, .submit-btn, .social-icon { -webkit-tap-highlight-color: transparent !important; -webkit-touch-callout: none !important; -webkit-user-select: none !important; -moz-user-select: none !important; -ms-user-select: none !important; user-select: none !important; outline: none !important; }
+.nav-icon:active, .nav-item:active, .favourite-btn:active, .color-option:active { transform: scale(0.95); transition: transform 0.1s ease; }
+.nav-icon:focus-visible, .nav-item:focus-visible, .favourite-btn:focus-visible { outline: 2px solid #000 !important; outline-offset: 2px; }
+html { scroll-behavior: smooth; }
+.product-gallery { scroll-margin-top: 100px; }
+@media (max-width: 767px) { .product-gallery { scroll-margin-top: 80px; } }
+.gallery-slides.single-image-mode { display: flex; transform: none !important; cursor: grab; }
+.gallery-slides.single-image-mode:active { cursor: grabbing; }
+.gallery-slides.single-image-mode .gallery-slide { min-width: 100%; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+.gallery-container { overflow: hidden; -webkit-overflow-scrolling: touch; }
+.gallery-slides.single-image-mode .gallery-slide img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.gallery-container { -webkit-overflow-scrolling: touch; overflow: hidden; position: relative; }
+.gallery-slides.single-image-mode { overflow-x: hidden; overflow-y: auto; height: 100%; }
+.gallery-slides.single-image-mode .gallery-slide { touch-action: pan-y; }
+.view-all-btn { width: 80px; height: 40px; background: #000000 !important; border: 2px solid transparent; border-radius: 8px; cursor: pointer; font-size: 0.7rem; font-weight: 700; color: white !important; text-transform: uppercase; letter-spacing: 0.5px; position: relative; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; background: linear-gradient(black, black) padding-box, linear-gradient(45deg, #ff004d, #ff6b00, #ffd900, #25D366, #0099ff, #a200ff, #ff004d) border-box; background-size: 200% 200%; animation: spectrumGlow 3s linear infinite; }
+.view-all-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(255, 0, 77, 0.3); }
+.view-all-btn:active { transform: scale(0.95); }
+@keyframes spectrumGlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+.view-all-btn, .view-all-btn:hover, .view-all-btn:active { color: white !important; }
+@media (max-width: 767px) { .view-all-btn { width: 70px; height: 36px; font-size: 0.65rem; } }
+.color-options { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; }
+.header-logo, .logo-image, .designer-logo-image, .product-image img, .gallery-slide img, .favourite-item-image img, .cart-item-image img, .recommendations-grid img { -webkit-tap-highlight-color: transparent !important; -webkit-touch-callout: none !important; -webkit-user-select: none !important; -moz-user-select: none !important; -ms-user-select: none !important; user-select: none !important; outline: none !important; border: none !important; }
+.header-logo:focus, .logo-image:focus, .designer-logo-image:focus, .product-image img:focus, .gallery-slide img:focus { outline: none !important; box-shadow: none !important; }
+a img { border: none !important; outline: none !important; }
+a:has(img) { -webkit-tap-highlight-color: transparent !important; }
+.product-card a:focus, .product-card img:focus { outline: none !important; }
+.desktop-nav { display: none; align-items: center; gap: 1.5rem; }
+.desktop-nav .nav-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: var(--text-color); font-size: 0.8rem; gap: 0.2rem; background: none; border: none; cursor: pointer; padding: 0.5rem; transition: color 0.2s ease; position: relative; }
+.desktop-nav .nav-item i { font-size: 1.4rem; transition: transform 0.2s ease; }
+.desktop-nav .nav-item:active i { transform: scale(0.9); }
+.desktop-nav .nav-item:active { color: var(--primary-color); }
+@media (min-width: 768px) { .desktop-nav { display: flex; } }
+.share-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); display: flex; align-items: center; justify-content: center; z-index: 10000; padding: 20px; opacity: 0; transition: opacity 0.2s ease; }
+.share-modal-overlay.active { opacity: 1; }
+.share-modal-content { background: white; border-radius: 16px; padding: 2rem; max-width: 400px; width: 100%; box-shadow: 0 20px 40px rgba(0,0,0,0.2); transform: translateY(-20px) scale(0.95); opacity: 0; transition: all 0.3s ease-out; }
+.share-modal-overlay.active .share-modal-content { transform: translateY(0) scale(1); opacity: 1; }
+.share-platforms { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 2rem; }
+.share-platform-btn { border: none; border-radius: 12px; padding: 1rem; color: white; cursor: pointer; transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; font-weight: 500; font-family: 'Montserrat', sans-serif; }
+.share-platform-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+.share-platform-btn:active { transform: translateY(0); }
+.whatsapp-btn { background: #25D366; }
+.facebook-btn { background: #1877F2; }
+.twitter-btn { background: #1DA1F2; }
+.email-btn { background: #FF004D; }
+.copy-link-btn { background: #000; border: none; border-radius: 8px; padding: 0.75rem 1.5rem; color: white; cursor: pointer; font-weight: 600; width: 100%; transition: all 0.3s ease; font-family: 'Montserrat', sans-serif; }
+.copy-link-btn:hover { background: #333; transform: translateY(-1px); }
+.close-modal-btn { background: none; border: 1px solid #e5e5e5; border-radius: 8px; padding: 0.75rem 1.5rem; color: #666; cursor: pointer; font-weight: 500; width: 100%; transition: all 0.3s ease; font-family: 'Montserrat', sans-serif; }
+.close-modal-btn:hover { background: #f8f9fa; border-color: #ccc; }
+.share-btn { background: none; border: none; cursor: pointer; }
+.share-btn:active i { transform: scale(0.9); }
+.share-btn:active { color: var(--primary-color); }
+@media (max-width: 767px) { .share-btn { position: fixed !important; right: 15px !important; top: 19px !important; z-index: 1001 !important; background: rgba(255,255,255,0.95) !important; backdrop-filter: blur(10px) !important; border: none !important; padding: 15px !important; border-radius: 50% !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 2px 10px rgba(0, 0, 0, 0.1) !important; transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important; } .share-btn:hover { transform: translateY(-3px) !important; box-shadow: 0 12px 40px rgba(0,0,0,0.25), 0 4px 20px rgba(0,0,0,0.15) !important; background: rgba(255,255,255,0.98) !important; } .share-btn:active { transform: translateY(-1px) !important; box-shadow: 0 6px 25px rgba(0,0,0,0.2), 0 2px 12px rgba(0,0,0,0.1) !important; } }
+.gallery-slides.single-image-mode { display: flex !important; transform: none !important; cursor: default !important; overflow: hidden !important; height: 100% !important; }
+.gallery-slides.single-image-mode .gallery-slide { min-width: 100% !important; user-select: none !important; -webkit-user-select: none !important; -webkit-touch-callout: none !important; }
+.gallery-slides.single-image-mode .gallery-slide img { width: 100% !important; height: 100% !important; object-fit: cover !important; }
+.gallery-container.single-image-mode { touch-action: pan-y !important; pointer-events: none !important; }
+.gallery-container.single-image-mode img { pointer-events: auto !important; display: block !important; visibility: visible !important; }
+.gallery-slides:not(.single-image-mode) { cursor: grab !important; pointer-events: auto !important; }
+.gallery-slides:not(.single-image-mode):active { cursor: grabbing !important; }
+.gallery-slides:not(.single-image-mode) .gallery-slide { touch-action: pan-y pinch-zoom !important; }
+.gallery-container:not(.single-image-mode) { -webkit-overflow-scrolling: touch !important; overflow: hidden !important; pointer-events: auto !important; }
+.color-option.single-color { cursor: default !important; opacity: 1 !important; border-color: var(--text-color) !important; }
+.color-option.single-color::after { content: none !important; }
+.color-option.single-color:hover { transform: none !important; border-color: var(--text-color) !important; } 
+    </style>
+</head>
+<body>
+    <header class="header">
+    <div class="container">
+        <div class="header-content">
+            <div class="logo"><a href="/"><img src="/assets/images/logos/tgz2.png" alt="My Favourites" class="header-logo"></a></div>
+                <button class="nav-item share-btn" onclick="shareProduct()" title="Share this product">
+                    <i class="fas fa-share-alt"></i>
+                    <span>Share</span>
+                </button>
+                        <nav class="desktop-nav">
+                            <a href="/" class="nav-item">
+                                <i class="fas fa-home"></i>
+                                <span>Home</span>
+                            </a>
+                            
+                            <button class="nav-item" onclick="redirectToHomeWithSearch()">
+                                <i class="fas fa-search"></i>
+                                <span>Search</span>
+                            </button>
+                            
+                            <a href="/favourites/" class="nav-item" style="position: relative;">
+                                <i class="fas fa-heart"></i>
+                                <span>Favourites</span>
+                                <span class="favourites-count" style="display: none;">0</span>
+                            </a>
+                            <a href="/cart/" class="nav-item" style="position: relative;">
+                                <i class="fas fa-shopping-bag"></i>
+                                <span>Cart</span>
+                                <span class="cart-count" style="display: none;">0</span>
+                            </a>
+                        </nav>
+            
+        </div>
+    </div>
+</header>
+
+    <nav class="mobile-bottom-nav">
+    <a href="/" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
+    <button class="nav-item" onclick="redirectToHomeWithSearch()"><i class="fas fa-search"></i><span>Search</span></button>
+    
+    <a href="/favourites/" class="nav-item" style="position: relative;">
+        <i class="fas fa-heart"></i>
+        <span>Favourites</span>
+        <span class="favourites-count" style="display: none;">0</span>
+    </a>
+    <a href="/cart/" class="nav-item" style="position: relative;">
+        <i class="fas fa-shopping-bag"></i>
+        <span>Cart</span>
+        <span class="cart-count" style="display: none;">0</span>
+    </a>
+</nav>
+    <main>
+        <div class="product-details">
+            <div class="container">
+                <div class="product-content">
+                    <!-- Hybrid Image Gallery -->
+                    <div class="product-gallery">
+                        <div class="gallery-container" id="galleryContainer">
+                            <div class="gallery-slides" id="gallerySlides">
+                                {% for image in product.mainImages %}
+                                <div class="gallery-slide" data-index="{{ forloop.index0 }}">
+                                    <img src="/assets/images/main/{{ image }}" alt="{{ product.title }} - Image {{ forloop.index }}" loading="lazy">
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <button class="gallery-arrow prev" onclick="changeSlide(-1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="gallery-arrow next" onclick="changeSlide(1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="gallery-nav" id="galleryNav">
+                            {% for image in product.mainImages %}
+                            <button class="gallery-dot {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}" onclick="goToSlide({{ forloop.index0 }})"></button>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Product Info -->
+                    <div class="product-info-details">
+                        <h1 id="productTitle">{{ product.title }}</h1>
+                        <p class="product-price-details" id="productPrice">UGX {{ product.price | formatNumber }}</p>
+                        <p class="product-description" id="productDescription">
+                            {{ product.shortDescription }}
+                        </p>
+
+                        <!-- Color Selector -->
+                        {% if product.colors.length > 0 %}
+                        <div class="color-selector">
+                            <h3>Color: <span id="selectedColor">{{ product.colors[0].name }}</span></h3>
+                            <div class="color-options" id="colorOptions">
+                                {% for color in product.colors %}
+                                <div class="color-option {% if forloop.first %}active{% endif %} {% unless color.availability %}unavailable{% endunless %} {% if product.colors.length == 1 %}single-color{% endif %}" 
+                                    style="background-color: {{ color.code }}"
+                                    data-color-index="{{ forloop.index0 }}"
+                                    data-color-name="{{ color.name }}"
+                                    {% if color.availability and product.colors.length > 1 %}onclick="selectColor({{ forloop.index0 }})"{% endif %}>
+                                    {% if product.colors.length == 1 %}
+                                      {% endif %}
+                                </div>
+                                {% endfor %}
+                                {% if product.colors.length > 1 %}
+                                <button class="view-all-btn" id="viewAllBtn" onclick="resetToDefaultGallery()" style="display: none;">
+                                    VIEW ALL
+                                </button>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <!-- Action Buttons -->
+<div class="product-actions">
+    <button class="add-to-cart" id="addToCartBtn" onclick="toggleCart()">
+        <span id="cartButtonText">
+            {% if product.availability %}Add to Cart{% else %}Out of Stock{% endif %}
+        </span>
+    </button>
+    <button class="add-to-favourites" id="favouriteBtn" onclick="toggleFavourite()">
+        <i class="far fa-heart" id="favouriteIcon"></i> 
+        <span id="favouriteButtonText">Add to Favourites</span>
+    </button>
+</div>
+
+                        <!-- Product Meta -->
+                        <div class="product-meta">
+                            <p><span class="meta-label">Category:</span> {{ product.category | capitalize }}</p>
+                            <p><span class="meta-label">Mood:</span> {{ product.mood | join: ", " | capitalize }}</p>
+                            <p><span class="meta-label">Occasion:</span> {{ product.occasion | join: ", " | capitalize }}</p>
+                            <p><span class="meta-label">Material:</span> {{ product.material }}</p>
+                            <p><span class="meta-label">Sizes:</span> {{ product.sizeRange | join: ", " | capitalize }}</p>
+                            <p><span class="meta-label">Delivery:</span> Free shipping within Kampala</p>
+                            <p><span class="meta-label">Returns:</span> Easy 7-day return policy</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendations -->
+                <section class="recommendations-section">
+                    <h2>You Might Also Like</h2>
+                    <div class="recommendations-grid" id="recommendationsGrid">
+                        <!-- Recommendations will be populated by JavaScript -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <footer class="footer">
+    <div class="container">
+        <!-- Company Slogan -->
+        <div class="slogan-section">
+            <p class="company-slogan">where style meets affordability</p>
+        </div>
+        
+        <!-- Horizontal Divider -->
+        <div class="footer-divider"></div>
+        
+        <!-- Copyright -->
+        <div class="copyright-section">
+            <p class="copyright-text">© All content on this <strong>website is owned by theGirlyZone and Marvin's DesignHouse</strong>, and protected by copyright law. Reproduction or distribution without permission may result in legal action.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+        // Current product data
+        const currentProduct = {{ product | json }};
+        let currentSlide = 0;
+        let currentColorIndex = 0;
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        // Gallery Functions
+        function updateGallery() {
+            const slides = document.getElementById('gallerySlides');
+            const dots = document.querySelectorAll('.gallery-dot');
+            
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function changeSlide(direction) {
+            const totalSlides = currentProduct.mainImages.length;
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            updateGallery();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateGallery();
+        }
+
+        // 🆕 UPDATE TOUCH HANDLERS FOR SINGLE IMAGE MODE
+        function handleTouchStart(e) {
+            const gallerySlides = document.getElementById('gallerySlides');
+            
+            // Only enable swipe for multi-image galleries
+            if (!gallerySlides.classList.contains('single-image-mode')) {
+                touchStartX = e.changedTouches[0].screenX;
+            }
+        }
+
+        function handleTouchEnd(e) {
+            const gallerySlides = document.getElementById('gallerySlides');
+            
+            // Only handle swipe for multi-image galleries
+            if (!gallerySlides.classList.contains('single-image-mode')) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }
+        }
+
+        function handleSwipe() {
+            const gallerySlides = document.getElementById('gallerySlides');
+            
+            // Only handle swipe for multi-image galleries
+            if (gallerySlides.classList.contains('single-image-mode')) {
+                return; // Exit if in single image mode
+            }
+            
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    changeSlide(1); // Swipe left
+                } else {
+                    changeSlide(-1); // Swipe right
+                }
+            }
+        }
+
+        // 🎯 ENHANCED COLOR SELECTION WITH CONDITIONAL VIEW ALL BUTTON
+        function selectColor(colorIndex) {
+            if (currentProduct.colors.length === 1) {
+                return;
+            }
+            const colorOptions = document.querySelectorAll('.color-option');
+            const selectedColor = currentProduct.colors[colorIndex];
+            const viewAllBtn = document.getElementById('viewAllBtn');
+            
+            // Remove active class from all color options
+            colorOptions.forEach(option => option.classList.remove('active'));
+            
+            // Add active class to selected color
+            colorOptions[colorIndex].classList.add('active');
+            
+            // Update selected color text
+            document.getElementById('selectedColor').textContent = selectedColor.name;
+            currentColorIndex = colorIndex;
+
+            // 🆕 ONLY SHOW VIEW ALL BUTTON FOR MULTI-COLOR PRODUCTS
+            if (viewAllBtn && currentProduct.colors.length > 1) {
+                viewAllBtn.style.display = 'flex';
+            }
+            
+           
+            
+            // Update gallery with color-specific images
+            updateGalleryForColor(selectedColor);
+            
+            // Auto-scroll to gallery
+            autoScrollToGallery();
+        }
+
+        // 🆕 AUTO-SCROLL FUNCTION
+        function autoScrollToGallery() {
+            const galleryElement = document.querySelector('.product-gallery');
+            const headerHeight = document.querySelector('.header').offsetHeight;
+            
+            if (galleryElement) {
+                // Calculate position (considering sticky header)
+                const galleryPosition = galleryElement.offsetTop - headerHeight - 20;
+                
+                // Smooth scroll to gallery
+                window.scrollTo({
+                    top: galleryPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function updateGalleryForColor(color) {
+            const gallerySlides = document.getElementById('gallerySlides');
+            const galleryContainer = document.getElementById('galleryContainer');
+            const galleryNav = document.getElementById('galleryNav');
+            const galleryArrows = document.querySelectorAll('.gallery-arrow');
+            
+            // Clear existing slides
+            gallerySlides.innerHTML = '';
+            
+            // 🆕 ONLY USE THE FIRST IMAGE OF THE SELECTED COLOR
+            const singleImage = color.mainImages[0];
+            
+            // Create single slide
+            const slide = document.createElement('div');
+            slide.className = 'gallery-slide';
+            slide.setAttribute('data-index', 0);
+            slide.innerHTML = `<img src="/assets/images/main/${singleImage}" alt="${currentProduct.title} - ${color.name}" loading="lazy">`;
+            gallerySlides.appendChild(slide);
+            
+            // 🆕 HIDE NAVIGATION DOTS (since only one image)
+            if (galleryNav) {
+                galleryNav.style.display = 'none';
+            }
+            
+            // 🆕 HIDE ARROW BUTTONS
+            galleryArrows.forEach(arrow => {
+                arrow.style.display = 'none';
+            });
+            
+            // Reset slide index
+            currentSlide = 0;
+            updateGallery();
+            
+            // 🆕 ADD RUBBER BAND EFFECT CSS CLASS
+            gallerySlides.classList.add('single-image-mode');
+        }
+
+        // Toast Notifications
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            if (toast) {
+                toast.textContent = message;
+                toast.className = 'toast show';
+                
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+        }
+
+        // Recommendations Engine
+        function loadRecommendations() {
+            const recommendationsGrid = document.getElementById('recommendationsGrid');
+            
+            // Get recommended products
+            const recommendedProducts = getRecommendedProducts();
+            
+            if (recommendedProducts.length === 0) {
+                recommendationsGrid.innerHTML = '<p>No recommendations available at the moment.</p>';
+                return;
+            }
+            
+            recommendationsGrid.innerHTML = recommendedProducts.map(product => `
+                <div class="product-card">
+                    <div class="product-image">
+                        <a href="/product/${product.slug}/">
+                            <img src="/assets/images/secondary/${product.secondaryImage}" alt="${product.title}" loading="lazy">
+                        </a>
+                        <!-- HEART BUTTON REMOVED FROM HERE -->
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.title}</h3>
+                        <p class="product-price">UGX ${product.price.toLocaleString()}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function getRecommendedProducts() {
+            // Priority 1: Manual recommendations
+            if (currentProduct.recommendations && currentProduct.recommendations.length > 0) {
+                return currentProduct.recommendations
+                    .map(id => getProductById(id))
+                    .filter(product => product && product.id !== currentProduct.id)
+                    .slice(0, 4);
+            }
+            
+            // Priority 2: Auto-generated from category/tags
+            const sameCategory = products.filter(p => 
+                p.category === currentProduct.category && 
+                p.id !== currentProduct.id
+            );
+            
+            const sameMood = products.filter(p => 
+                p.mood.some(mood => currentProduct.mood.includes(mood)) && 
+                p.id !== currentProduct.id
+            );
+            
+            // Combine and deduplicate
+            const allRecommendations = [...sameCategory, ...sameMood];
+            const uniqueRecommendations = allRecommendations.filter((product, index, self) => 
+                index === self.findIndex(p => p.id === product.id)
+            );
+            
+            return uniqueRecommendations.slice(0, 4);
+        }
+
+        function getProductById(id) {
+            return products.find(product => product.id === id);
+        }
+
+        // Global products array (would be populated from your data)
+        const products = {{ products | json }};
+
+        window.toggleCart = function() {
+        const product = {
+            id: {{ product.id }},
+            title: "{{ product.title | escape }}",
+            price: {{ product.price }},
+            image: "{{ product.secondaryImage | default: product.mainImages[0] }}",
+            slug: "{{ product.slug }}"
+        };
+        
+        let cart = JSON.parse(localStorage.getItem('thegirlyzone_cart') || '[]');
+        
+        // 🆕 QUICK LIMIT CHECK - ADD THIS 3 LINES:
+        if (cart.length >= 10 && !cart.some(item => item.id === product.id)) {
+            showToast('Cart is full!');
+            return;
+        }
+        
+        const existingIndex = cart.findIndex(item => item.id === product.id);
+        
+        if (existingIndex > -1) {
+            cart.splice(existingIndex, 1);
+            showToast('Removed from cart');
+        } else {
+            cart.push(product);
+            showToast('Added to cart!');
+        }
+        
+        localStorage.setItem('thegirlyzone_cart', JSON.stringify(cart));
+        updateCartCount();
+        syncButtonStates();
+        };
+
+        window.toggleFavourite = function() {
+            const product = {
+                id: {{ product.id }},
+                title: "{{ product.title | escape }}",
+                price: {{ product.price }},
+                image: "{{ product.secondaryImage | default: product.mainImages[0] }}",
+                slug: "{{ product.slug }}"
+            };
+            
+            let favourites = JSON.parse(localStorage.getItem('thegirlyzone_favourites') || '[]');
+            const existingIndex = favourites.findIndex(item => item.id === product.id);
+            
+            if (existingIndex > -1) {
+                // Remove from favourites
+                favourites.splice(existingIndex, 1);
+                showToast('Removed from favourites');
+            } else {
+                // Add to favourites
+                favourites.push(product);
+                showToast('Added to favourites!');
+            }
+            
+            localStorage.setItem('thegirlyzone_favourites', JSON.stringify(favourites));
+            updateFavouritesCount();
+            syncButtonStates();
+            
+            console.log('Favourites updated:', favourites);
+        }
+
+        // SYNC BUTTON STATES WITH LOCALSTORAGE
+        function syncButtonStates() {
+            const productId = {{ product.id }};
+            
+            const cart = JSON.parse(localStorage.getItem('thegirlyzone_cart') || '[]');
+            const favourites = JSON.parse(localStorage.getItem('thegirlyzone_favourites') || '[]');
+            
+            const isInCart = cart.some(item => item.id === productId);
+            const isFavourite = favourites.some(item => item.id === productId);
+            
+            // Sync Cart Button
+            const cartBtn = document.getElementById('addToCartBtn');
+            const cartText = document.getElementById('cartButtonText');
+            
+            if (cartBtn && cartText) {
+                if (isInCart) {
+                    cartText.textContent = 'Remove from Cart';
+                    cartBtn.style.background = '#ff004d';
+                } else {
+                    cartText.textContent = 'Add to Cart';
+                    cartBtn.style.background = 'var(--text-color)';
+                }
+                
+                // Update disabled state based on availability
+                const isAvailable = {{ product.availability | default: true }};
+                cartBtn.disabled = !isAvailable;
+                if (!isAvailable) {
+                    cartText.textContent = 'Out of Stock';
+                    cartBtn.style.background = '#ccc';
+                }
+            }
+            
+            
+            // Sync Favourite Button
+            const favBtn = document.getElementById('favouriteBtn');
+            const favIcon = document.getElementById('favouriteIcon');
+            const favText = document.getElementById('favouriteButtonText');
+
+            if (favBtn && favIcon && favText) {
+                if (isFavourite) {
+                    favIcon.classList.remove('far');
+                    favIcon.classList.add('fas');
+                    favIcon.style.color = '#ff004d';
+                    favText.textContent = 'Remove from Favourites';
+                    favBtn.style.borderColor = '#ff004d';
+                    favBtn.style.color = '#ff004d';
+                    favBtn.style.background = 'white'; // Always white background
+                } else {
+                    favIcon.classList.remove('fas');
+                    favIcon.classList.add('far');
+                    favIcon.style.color = '#ff004d'; // Always red
+                    favText.textContent = 'Add to Favourites';
+                    favBtn.style.borderColor = '#ff004d'; // Always red
+                    favBtn.style.color = '#ff004d'; // Always red
+                    favBtn.style.background = 'white'; // Always white background
+                }
+            }
+        }
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('thegirlyzone_cart') || '[]');
+            document.querySelectorAll('.cart-count').forEach(counter => {
+                counter.textContent = cart.length;
+                counter.style.display = cart.length > 0 ? 'inline' : 'none';
+            });
+        }
+
+        function updateFavouritesCount() {
+            const favourites = JSON.parse(localStorage.getItem('thegirlyzone_favourites') || '[]');
+            document.querySelectorAll('.favourites-count').forEach(counter => {
+                counter.textContent = favourites.length;
+                counter.style.display = favourites.length > 0 ? 'inline' : 'none';
+            });
+        }
+
+        // Enhanced Share Product Functionality
+        function shareProduct() {
+            const productUrl = window.location.href;
+            const productTitle = document.getElementById('productTitle').textContent;
+            
+            createShareModal(productUrl, productTitle);
+        }
+
+        // Pre-created modal HTML template for better performance
+        let shareModalTemplate = null;
+
+        function createShareModal(url, title) {
+            // Create template once and reuse
+            if (!shareModalTemplate) {
+                shareModalTemplate = document.createElement('div');
+                shareModalTemplate.className = 'share-modal-overlay';
+                shareModalTemplate.innerHTML = `
+                    <div class="share-modal-content">
+                        <div style="margin-bottom: 1.5rem;">
+                            <h3 style="margin: 0 0 0.5rem 0; color: #000; font-size: 1.3rem; font-weight: 600;">Share this product</h3>
+                            <p style="margin: 0; color: #666; font-size: 0.9rem;">Spread the love! Share with friends</p>
+                        </div>
+                        
+                        <div class="share-platforms">
+                            <button class="share-platform-btn whatsapp-btn" data-platform="whatsapp">
+                                <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i>
+                                <span>WhatsApp</span>
+                            </button>
+                            
+                            <button class="share-platform-btn facebook-btn" data-platform="facebook">
+                                <i class="fab fa-facebook" style="font-size: 1.5rem;"></i>
+                                <span>Facebook</span>
+                            </button>
+                            
+                            <button class="share-platform-btn twitter-btn" data-platform="twitter">
+                                <i class="fab fa-twitter" style="font-size: 1.5rem;"></i>
+                                <span>Twitter</span>
+                            </button>
+                            
+                            <button class="share-platform-btn email-btn" data-platform="email">
+                                <i class="fas fa-envelope" style="font-size: 1.5rem;"></i>
+                                <span>Email</span>
+                            </button>
+                        </div>
+                        
+                        <div style="background: #f8f9fa; border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem;">
+                            <p style="margin: 0 0 0.5rem 0; color: #666; font-size: 0.8rem; font-weight: 500;">Or copy product link</p>
+                            <button class="copy-link-btn">
+                                📋 Copy Link
+                            </button>
+                        </div>
+                        
+                        <button class="close-modal-btn">
+                            Close
+                        </button>
+                    </div>
+                `;
+            }
+            
+            // Clone the template
+            const modal = shareModalTemplate.cloneNode(true);
+            
+            // Add event listeners
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeShareModal();
+                }
+            });
+            
+            modal.querySelectorAll('.share-platform-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const platform = this.getAttribute('data-platform');
+                    shareToPlatform(platform, url, title);
+                });
+            });
+            
+            modal.querySelector('.copy-link-btn').addEventListener('click', function() {
+                copyProductLink(url);
+            });
+            
+            modal.querySelector('.close-modal-btn').addEventListener('click', closeShareModal);
+            
+            document.body.appendChild(modal);
+            
+            // Trigger animation
+            requestAnimationFrame(() => {
+                modal.classList.add('active');
+            });
+        }
+
+        function shareToPlatform(platform, url, title) {
+            let shareUrl = '';
+            const encodedUrl = encodeURIComponent(url);
+            const encodedTitle = encodeURIComponent(title);
+            const encodedText = encodeURIComponent(`Check out ${title} on theGirlyZone Uganda!`);
+            
+            switch(platform) {
+                case 'whatsapp':
+                    shareUrl = `https://wa.me/?text=${encodedText}%20${encodedUrl}`;
+                    break;
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
+                    break;
+                case 'email':
+                    shareUrl = `mailto:?subject=${encodedTitle}&body=${encodedText}%0A%0A${encodedUrl}`;
+                    break;
+            }
+            
+            closeShareModal();
+            
+            if (platform === 'email') {
+                window.location.href = shareUrl;
+            } else {
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+            }
+        }
+
+        function copyProductLink(url) {
+            copyToClipboard(url);
+            closeShareModal();
+        }
+
+        function closeShareModal() {
+            const modal = document.querySelector('.share-modal-overlay');
+            if (modal) {
+                modal.classList.remove('active');
+                setTimeout(() => {
+                    if (modal.parentNode) {
+                        modal.parentNode.removeChild(modal);
+                    }
+                }, 300);
+            }
+        }
+
+        // Keep your existing clipboard functions
+        function copyToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text)
+                    .then(() => {
+                        showToast('Product link copied!');
+                    })
+                    .catch(() => {
+                        fallbackCopyToClipboard(text);
+                    });
+            } else {
+                fallbackCopyToClipboard(text);
+            }
+        }
+
+        function fallbackCopyToClipboard(text) {
+            const tempInput = document.createElement('input');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast('Product link copied!');
+        }
+
+       // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add touch event listeners for mobile swipe
+            const galleryContainer = document.getElementById('galleryContainer');
+            if (galleryContainer) {
+                galleryContainer.addEventListener('touchstart', handleTouchStart, false);
+                galleryContainer.addEventListener('touchend', handleTouchEnd, false);
+            }
+
+            // AUTO-COLOR SELECTION ON PAGE LOAD
+            const productSlug = '{{ product.slug }}';
+            const storedColorIndex = sessionStorage.getItem(`product_${productSlug}_color`);
+            
+            if (storedColorIndex !== null) {
+                // Auto-select the color
+                selectColor(parseInt(storedColorIndex));
+                
+                // Clear the stored data
+                sessionStorage.removeItem(`product_${productSlug}_color`);
+            } else {
+                // 🆕 ENSURE VIEW ALL BUTTON IS HIDDEN ON INITIAL PAGE LOAD
+                const viewAllBtn = document.getElementById('viewAllBtn');
+                if (viewAllBtn) {
+                    viewAllBtn.style.display = 'none';
+                }
+            }
+            
+            // Load recommendations
+            loadRecommendations();
+            
+            // Add keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft') changeSlide(-1);
+                if (e.key === 'ArrowRight') changeSlide(1);
+            });
+            
+            // Initialize button states
+            syncButtonStates();
+            updateCartCount();
+            updateFavouritesCount();
+            
+            console.log('Product page loaded - buttons should work now!');
+        });
+
+        // Mobile detection
+        function checkMobile() {
+            const mobileBtn = document.querySelector('.mobile-only');
+            if (window.innerWidth < 768) {
+                mobileBtn.style.display = 'block';
+            } else {
+                mobileBtn.style.display = 'none';
+            }
+        }
+
+        // Navigation functions (placeholder)
+        function openCategories() {
+            window.location.href = '/?filter=open';
+        }
+
+        function openSearch() {
+            window.location.href = '/search/';
+        }
+
+        window.addEventListener('resize', checkMobile);
+        checkMobile();
+
+        // Search redirect function for product pages
+        function redirectToHomeWithSearch() {
+            // Save search state to open panel on homepage
+            localStorage.setItem('autoOpenSearch', 'true');
+            // Redirect to homepage
+            window.location.href = '/';
+        }
+
+        // 🆕 RESET TO MULTI-IMAGE GALLERY (if needed later)
+        function resetToMultiImageGallery() {
+            const gallerySlides = document.getElementById('gallerySlides');
+            const galleryNav = document.getElementById('galleryNav');
+            const galleryArrows = document.querySelectorAll('.gallery-arrow');
+            
+            // Remove single image mode
+            gallerySlides.classList.remove('single-image-mode');
+            
+            // Show navigation
+            if (galleryNav) {
+                galleryNav.style.display = 'flex';
+            }
+            
+            // Show arrows
+            galleryArrows.forEach(arrow => {
+                arrow.style.display = 'flex';
+            });
+            
+            // Reset to original product images
+            const originalProduct = currentProduct;
+            updateGalleryForProduct(originalProduct);
+        }
+
+        // 🎯 RESET TO DEFAULT GALLERY (VIEW ALL)
+function resetToDefaultGallery() {
+    const gallerySlides = document.getElementById('gallerySlides');
+    const galleryContainer = document.getElementById('galleryContainer');
+    const galleryNav = document.getElementById('galleryNav');
+    const galleryArrows = document.querySelectorAll('.gallery-arrow');
+    const colorOptions = document.querySelectorAll('.color-option');
+    const viewAllBtn = document.getElementById('viewAllBtn');
+    
+    console.log('Resetting to default gallery...');
+    
+    // 🆕 HIDE VIEW ALL BUTTON (since we're returning to default)
+    if (viewAllBtn && currentProduct.colors.length > 1) {
+        viewAllBtn.style.display = 'none';
+    }
+    
+    // Remove single image mode
+    if (gallerySlides) {
+        gallerySlides.classList.remove('single-image-mode');
+    }
+    
+    // Show navigation dots
+    if (galleryNav) {
+        galleryNav.style.display = 'flex';
+    }
+    
+    // Show arrow buttons
+    galleryArrows.forEach(arrow => {
+        arrow.style.display = 'flex';
+    });
+    
+    // Reset to first color as active
+    colorOptions.forEach(option => option.classList.remove('active'));
+    if (colorOptions[0]) {
+        colorOptions[0].classList.add('active');
+    }
+    
+    // Reset selected color text
+    const defaultColorName = "{{ product.colors[0].name }}";
+    document.getElementById('selectedColor').textContent = defaultColorName;
+    currentColorIndex = 0;
+    
+    // Reload original product images
+    if (gallerySlides) {
+        gallerySlides.innerHTML = '';
+        
+        const originalImages = currentProduct.mainImages;
+        
+        originalImages.forEach((image, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'gallery-slide';
+            slide.setAttribute('data-index', index);
+            slide.innerHTML = `<img src="/assets/images/main/${image}" alt="${currentProduct.title} - Image ${index + 1}" loading="lazy">`;
+            gallerySlides.appendChild(slide);
+        });
+    }
+    
+    // Reset navigation dots
+    if (galleryNav) {
+        galleryNav.innerHTML = '';
+        
+        const originalImages = currentProduct.mainImages;
+        originalImages.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.className = `gallery-dot ${index === 0 ? 'active' : ''}`;
+            dot.setAttribute('data-index', index);
+            dot.onclick = () => goToSlide(index);
+            galleryNav.appendChild(dot);
+        });
+    }
+    
+    // Reset slide index and update
+    currentSlide = 0;
+    updateGallery();
+    
+    // Scroll back to gallery
+    autoScrollToGallery();
+    
+    // Show success feedback
+    showToast('Showing all product images!');
+}
+</script>
+<script src="/assets/js/cart-favourites.js"></script>
+</body>
+</html>

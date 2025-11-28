@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favourites | theGirlyZone Uganda</title>
+    <meta name="robots" content="noindex, nofollow">
+    <!-- 🎯 FAVICON CONFIGURATION -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+.search-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--background-color); z-index: 1002; display: none; }
+.search-overlay.active { display: flex; align-items: flex-start; justify-content: center; padding-top: 20%; }
+.search-container { width: 90%; max-width: 600px; }
+.search-close { background: none; border: none; font-size: 1.5rem; cursor: pointer; margin-bottom: 2rem; }
+.search-input { width: 100%; padding: 1.5rem; border: 1px solid var(--border-color); font-size: 1.1rem; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --primary-color: #ff004d; --text-color: #000000; --background-color: #ffffff; --border-color: #e5e5e5; --golden-color: #D4AF37; }
+body { font-family: Arial, Helvetica, sans-serif; color: var(--text-color); background-color: var(--background-color); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.header { background: var(--background-color); border-bottom: 1px solid var(--border-color); padding: 1rem 0; position: sticky; top: 0; z-index: 1000; }
+.header-content { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.2rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+.logo a { text-decoration: none; color: var(--text-color); }
+.desktop-nav { display: none; align-items: center; gap: 1.5rem; }
+.nav-icon { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--text-color); padding: 0.5rem; position: relative; }
+.mobile-bottom-nav { display: flex; position: fixed; bottom: 0; left: 0; width: 100%; background: white; border-top: 1px solid var(--border-color); padding: 0.75rem 0; justify-content: space-around; z-index: 999; }
+.nav-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: var(--text-color); font-size: 0.8rem; gap: 0.1rem; background: none; border: none; cursor: pointer; padding: 0 rem; flex: 1; transition: color 0.2s ease; position: relative; }
+.nav-item i { font-size: 1.4rem; transition: transform 0.2s ease; }
+.nav-item:active i { transform: scale(0.9); }
+.nav-item:active { color: var(--primary-color); }
+.favourites-page { padding: 3rem 0; min-height: 60vh; flex: 1; }
+.empty-favourites { text-align: center; padding: 4rem; color: #666; font-size: 1.1rem; }
+.favourites-list { margin-bottom: 3rem; }
+.favourite-item { display: flex; gap: 1.5rem; padding: 2rem 0; border-bottom: 1px solid var(--border-color); align-items: flex-start; }
+.favourite-item-image { width: 120px; height: 160px; flex-shrink: 0; }
+.favourite-item-image img { width: 100%; height: 100%; object-fit: cover; }
+.favourite-item-details { flex: 1; }
+.favourite-item-title { font-size: 1.1rem; margin-bottom: 0.5rem; }
+.favourite-item-price { font-weight: bold; margin-bottom: 1rem; color: var(--text-color); }
+.remove-favourite { background: none; border: none; color: var(--primary-color); cursor: pointer; text-decoration: underline; margin-top: 1rem; font-size: 0.9rem; }
+.suggestions-section { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border-color); }
+.suggestions-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem; }
+.product-card { position: relative; background: var(--background-color); border: 1px solid var(--border-color); }
+.product-image { position: relative; aspect-ratio: 3/4; overflow: hidden; }
+.product-image img { width: 100%; height: 100%; object-fit: cover; }
+.favourite-btn { position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.product-info { padding: 1rem; }
+.product-title { font-size: 0.8rem; margin-bottom: 0.5rem; text-transform: uppercase; }
+.product-price { font-weight: 500; }
+.toast-message { animation: toastSlideUp 0.3s ease; }
+@keyframes toastSlideUp { from { transform: translateX(-50%) translateY(100%); opacity: 0; } to { transform: translateX(-50%) translateY(0); opacity: 1; } }
+
+.favourite-btn.active i { color: #ff004d !important; }
+.footer { background: #535357; color: var(--background-color); padding: 3rem 0 5rem; margin-top: auto; width: 100%; }
+.footer-content { display: grid; grid-template-columns: 1fr; gap: 2rem; width: 100%; }
+.footer-section { margin-bottom: 2rem; width: 100%; }
+.footer-section h3 { font-size: 1.2rem; margin-bottom: 1rem; position: relative; padding-bottom: 0.5rem; }
+.footer-section h3::after { content: ''; position: absolute; bottom: 0; left: 0; width: 40px; height: 2px; background-color: var(--primary-color); }
+.footer-section p { margin-bottom: 0.5rem; font-size: 0.9rem; }
+.logo-container { width: 80px; height: 80px; margin-bottom: 1rem; border-radius: 8px; overflow: hidden; background-color: rgba(255, 255, 255, 0.1); display: flex; align-items: center; justify-content: center; }
+.logo-image { width: 100%; height: 100%; object-fit: contain; padding: 0px; }
+.designer-logo-container { width: 80px; height: 80px; margin-bottom: 1rem; border-radius: 8px; overflow: hidden; background-color: rgba(255, 255, 255, 0.1); display: flex; align-items: center; justify-content: center; }
+.designer-logo-image { width: 100%; height: 100%; object-fit: contain; padding: 0px; }
+.newsletter-section { background-color: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; width: 100%; }
+.newsletter-section h3 { color: #ffffff; font-size: 1.3rem; margin-bottom: 0.5rem; }
+.newsletter-section p { margin-bottom: 1rem; font-size: 0.9rem; opacity: 0.9; }
+.email-form { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 0.5rem; width: 100%; }
+.email-input { padding: 0.8rem 1rem; border: none; border-radius: 4px; font-size: 0.9rem; width: 100%; }
+.submit-btn { background-color: var(--golden-color); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 4px; cursor: pointer; font-weight: bold; transition: all 0.3s; width: 100%; max-width: 150px; box-shadow: 0 0 5px rgba(212, 175, 55, 0); }
+.submit-btn:hover, .submit-btn.valid-email { box-shadow: 0 0 10px 2px rgba(212, 175, 55, 0.7); }
+.submit-btn:active { color: white !important; }
+.privacy-assurance { display: flex; align-items: center; font-size: 0.8rem; opacity: 0.7; }
+.privacy-assurance i { margin-right: 0.5rem; }
+.contact-info p { display: flex; align-items: center; margin-bottom: 0.8rem; }
+.contact-info i { margin-right: 0.8rem; width: 16px; text-align: center; }
+.social-icons { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+.social-icon { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background-color: rgba(255, 255, 255, 0.1); border-radius: 50%; color: white; text-decoration: none; transition: all 0.3s ease; }
+.social-icon:hover { background-color: var(--primary-color); transform: translateY(-3px); }
+.designer-credits { display: flex; flex-direction: column; align-items: flex-start; }
+.footer a, .footer button { color: var(--background-color); transition: color 0.3s; text-decoration: none; }
+.footer a:hover, .footer button:hover { color: var(--primary-color); }
+.social-icon:hover { color: white !important; background-color: var(--primary-color); }
+.copyright { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.8rem; opacity: 0.7; grid-column: 1 / -1; width: 100%; }
+.toast { position: fixed; bottom: 20px; right: 20px; background-color: var(--primary-color); color: white; padding: 1rem 1.5rem; border-radius: 4px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); z-index: 1000; transform: translateY(100px); opacity: 0; transition: all 0.3s ease; }
+.toast.show { transform: translateY(0); opacity: 1; }
+.submit-btn:hover, .submit-btn:active, .submit-btn:focus { color: white !important; }
+.submit-btn { color: white !important; }
+@media (min-width: 768px) { .desktop-nav { display: flex; } .mobile-bottom-nav { display: none; } .suggestions-grid { grid-template-columns: repeat(4, 1fr); } .footer-content { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 576px) { .footer-content { grid-template-columns: repeat(2, 1fr); } .email-form { flex-direction: row; align-items: flex-end; } .email-input { flex: 1; } .submit-btn { width: auto; } }
+@media (min-width: 768px) { .footer-content { grid-template-columns: repeat(2, 1fr); } .newsletter-section { grid-column: 1 / -1; } }
+@media (min-width: 992px) { .footer-content { grid-template-columns: repeat(4, 1fr); } .newsletter-section { grid-column: auto; } .copyright { grid-column: 1 / -1; } }
+.header-logo { height: 40px !important; width: auto; object-fit: contain; display: block; }
+.logo { display: flex; align-items: center; height: 100%; margin-left: 2px; }
+.logo a { display: flex; align-items: center; height: 100%; text-decoration: none; }
+@media (max-width: 767px) { .logo { margin-left: 15px !important; } }
+.desktop-nav .nav-icon { font-size: 1.5rem !important; }
+
+.favourite-item-actions { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; align-items: center; }
+.checkout-btn { background: #25D366 !important; color: white !important; border: none; padding: 0.75rem 1.5rem; text-decoration: none; text-transform: uppercase; font-size: 0.9rem; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; min-width: max-content; }
+.favourite-item-actions { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; align-items: center; }
+.checkout-btn:hover { background: #128C7E !important; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); color: white !important; }
+.remove-favourite-btn { background: none; border: none; color: var(--primary-color); cursor: pointer; text-decoration: underline; font-size: 0.9rem; padding: 0.5rem 0; transition: all 0.3s ease; }
+.remove-favourite-btn:hover { color: #d9004c; text-decoration: none; }
+.product-image-link { display: block; transition: transform 0.3s ease; }
+.product-image-link:hover { transform: scale(1.05); }
+.favourite-item-title a:hover { color: var(--primary-color) !important; }
+@keyframes toastSlideUp { from { transform: translateX(-50%) translateY(100%); opacity: 0; } to { transform: translateX(-50%) translateY(0); opacity: 1; } }
+.favourites-page h1 { animation: slideFadeIn 1.2s ease-out forwards; opacity: 0; transform: translateY(-30px); }
+@keyframes slideFadeIn { 0% { opacity: 0; transform: translateY(-30px); } 100% { opacity: 1; transform: translateY(0); } }
+@media (min-width: 576px) { .email-form { flex-direction: column !important; align-items: stretch !important; } .submit-btn { width: 100% !important; max-width: 100% !important; margin-top: 0.5rem; } }
+body, h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, select, label, li, td, th { font-family: 'Montserrat', sans-serif; }
+h1, h2, h3, h4, h5, h6 { font-weight: 600; }
+body, p, span, div { font-weight: 400; }
+strong, b, .bold { font-weight: 700; }
+.product-title, .product-price, .favourite-item-title, .cart-item-title { font-weight: 500; }
+button, .btn, .action-btn, .submit-btn, .checkout-btn, .add-to-cart-btn { font-weight: 600; letter-spacing: 0.5px; }
+.nav-item, .desktop-nav, .mobile-bottom-nav { font-weight: 500; }
+.company-slogan { font-family: 'Pacifico', cursive !important; font-weight: 400; }
+@media (max-width: 767px) { .favourite-item { gap: 0.5rem !important; } .favourite-item-details { padding-right: 0.1rem; } }
+ .suggestions-section {
+    transition: opacity 0.3s ease;
+}
+.nav-icon, .nav-item, .favourite-btn, .color-option, .gallery-arrow, .share-btn, .filter-option, .action-btn, .add-to-cart-btn, .add-to-cart, .add-to-favourites, .remove-favourite-btn, .remove-btn, .checkout-btn, .submit-btn, .social-icon { -webkit-tap-highlight-color: transparent !important; -webkit-touch-callout: none !important; -webkit-user-select: none !important; -moz-user-select: none !important; -ms-user-select: none !important; user-select: none !important; outline: none !important; }
+.nav-icon:active, .nav-item:active, .favourite-btn:active, .color-option:active { transform: scale(0.95); transition: transform 0.1s ease; }
+.nav-icon:focus-visible, .nav-item:focus-visible, .favourite-btn:focus-visible { outline: 2px solid #000 !important; outline-offset: 2px; }
+ .header-logo, .logo-image, .designer-logo-image, .product-image img, .gallery-slide img, .favourite-item-image img, .cart-item-image img, .recommendations-grid img { -webkit-tap-highlight-color: transparent !important; -webkit-touch-callout: none !important; -webkit-user-select: none !important; -moz-user-select: none !important; -ms-user-select: none !important; user-select: none !important; outline: none !important; border: none !important; }
+.header-logo:focus, .logo-image:focus, .designer-logo-image:focus, .product-image img:focus, .gallery-slide img:focus { outline: none !important; box-shadow: none !important; }
+a img { border: none !important; outline: none !important; }
+a:has(img) { -webkit-tap-highlight-color: transparent !important; }
+.product-card a:focus, .product-card img:focus { outline: none !important; }
+.desktop-nav { display: none; align-items: center; gap: 1.5rem; }
+.desktop-nav .nav-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: var(--text-color); font-size: 0.8rem; gap: 0.2rem; background: none; border: none; cursor: pointer; padding: 0.5rem; transition: color 0.2s ease; position: relative; }
+.desktop-nav .nav-item i { font-size: 1.4rem; transition: transform 0.2s ease; }
+.desktop-nav .nav-item:active i { transform: scale(0.9); }
+.desktop-nav .nav-item:active { color: var(--primary-color); }
+.cart-count, .favourites-count { background: #25D366 !important; color: white !important; border-radius: 50% !important; width: 18px !important; height: 18px !important; font-size: 0.7rem !important; position: absolute !important; text-align: center !important; line-height: 18px !important; }
+.favourites-count { background: #ff004d !important; }
+.desktop-nav .cart-count { top: -6px !important; right: -5px !important; }
+.desktop-nav .favourites-count { top: -6px !important; right: 10px !important; }
+.mobile-bottom-nav .cart-count { top: -6px !important; right: 15px !important; }
+.mobile-bottom-nav .favourites-count { top: -6px !important; right: 15px !important; }
+@media (min-width: 768px) { .desktop-nav { display: flex; } }
+ </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo"><a href="/"><img src="/assets/images/logos/favs.png" alt="My Favourites" class="header-logo"></a></div>
+                    <nav class="desktop-nav">
+                        <a href="/" class="nav-item">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                        
+                        <button class="nav-item" onclick="redirectToHomeWithSearch()">
+                            <i class="fas fa-search"></i>
+                            <span>Search</span>
+                        </button>
+                        <a href="/favourites/" class="nav-item" style="position: relative;">
+                            <i class="fas fa-heart"></i>
+                            <span>Favourites</span>
+                            <span class="favourites-count" style="display: none;">0</span>
+                        </a>
+                        <a href="/cart/" class="nav-item" style="position: relative;">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Cart</span>
+                            <span class="cart-count" style="display: none;">0</span>
+                        </a>
+                    </nav>
+                
+            </div>
+        </div>
+    </header>
+
+    <nav class="mobile-bottom-nav">
+        <a href="/" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
+        <button class="nav-item" onclick="redirectToHomeWithSearch()"><i class="fas fa-search"></i><span>Search</span></button>
+        <a href="/favourites/" class="nav-item" style="position: relative;">
+            <i class="fas fa-heart"></i>
+            <span>Favourites</span>
+            <span class="favourites-count" style="display: none;">0</span>
+        </a>
+        <a href="/cart/" class="nav-item" style="position: relative;">
+            <i class="fas fa-shopping-bag"></i>
+            <span>Cart</span>
+            <span class="cart-count" style="display: none;">0</span>
+        </a>
+    </nav>
+
+    <main>
+        <div class="favourites-page">
+            <div class="container">
+                <h1>My Favourites</h1>
+                
+                <div id="favouritesList" class="favourites-list">
+                    <div class="empty-favourites">You have no favourite items</div>
+                </div>
+
+                <section class="suggestions-section">
+                    <h2>You Might Also Like</h2>
+                    <div class="suggestions-grid" id="suggestionsGrid">
+                        <!-- Suggestions will be populated by JavaScript -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- New Enhanced Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Newsletter Section -->
+                <div class="footer-section newsletter-section">
+                    <h3>DON'T MISS OUT ON THE LATEST DROPS!</h3>
+                    <p>Subscribe to our newsletter for exclusive updates and early access to new collections.</p>
+                    <form class="email-form" netlify name="newsletter-subscriptions">
+                    <input type="hidden" name="_redirect" value="?newsletter_success=true">
+                        <input type="email" class="email-input" id="emailInput" placeholder="Enter your email" required>
+                        <button type="submit" class="submit-btn" id="submitBtn">JOIN</button>
+                    </form>
+                    <div class="privacy-assurance">
+                        <i class="fas fa-lock"></i>
+                        <span>We respect your privacy and never share your information</span>
+                    </div>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="footer-section">
+                    <div class="logo-container">
+                        <img src="/assets/images/logos/tgz.png" alt="theGirlyZone Uganda" class="logo-image">
+                    </div>
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> <a href="tel:+256777645472">+256 777 645 472</a></p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+256756588826">+256 756 588 826</a></p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+256752066276">+256 752 066 276</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:thegirlyzone098@gmail.com">thegirlyzone098@gmail.com</a></p>
+                        <p><i class="fas fa-map-marker-alt"></i> Top City Plaza opposite Ham Shopping Grounds<br>Shop No. LT 78<br>Kampala, Uganda</p>
+                        <p><i class="fas fa-clock"></i> Monday - Saturday: 7:30 AM - 7:30 PM<br>Sunday: 11:00 AM - 6:30 PM</p>
+                    </div>
+                </div>
+                
+                <!-- Social Media -->
+                <div class="footer-section">
+                    <h3>FOLLOW US</h3>
+                    <p>Stay connected with us on social media</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=61581841650975&mibextid=ZbWKwL" class="social-icon" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/thegirlyzone256?igsh=MXd3b29oOWRuN3h1cA==" class="social-icon" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@the_girlyzone07?_t=ZM-8zM9BHadNIb&_r=1" class="social-icon" target="_blank">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://whatsapp.com/channel/0029Vb5WMMdDJ6GtKChLhR0m" class="social-icon" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Designer Credits -->
+                <div class="footer-section designer-credits">
+                    <div class="designer-logo-container">
+                        <img src="/assets/images/logos/mdh.png" alt="Marvin's DesignHouse" class="designer-logo-image">
+                    </div>
+                    <h3>WEBSITE DESIGNER CREDITS</h3>
+                    <p><strong>Business:</strong> Marvin's DesignHouse</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:0706338694">0706 338 694</a><strong> | </strong><a href="tel:0780537744">0780 537 744</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:marvinsdesignhouse@gmail.com">marvinsdesignhouse@gmail.com</a></p>
+                    <p><em>"Get your stunning website today and elevate your business!"</em></p>
+                </div>
+                
+                <!-- Copyright -->
+                <div class="copyright">
+                    <p>© All content on this <strong>website is owned by theGirlyZone and Marvin's DesignHouse</strong>, and protected by copyright law. Reproduction or distribution without permission may result in legal action.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <p>🎉 You're all set! You won't miss a thing from our latest collections!</p>
+    </div>
+
+    <script src="/assets/js/cart-favourites.js"></script>
+    
+    <!-- Search Overlay -->
+    <div id="searchOverlay" class="search-overlay">
+        <div class="search-container">
+            <button class="search-close" onclick="closeSearch()"><i class="fas fa-times"></i></button>
+            <input type="text" id="searchInput" placeholder="Search products..." class="search-input">
+            <div id="searchSuggestions" class="search-suggestions"></div>
+        </div>
+    </div>
+
+    <script>
+// Favourites page specific functionality
+document.addEventListener('DOMContentLoaded', function() {
+    window.allProducts = {{ products | json }};
+    function loadFavourites() {
+        const favourites = JSON.parse(localStorage.getItem('thegirlyzone_favourites') || '[]');
+        const favouritesContainer = document.getElementById('favouritesList');
+
+       if (favourites.length === 0) {
+            favouritesContainer.innerHTML = '<div class="empty-favourites">You have no favourite items</div>';
+            // Hide recommendations section when no favourites
+            document.querySelector('.suggestions-section').style.display = 'none';
+            return;
+        }
+
+// Load recommendations when favourites exist
+loadFavouritesRecommendations();
+
+        // Generate favourites HTML with the exact buttons you want
+        favouritesContainer.innerHTML = favourites.map(item => `
+            <div class="favourite-item" data-product-id="${item.id}">
+                <div class="favourite-item-image">
+                    <a href="/product/${item.slug}/" class="product-image-link">
+                        <img src="/assets/images/secondary/${item.image}" alt="${item.title}">
+                    </a>
+                </div>
+                <div class="favourite-item-details">
+                    <h3 class="favourite-item-title">
+                        <a href="/product/${item.slug}/" style="color: inherit; text-decoration: none;">
+                            ${item.title}
+                        </a>
+                    </h3>
+                    <p class="favourite-item-price">UGX ${(item.price || 0).toLocaleString()}</p>
+                    
+                    <!-- Action Buttons - EXACTLY as you requested -->
+                    <div class="favourite-item-actions">
+                        <a href="/product/${item.slug}/" class="checkout-btn favourite-page-btn">
+                            <i class="fas fa-external-link-alt"></i> View Details😋
+                        </a>
+                        <button class="remove-favourite-btn" onclick="removeFromFavourites(${item.id})">
+                            Remove from Favourites
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Global function to remove from favourites (keep existing functionality)
+    window.removeFromFavourites = function(productId) {
+        const favourites = JSON.parse(localStorage.getItem('thegirlyzone_favourites') || '[]');
+        const updatedFavourites = favourites.filter(item => item.id !== productId);
+        localStorage.setItem('thegirlyzone_favourites', JSON.stringify(updatedFavourites));
+        loadFavourites(); // Reload display
+        
+        if (window.cartFavouritesManager) {
+            window.cartFavouritesManager.updateFavouritesCount();
+            window.cartFavouritesManager.updateFavouriteButtons(productId);
+        }
+        
+        // Show toast
+        const toast = document.createElement('div');
+        toast.className = 'toast-message';
+        toast.textContent = 'Removed from favourites';
+        toast.style.cssText = `
+            position: fixed;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #000;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            z-index: 10000;
+            font-size: 0.9rem;
+            animation: toastSlideUp 0.3s ease;
+        `;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 2000);
+
+        // 🆕 RELOAD RECOMMENDATIONS AFTER REMOVAL
+        setTimeout(loadFavouritesRecommendations, 100);
+    };
+
+    // Update counters on page load
+    function updateCounters() {
+        const cart = JSON.parse(localStorage.getItem('thegirlyzone_cart') || '[]');
+        const favourites = JSON.parse(localStorage.getItem('thegirlyzone_favourites') || '[]');
+        
+        document.querySelectorAll('.cart-count').forEach(counter => {
+            counter.textContent = cart.length;
+            counter.style.display = cart.length > 0 ? 'inline' : 'none';
+        });
+        
+        document.querySelectorAll('.favourites-count').forEach(counter => {
+            counter.textContent = favourites.length;
+            counter.style.display = favourites.length > 0 ? 'inline' : 'none';
+        });
+    }
+    
+    // Ensure button text stays white when active
+    if (submitBtn) {
+        submitBtn.addEventListener('mousedown', function() {
+            this.style.color = 'white';
+        });
+        
+        submitBtn.addEventListener('mouseup', function() {
+            this.style.color = 'white';
+        });
+    }
+    
+    // Add hover effect to all footer links
+    const footerLinks = document.querySelectorAll('.footer a, .footer button');
+    footerLinks.forEach(link => {
+        link.addEventListener('mouseenter', function() {
+            if (!this.classList.contains('submit-btn')) {
+                this.style.color = 'var(--primary-color)';
+            }
+        });
+        
+        link.addEventListener('mouseleave', function() {
+            if (!this.classList.contains('submit-btn')) {
+                this.style.color = 'var(--background-color)';
+            }
+        });
+        
+        link.addEventListener('click', function(e) {
+            if (this.tagName === 'A' && this.getAttribute('href').startsWith('#')) {
+                e.preventDefault();
+            }
+            if (!this.classList.contains('submit-btn')) {
+                this.style.color = 'var(--primary-color)';
+            }
+        });
+    });
+
+    // Initialize
+    loadFavourites();
+    updateCounters();
+});
+
+// Navigation Functions
+function openCategories() {
+    // Implementation from main site
+    console.log('Open categories');
+}
+
+function openSearch() {
+    document.getElementById('searchOverlay').classList.add('active');
+    document.getElementById('searchInput').focus();
+}
+
+function closeSearch() {
+    document.getElementById('searchOverlay').classList.remove('active');
+}
+
+// Close search on escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeSearch();
+    }
+});
+
+// Mobile detection
+function checkMobile() {
+    const mobileCategoriesBtn = document.querySelector('.mobile-only');
+    if (window.innerWidth < 768) {
+        mobileCategoriesBtn.style.display = 'block';
+    } else {
+        mobileCategoriesBtn.style.display = 'none';
+    }
+}
+
+window.addEventListener('resize', checkMobile);
+checkMobile();
+
+function redirectToHomeWithSearch() {
+    // Save search state to open panel on homepage
+    localStorage.setItem('autoOpenSearch', 'true');
+    // Redirect to homepage
+    window.location.href = '/';
+}
+
+
+// SIMPLIFIED Helper function - only uses secondary images
+function getProductImage(product) {
+    // Use secondaryImage only (mandatory)
+    if (product.secondaryImage) {
+        return product.secondaryImage;
+    }
+    // Return empty if missing (no fallback)
+    return '';
+}
+
+// FAVOURITES PAGE RECOMMENDATIONS SYSTEM
+function loadFavouritesRecommendations() {
+    const suggestionsGrid = document.getElementById('suggestionsGrid');
+    const favouritesSection = document.querySelector('.suggestions-section');
+    const favourites = JSON.parse(localStorage.getItem('thegirlyzone_favourites') || '[]');
+    
+    // Hide section if no favourites
+    if (favourites.length === 0) {
+        favouritesSection.style.display = 'none';
+        return;
+    }
+    
+    // Show section
+    favouritesSection.style.display = 'block';
+    
+    // Get all unique recommended product IDs from favourites
+    const recommendedProductIds = new Set();
+    
+    favourites.forEach(favItem => {
+        // Find the original product data to get its recommendations
+        const originalProduct = window.allProducts.find(p => p.id === favItem.id);
+        if (originalProduct && originalProduct.recommendations) {
+            originalProduct.recommendations.forEach(recId => {
+                // Only add if not already in favourites
+                if (!favourites.some(fav => fav.id === recId)) {
+                    recommendedProductIds.add(recId);
+                }
+            });
+        }
+    });
+    
+    // Convert Set to Array and get product data
+    const recommendedProducts = Array.from(recommendedProductIds)
+        .map(id => window.allProducts.find(p => p.id === id))
+        .filter(product => product && product !== undefined)
+        .slice(0, 4); // Limit to 4 products
+    
+    // Display recommendations
+    if (recommendedProducts.length === 0) {
+        suggestionsGrid.innerHTML = '<p>No recommendations available at the moment.</p>';
+        return;
+    }
+    
+    suggestionsGrid.innerHTML = recommendedProducts.map(product => `
+        <div class="product-card" data-product-id="${product.id}">
+            <div class="product-image">
+                <a href="/product/${product.slug}/">
+                    <img src="/assets/images/secondary/${getProductImage(product)}" 
+                        alt="${product.title}" 
+                        loading="lazy">
+                </a>
+                <!-- FAVOURITE BUTTON REMOVED - WE'RE ALREADY IN FAVOURITES PAGE -->
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">${product.title}</h3>
+                <p class="product-price">UGX ${product.price.toLocaleString()}</p>
+            </div>
+        </div>
+    `).join('');
+}
+// Newsletter success handler
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('newsletter_success') === 'true') {
+    const toast = document.createElement('div');
+    toast.className = 'toast-message';
+    toast.textContent = '🎉 Welcome to the inner circle! You won\'t miss our latest drops!';
+    toast.style.cssText = `
+        position: fixed;
+        bottom: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #25D366;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 4px;
+        z-index: 10000;
+        font-size: 0.9rem;
+        animation: toastSlideUp 0.3s ease;
+    `;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        if (toast.parentNode) {
+            toast.style.animation = 'toastSlideUp 0.3s ease reverse';
+            setTimeout(() => toast.remove(), 300);
+        }
+    }, 5000);
+        // Clean URL without page reload
+    const newUrl = window.location.pathname;
+    window.history.replaceState({}, document.title, newUrl);
+
+}
+    </script>
+    <div class="toast" id="toast"></div>
+</body>
+</html>

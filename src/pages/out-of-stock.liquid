@@ -1,0 +1,163 @@
+---
+permalink: "out-of-stock.html"
+layout: null
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Unavailable | theGirlyZone Uganda</title>
+    <!-- 🎯 FAVICON CONFIGURATION -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+    <meta name="description" content="This product is currently out of stock. We'll notify you when it's back in stock!">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+body { background-color: #ffffff; color: #333; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+.container { max-width: 500px; width: 100%; text-align: center; padding: 40px 30px; background: white; border-radius: 12px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); margin-bottom: 40px; }
+.logo { margin-bottom: 30px; }
+.logo img { max-width: 120px; height: auto; }
+.broken-icon { width: 100px; height: 100px; margin: 0 auto 25px; position: relative; color: #ff004d; animation: float 3s ease-in-out infinite; }
+.broken-icon svg { width: 100%; height: 100%; filter: drop-shadow(0 5px 10px rgba(255, 0, 77, 0.2)); }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.broken-icon:hover { animation: shake 0.5s ease-in-out; }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+h1 { font-size: 24px; margin-bottom: 15px; color: #333; }
+p { color: #666; line-height: 1.6; margin-bottom: 30px; font-size: 16px; }
+.home-button { display: inline-block; background-color: #25D366; color: white; text-decoration: none; padding: 12px 30px; border-radius: 6px; font-weight: 600; transition: all 0.3s ease; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); font-size: 16px; }
+.home-button:hover { background-color: #128C7E; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
+.notify-form { text-align: left; background-color: #f8f9fa; padding: 25px; border-radius: 10px; margin-top: 20px; }
+.notify-form h2 { font-size: 18px; margin-bottom: 15px; color: #333; text-align: center; }
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: #555; font-size: 14px; }
+.form-group input { width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; transition: border 0.3s; }
+.form-group input:focus { border-color: #25D366; outline: none; box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.2); }
+.submit-btn { background-color: #ff004d; color: white; border: none; padding: 12px 25px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; width: 100%; font-size: 16px; }
+.submit-btn:hover { background-color: #e00042; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(255, 0, 77, 0.3); }
+.security-note { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 15px; color: #666; font-size: 14px; }
+.toast { position: fixed; top: 20px; right: 20px; background-color: #25D366; color: white; padding: 16px 24px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); display: flex; align-items: center; gap: 12px; transform: translateX(150%); transition: transform 0.3s ease-out; z-index: 1000; }
+.toast.show { transform: translateX(0); }
+.close-toast { background: none; border: none; color: white; font-size: 20px; cursor: pointer; padding: 0; margin-left: 15px; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; }
+@media (max-width: 600px) { .container { padding: 30px 20px; margin-bottom: 30px; } .broken-icon { width: 80px; height: 80px; } h1 { font-size: 22px; } p { font-size: 15px; } .toast { left: 20px; right: 20px; top: 20px; } }
+body, h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, select, label, li, td, th { font-family: 'Montserrat', sans-serif; }
+h1, h2, h3, h4, h5, h6 { font-weight: 600; }
+body, p, span, div { font-weight: 400; }
+strong, b, .bold { font-weight: 700; }
+.product-title, .product-price, .favourite-item-title, .cart-item-title { font-weight: 500; }
+button, .btn, .action-btn, .submit-btn, .checkout-btn, .add-to-cart-btn { font-weight: 600; letter-spacing: 0.5px; }
+.nav-item, .desktop-nav, .mobile-bottom-nav { font-weight: 500; }
+.company-slogan { font-family: 'Pacifico', cursive !important; font-weight: 400; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="/assets/images/logos/oos.png" alt="theGirlyZone Uganda">
+        </div>
+        
+        
+        
+        <h1>Product Unavailable</h1>
+        <p>We're sorry, but this product is currently out of stock. We're working hard to restock it as soon as possible.</p>
+        
+        <a href="/" class="home-button">
+            <i class="fas fa-home"></i> Check Other Products
+        </a>
+        
+        <div class="notify-form">
+            <h2>Get notified when it's back</h2>
+            <!-- NETLIFY FORM - This will automatically work -->
+            <form name="restock-notifications" netlify>
+                <input type="hidden" name="requested-product" id="requestedProduct">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-bell"></i> Notify Me
+                </button>
+            </form>
+            
+            <div class="security-note">
+                <i class="fas fa-lock"></i>
+                <span>Your email is secure with us. We never share your information.</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast notification -->
+        <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <div class="toast-content">
+            Thank you! We'll notify you when this product is back in stock. 
+            <br><small>Redirecting to homepage...</small>
+        </div>
+        <button class="close-toast" id="closeToast">&times;</button>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Extract product name from URL for personalization
+        const referrer = document.referrer;
+        let productSlug = '';
+        
+        if (referrer.includes('/product/')) {
+            const url = new URL(referrer);
+            const pathSegments = url.pathname.split('/').filter(Boolean);
+            productSlug = pathSegments[pathSegments.length - 1];
+        }
+        
+        if (productSlug) {
+            document.getElementById('requestedProduct').value = productSlug;
+        }
+
+        // NETLIFY FORMS - Show loading state during submission
+        const form = document.querySelector('form[netlify]');
+        
+        if (form) {
+            form.addEventListener('submit', function() {
+                // Show loading state immediately when form is submitted
+                const submitBtn = this.querySelector('.submit-btn');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+                submitBtn.disabled = true;
+                
+                // Let Netlify handle the actual form submission
+                // The page will reload/redirect after Netlify processes the form
+            });
+        }
+
+        // Check for Netlify success parameters and auto-redirect to homepage
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true' || urlParams.has('form')) {
+            // Show success toast
+            const toast = document.getElementById('toast');
+            if (toast) {
+                toast.classList.add('show');
+                
+                // Auto-redirect to homepage after 3 seconds
+                setTimeout(function() {
+                    window.location.href = '/';
+                }, 3000);
+            }
+        }
+        
+        // Close toast when X button is clicked
+        const closeToast = document.getElementById('closeToast');
+        if (closeToast) {
+            closeToast.addEventListener('click', function() {
+                document.getElementById('toast').classList.remove('show');
+            });
+        }
+    });
+</script>
+</body>
+</html>    
