@@ -5,10 +5,20 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Critical fix - redirect all routes to handle SPA routing
+# Clean URL redirects
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/cart"
+  to = "/pages/cart/"
+  status = 200
+
+[[redirects]]
+  from = "/favourites" 
+  to = "/pages/favourites/"
+  status = 200
+
+[[redirects]]
+  from = "/out-of-stock"
+  to = "/out-of-stock.html"
   status = 200
 
 [[headers]]
