@@ -18,6 +18,18 @@ module.exports = function(eleventyConfig) {
     return array.filter(item => item[key] == value);
   });
 
+  // Fix permalinks for HTML files
+  eleventyConfig.addGlobalData("permalink", function() {
+    return (data) => {
+      // If it's the index.html file, put it at root
+      if (data.page.filePathStem === '/pages/index') {
+        return '/index.html';
+      }
+      // For other HTML files, keep them in their folders
+      return `${data.page.filePathStem}/index.html`;
+    }
+  });
+
   return {
     dir: {
       input: "src",
@@ -25,8 +37,6 @@ module.exports = function(eleventyConfig) {
       includes: "_includes",
       data: "../_data"
     },
-    // Remove the nested pages directory
-    pathPrefix: "/",
     templateFormats: ["html", "md", "liquid", "njk"],
     htmlTemplateEngine: "liquid",
     markdownTemplateEngine: "liquid"
