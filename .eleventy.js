@@ -23,8 +23,10 @@ module.exports = function(eleventyConfig) {
       input: "src",
       output: "_site",
       includes: "_includes",
-      data: "../_data"  // ← FIXED THIS LINE
+      data: "../_data"
     },
+    // Remove the nested pages directory
+    pathPrefix: "/",
     templateFormats: ["html", "md", "liquid", "njk"],
     htmlTemplateEngine: "liquid",
     markdownTemplateEngine: "liquid"

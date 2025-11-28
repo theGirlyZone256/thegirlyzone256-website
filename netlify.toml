@@ -5,22 +5,15 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# Critical fix - redirect all routes to handle SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
 [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-
-# Form handling
-[[redirects]]
-  from = "/submit-success"
-  to = "/?form_success=true"
-  status = 200
-
-# Product redirects
-[[redirects]]
-  from = "/products/*"
-  to = "/product/:splat"
-  status = 200
