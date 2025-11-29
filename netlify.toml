@@ -5,29 +5,25 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Redirect all traffic to password page
+# Clean URL redirects
 [[redirects]]
-  from = "/*"
-  to = "/password.html"
-  status = 200
-
-# Except the password page itself and assets
-[[redirects]]
-  from = "/password.html"
-  to = "/password.html"
+  from = "/cart"
+  to = "/pages/cart/"
   status = 200
 
 [[redirects]]
-  from = "/assets/*"
-  to = "/assets/:splat"
+  from = "/favourites" 
+  to = "/pages/favourites/"
   status = 200
 
 [[redirects]]
-  from = "/pages/*"
-  to = "/pages/:splat"
+  from = "/out-of-stock"
+  to = "/out-of-stock.html"
   status = 200
 
-[[redirects]]
-  from = "/product/*"
-  to = "/product/:splat"
-  status = 200
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
