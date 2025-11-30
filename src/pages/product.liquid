@@ -609,17 +609,32 @@ a:has(img) { -webkit-tap-highlight-color: transparent !important; }
         const products = {{ products | json }};
 
         window.toggleCart = function() {
+        // Get selected color data from the product page
+        const selectedColorElement = document.getElementById('selectedColor');
+        const activeColorOption = document.querySelector('.color-option.active');
+        
+        let selectedColor = null;
+        let selectedColorIndex = null;
+        
+        if (activeColorOption) {
+            selectedColor = activeColorOption.dataset.colorName;
+            selectedColorIndex = parseInt(activeColorOption.dataset.colorIndex);
+        }
+        
         const product = {
             id: {{ product.id }},
             title: "{{ product.title | escape }}",
             price: {{ product.price }},
             image: "{{ product.secondaryImage | default: product.mainImages[0] }}",
-            slug: "{{ product.slug }}"
+            slug: "{{ product.slug }}",
+            colors: {{ product.colors | json }},
+            selectedColor: selectedColor,
+            selectedColorIndex: selectedColorIndex
         };
         
         let cart = JSON.parse(localStorage.getItem('thegirlyzone_cart') || '[]');
         
-        // 🆕 QUICK LIMIT CHECK - ADD THIS 3 LINES:
+        // Quick limit check
         if (cart.length >= 10 && !cart.some(item => item.id === product.id)) {
             showToast('Cart is full!');
             return;
@@ -638,7 +653,7 @@ a:has(img) { -webkit-tap-highlight-color: transparent !important; }
         localStorage.setItem('thegirlyzone_cart', JSON.stringify(cart));
         updateCartCount();
         syncButtonStates();
-        };
+    };
 
         window.toggleFavourite = function() {
             const product = {

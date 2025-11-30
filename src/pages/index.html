@@ -49,7 +49,7 @@ body { font-family: Arial, Helvetica, sans-serif; color: var(--text-color); back
 .hero-btn { background: var(--primary-color); color: white; border: none; padding: 1rem 2rem; margin-top: 1rem; cursor: pointer; text-transform: uppercase; }
 .hero { position: relative; height: 70vh; overflow: hidden; margin-top: calc(-1 * var(--hero-overlap)); z-index: 1; }
 .product-grid-section { padding: 3rem 0; }
-.section-header { text-align: center; margin-bottom: 3rem; }
+.section-header { text-align: center; margin-bottom: 1rem; }
 .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
 .product-card { position: relative; background: var(--background-color); border: 1px solid var(--border-color); }
 .product-image { position: relative; aspect-ratio: 3/4; overflow: hidden; }
@@ -306,6 +306,24 @@ a:has(img) { -webkit-tap-highlight-color: transparent !important; }
 .search-panel-overlay { transition: opacity 0.4s ease !important; }
 .search-suggestions { transition: opacity 0.3s ease !important; }
 html { scroll-behavior: smooth; }
+.filter-banner { width: 100%; overflow-x: auto; overflow-y: hidden; white-space: nowrap; padding: 1rem 0; margin-bottom: 2rem; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); display: block; transition: opacity 0.5s ease, transform 0.5s ease; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
+.filter-banner.hidden { opacity: 0; transform: translateY(-10px); pointer-events: none; }
+.filter-banner-scroll { display: inline-flex; align-items: center; gap: 1rem; padding: 0 1rem; min-width: min-content; }
+.filter-banner-option { background: none; border: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-color); cursor: pointer; padding: 0.5rem 0.75rem; transition: all 0.3s ease; -webkit-tap-highlight-color: transparent; white-space: nowrap; flex-shrink: 0; }
+.filter-banner-option:hover { color: var(--primary-color); transform: translateY(-2px); }
+.filter-banner-option:active { transform: scale(0.95); }
+.filter-banner-option.active { color: var(--primary-color); font-weight: 800; }
+.filter-separator { color: var(--border-color); font-weight: 300; user-select: none; flex-shrink: 0; }
+.filter-banner::-webkit-scrollbar { height: 4px; }
+.filter-banner::-webkit-scrollbar-track { background: transparent; margin: 0 10px; }
+.filter-banner::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.2); border-radius: 2px; opacity: 0; transition: opacity 0.3s ease, background 0.3s ease; }
+.filter-banner::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.4); }
+.filter-banner:hover::-webkit-scrollbar-thumb { opacity: 1; }
+.filter-banner { scrollbar-width: thin; scrollbar-color: transparent transparent; }
+.filter-banner:hover { scrollbar-color: rgba(0, 0, 0, 0.2) transparent; }
+.filter-banner:hover::-webkit-scrollbar-thumb:hover { scrollbar-color: rgba(0, 0, 0, 0.4) transparent; }
+@media (max-width: 767px) { .filter-banner { padding: 0.75rem 0; -webkit-overflow-scrolling: touch; } .filter-banner-scroll { gap: 0.75rem; padding: 0 0.75rem; } .filter-banner-option { font-size: 0.7rem; padding: 0.4rem 0.6rem; } .filter-banner::-webkit-scrollbar-thumb { opacity: 0.3; } }
+@media (max-width: 480px) { .filter-banner-scroll { gap: 0.5rem; padding: 0 0.5rem; } .filter-banner-option { font-size: 0.65rem; padding: 0.3rem 0.5rem; } }
 </style>
 </head>
 <body>
@@ -470,21 +488,23 @@ html { scroll-behavior: smooth; }
         <section class="hero">
             <div class="hero-slide active">
                 <img src="/assets/images/hero-section/h1.webp" alt="New Collection">
-                <div class="hero-content">
+                <!--<div class="hero-content">
                     <h1>New Arrivals</h1>
                     <p>Latest Collection is Here!</p>
                     <button class="hero-btn">Shop Now</button> 
-                </div>
+                </div> -->
             </div>
             <div class="hero-slide">
                 <img src="/assets/images/hero-section/h2.webp" alt="Summer Collection">
-                <div class="hero-content">
+                <!--<div class="hero-content">
                     <h1>Summer Essentials</h1>
                     <p>Perfect pieces for warm days</p>
                     <button class="hero-btn">Explore</button>
-                </div>
+                </div>-->
             </div>
         </section>
+
+       
 
         <section class="product-grid-section">
             <div class="container">
@@ -493,6 +513,34 @@ html { scroll-behavior: smooth; }
                     <h2 id="sectionTitle">New Arrivals</h2>
                     <p id="sectionSubtitle">Latest additions to our collection</p>
                 </div>
+
+                 <!-- Add this right after the product grid section header -->
+    <div id="filterBanner" class="filter-banner">
+        <div class="filter-banner-scroll">
+            <!-- Categories -->
+            <span class="filter-separator">||</span>
+            <button class="filter-banner-option" data-filter="category" data-value="dresses">DRESSES</button>
+            <button class="filter-banner-option" data-filter="category" data-value="tote-bags">TOTE BAGS</button>
+            <button class="filter-banner-option" data-filter="category" data-value="skirts">SKIRTS</button>
+            <button class="filter-banner-option" data-filter="category" data-value="tops">TOPS</button>
+            
+            <!-- Moods -->
+            <span class="filter-separator">||</span>
+            <button class="filter-banner-option" data-filter="mood" data-value="elegant">ELEGANT</button>
+            <button class="filter-banner-option" data-filter="mood" data-value="romantic">ROMANTIC</button>
+            <button class="filter-banner-option" data-filter="mood" data-value="casual">CASUAL</button>
+            <button class="filter-banner-option" data-filter="mood" data-value="professional">PROFESSIONAL</button>
+            <button class="filter-banner-option" data-filter="mood" data-value="practicle">PRACTICLE</button>
+            
+            <!-- Occasions -->
+            <span class="filter-separator">||</span>
+            <button class="filter-banner-option" data-filter="occasion" data-value="everyday">EVERYDAY</button>
+            <button class="filter-banner-option" data-filter="occasion" data-value="wedding">WEDDING</button>
+            <button class="filter-banner-option" data-filter="occasion" data-value="beach">BEACH</button>
+            <button class="filter-banner-option" data-filter="occasion" data-value="party">PARTY</button>
+            <button class="filter-banner-option" data-filter="occasion" data-value="office">OFFICE</button>
+        </div>
+    </div>
 
                 <!-- 🆕 CLEAR FILTERS BUTTON FOR MAIN DISPLAY -->
                 <div id="mainClearFiltersContainer" class="main-clear-filters" style="display: none; text-align: center; margin-bottom: 2rem;">
@@ -1532,6 +1580,145 @@ function smoothScrollTo(targetPosition) {
         window.scrollTo(0, targetPosition);
     }
 }
+// 🆕 FILTER BANNER FUNCTIONALITY
+class FilterBanner {
+    constructor() {
+        this.banner = document.getElementById('filterBanner');
+        this.categoriesPanel = window.categoriesPanelInstance;
+        
+        if (this.banner) {
+            this.init();
+        }
+    }
+    
+    init() {
+        // Add click handlers to all banner options
+        document.querySelectorAll('.filter-banner-option').forEach(option => {
+            option.addEventListener('click', (e) => this.handleBannerOptionClick(e));
+        });
+        
+        // Listen for filter changes to update banner state
+        this.updateBannerVisibility();
+        
+        // Add scroll indicator for better UX
+        this.addScrollIndicators();
+    }
+    
+    handleBannerOptionClick(e) {
+        const option = e.currentTarget;
+        const filterType = option.dataset.filter;
+        const filterValue = option.dataset.value;
+        
+        // Update the categories panel state
+        this.updateCategoriesPanel(filterType, filterValue);
+        
+        // Apply the filters
+        if (this.categoriesPanel) {
+            this.categoriesPanel.applyFilters();
+        }
+        
+        // Hide the banner
+        this.hideBanner();
+    }
+    
+    updateCategoriesPanel(filterType, filterValue) {
+        if (!this.categoriesPanel) return;
+        
+        // Update the current filters
+        this.categoriesPanel.currentFilters[filterType] = filterValue;
+        
+        // Update UI in the categories panel
+        document.querySelectorAll(`[data-filter="${filterType}"]`).forEach(opt => {
+            opt.classList.remove('active');
+        });
+        
+        const targetOption = document.querySelector(`[data-filter="${filterType}"][data-value="${filterValue}"]`);
+        if (targetOption) {
+            targetOption.classList.add('active');
+        }
+        
+        // Update filter state
+        this.categoriesPanel.checkIfAnyFilterActive();
+    }
+    
+    hideBanner() {
+        this.banner.classList.add('hidden');
+        
+        // Show the main clear filters button
+        const mainClearContainer = document.getElementById('mainClearFiltersContainer');
+        if (mainClearContainer) {
+            mainClearContainer.style.display = 'block';
+        }
+    }
+    
+    showBanner() {
+        this.banner.classList.remove('hidden');
+    }
+    
+    updateBannerVisibility() {
+        // Check if any filters are active
+        const hasActiveFilters = this.categoriesPanel && 
+            (this.categoriesPanel.hasAnyFilter || this.categoriesPanel.isPriceFilterActive);
+        
+        if (hasActiveFilters) {
+            this.hideBanner();
+        } else {
+            // Show banner after 2 seconds when filters are cleared
+            setTimeout(() => {
+                this.showBanner();
+            }, 2000);
+        }
+    }
+    
+    // Add subtle scroll indicators for better UX
+    addScrollIndicators() {
+        const banner = this.banner;
+        
+        banner.addEventListener('scroll', () => {
+            // The scrollbar will automatically show during scrolling
+            // due to our CSS :focus-within and :hover states
+        });
+        
+        // Add keyboard navigation support
+        banner.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                e.preventDefault();
+                const scrollAmount = 100;
+                banner.scrollLeft += e.key === 'ArrowRight' ? scrollAmount : -scrollAmount;
+            }
+        });
+    }
+    
+    // Method to be called when filters are cleared
+    onFiltersCleared() {
+        this.updateBannerVisibility();
+    }
+}
+
+// Initialize filter banner
+document.addEventListener('DOMContentLoaded', () => {
+    window.filterBannerInstance = new FilterBanner();
+    
+    // Override categories panel methods to integrate with banner
+    if (window.categoriesPanelInstance) {
+        const originalApplyFilters = window.categoriesPanelInstance.applyFilters;
+        const originalClearFilters = window.categoriesPanelInstance.clearFilters;
+        
+        window.categoriesPanelInstance.applyFilters = function() {
+            originalApplyFilters.call(this);
+            if (window.filterBannerInstance) {
+                window.filterBannerInstance.hideBanner();
+            }
+        };
+        
+        window.categoriesPanelInstance.clearFilters = function() {
+            originalClearFilters.call(this);
+            if (window.filterBannerInstance) {
+                window.filterBannerInstance.onFiltersCleared();
+            }
+        };
+    }
+});
 </script>
 
 </body>

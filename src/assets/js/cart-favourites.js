@@ -61,15 +61,16 @@ class CartFavouritesManager {
       
       // Add to cart - FIXED: Use secondaryImage and ensure correct path
       const cartItem = {
-          id: product.id,
-          title: product.title,
-          price: product.price,
-          image: this.getValidImagePath(product), // 🛑 FIXED: Use the new method
-          slug: product.slug,
-          colors: product.colors || [],
-      selectedColor: product.colors && product.colors.length === 1 ? product.colors[0].name : null,
-      selectedColorIndex: product.colors && product.colors.length === 1 ? 0 : null
-      };
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      image: this.getValidImagePath(product), // 🛑 FIXED: Use the new method
+      slug: product.slug,
+      colors: product.colors || [],
+      // Use existing selection if available, otherwise auto-select single colors
+      selectedColor: product.selectedColor || (product.colors && product.colors.length === 1 ? product.colors[0].name : null),
+      selectedColorIndex: product.selectedColorIndex !== undefined ? product.selectedColorIndex : (product.colors && product.colors.length === 1 ? 0 : null)
+  };
       cart.push(cartItem);
       this.showToast('Added to cart!');
     }
