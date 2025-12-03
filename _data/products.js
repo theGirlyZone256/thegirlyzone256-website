@@ -69,7 +69,7 @@ const products = [
     colors: [
       {
         name: "Black(Floral)",
-        code: "#00000",
+        code: "#1f1f1fff",
         mainImages: ["fsk.webp"],
         secondaryImage: "sfsk.webp",
         availability: true
