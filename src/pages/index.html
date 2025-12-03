@@ -438,6 +438,7 @@ html { scroll-behavior: smooth; }
                         <button class="filter-option" data-filter="mood" data-value="casual">Casual</button>
                         <button class="filter-option" data-filter="mood" data-value="professional">Professional</button>
                         <button class="filter-option" data-filter="mood" data-value="practicle">Practicle</button>
+                        <button class="filter-option" data-filter="mood" data-value="floral">Floral</button>
                     </div>
                 </div>
             </div>
@@ -518,14 +519,14 @@ html { scroll-behavior: smooth; }
     <div id="filterBanner" class="filter-banner">
         <div class="filter-banner-scroll">
             <!-- Categories -->
-            <span class="filter-separator">||</span>
+            <span class="filter-separator"><strong>|-|</strong></span>
             <button class="filter-banner-option" data-filter="category" data-value="dresses">DRESSES</button>
             <button class="filter-banner-option" data-filter="category" data-value="tote-bags">TOTE BAGS</button>
             <button class="filter-banner-option" data-filter="category" data-value="skirts">SKIRTS</button>
             <button class="filter-banner-option" data-filter="category" data-value="tops">TOPS</button>
             
             <!-- Moods -->
-            <span class="filter-separator">||</span>
+            <span class="filter-separator"><strong>|-|</strong></span>
             <button class="filter-banner-option" data-filter="mood" data-value="elegant">ELEGANT</button>
             <button class="filter-banner-option" data-filter="mood" data-value="romantic">ROMANTIC</button>
             <button class="filter-banner-option" data-filter="mood" data-value="casual">CASUAL</button>
@@ -533,7 +534,7 @@ html { scroll-behavior: smooth; }
             <button class="filter-banner-option" data-filter="mood" data-value="practicle">PRACTICLE</button>
             
             <!-- Occasions -->
-            <span class="filter-separator">||</span>
+            <span class="filter-separator"><strong>|-|</strong></span>
             <button class="filter-banner-option" data-filter="occasion" data-value="everyday">EVERYDAY</button>
             <button class="filter-banner-option" data-filter="occasion" data-value="wedding">WEDDING</button>
             <button class="filter-banner-option" data-filter="occasion" data-value="beach">BEACH</button>
@@ -721,7 +722,7 @@ html { scroll-behavior: smooth; }
             
             // 👗 PRODUCT TYPES
             "dress": [1, 2],
-            "little black dress": [1],
+            "skirt": [2],
             "blazer": [3],
             "tote": [4, 10],
             "bag": [4, 10],
@@ -732,6 +733,7 @@ html { scroll-behavior: smooth; }
             "heels": [6],
             "tops": [9],
             "crossbody": [10],
+			"mini": [2],
             
             // 🌟 STYLES & MOODS
             "elegant": [1, 4, 6, 10],
@@ -741,19 +743,20 @@ html { scroll-behavior: smooth; }
             "casual": [2, 4, 7, 8, 9],
             "business": [3, 8],
             "practicle": [10],
-            "free": [9],
+            "free": [2, 9],
             
             // 🌿 MATERIALS & FABRICS
-            "linen": [2, 8],
+            "linen": [8],
             "cotton": [6, 10, 9],
             "silk": [5],
             "denim": [7],
             
             // 🎉 SEASONS & OCCASIONS
-            "summer": [2, 6, 7],
+            "hot day": [2, 6, 7],
             "office": [3, 7, 8],
-            "casual": [10, 9],
+            "casual": [10, 9, 2],
             "everyday": [9],
+            "floral": [2],
             
         };
         // 🟦🟦🟦 END SEARCH DATA 🟦🟦🟦
@@ -866,6 +869,7 @@ class CategoriesPanel {
             'party': [1, 4, ,9, 10],
             'office': [3, 7, 8],
             'everyday': [9],
+            'floral': [2],
         };
         //================================================================================================================================================================================
         

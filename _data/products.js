@@ -59,38 +59,32 @@ const products = [
   },
   {
     id: 2,
-    slug: "linen-summer-dress",
-    title: "Linen Summer Dress",
-    shortDescription: "Breathable linen dress perfect for warm days",
-    price: 7000,
+    slug: "midnight-bloom-ruffle-mini",
+    title: "Midnight Bloom Ruffle Mini",
+    shortDescription: "Aplayful, high-waisted mini-skirt featuring a dark floral print.",
+    price: 20000,
     availability: true,
-    mainImages: ["linen-dress-1.webp", "linen-dress-2.webp"],
-    secondaryImage: "linen-dress-thumb.webp",
+    mainImages: ["fsk.webp", "fsk1.webp", "fsk2.webp"],
+    secondaryImage: "sfsk.webp",
     colors: [
       {
-        name: "Cream",
-        code: "#f5f5dc",
-        mainImages: ["linen-cream-1.webp", "linen-cream-2.webp"],
-        secondaryImage: "linen-cream-thumb.webp",
+        name: "Black(Floral)",
+        code: "#00000",
+        mainImages: ["fsk.webp"],
+        secondaryImage: "sfsk.webp",
         availability: true
       },
-      {
-        name: "Sage Green",
-        code: "#9caf9a",
-        mainImages: ["linen-green-1.webp", "linen-green-2.webp"],
-        secondaryImage: "linen-green-thumb.webp",
-        availability: true
-      }
+
     ],
-    category: "dresses",
+    category: "skirts",
     mood: ["casual", "romantic"],
     occasion: ["daytime", "brunch", "beach"],
-    sizeRange: ["small", "medium", "large", "x-large"],
-    colorNames: ["cream", "sage green"],
-    material: "100% linen",
-    searchKeywords: ["linen dress", "summer dress", "beach dress"],
+    sizeRange: ["small", "medium"],
+    colorNames: ["black",],
+    material: "N/A",
+    searchKeywords: ["black", "mini skirt", "floral", "hot day"],
     recommendations: [1, 4],
-    tags: ["dress", "linen", "summer"],
+    tags: ["skirt", "floral", "black"],
     featured: true
   },
   {
