@@ -375,7 +375,9 @@ const products = [
     recommendations: [4, 6],
     tags: ["arm", "bag", "cotton", "tote"],
     featured: true
-  }
+  },
+  
+  
 ];
 
 module.exports = products;
