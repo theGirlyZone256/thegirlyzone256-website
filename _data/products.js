@@ -7,7 +7,7 @@
 const products = [
   {
     // CORE IDENTIFIERS
-    id: 1,
+    id: 10,
     slug: "ribbed-frill-wrap-dress",
     
     // DISPLAY & SEO FIELDS
@@ -58,7 +58,7 @@ const products = [
     featured: true
   },
   {
-    id: 2,
+    id: 9,
     slug: "midnight-bloom-ruffle-mini",
     title: "Midnight Bloom Ruffle Mini",
     shortDescription: "A playful, high-waisted mini-skirt featuring a dark floral print.",
@@ -228,7 +228,7 @@ const products = [
     colorNames: ["black"],
     material: "Cotton",
     searchKeywords: ["black skirt", "black", "gold button", "pencil skirt"],
-    recommendations: [2],
+    recommendations: [2, 3],
     tags: ["skirt", "black", "pencil skirt", "gold button"],
     featured: true
   },
@@ -293,12 +293,12 @@ const products = [
     colorNames: ["Black"],
     material: "Stretch-Hugging Fabric",
     searchKeywords: ["long dress", "black dress", "party dress", "bodycon dress", "elegant dress",  "hugging dress"],
-    recommendations: [3,6, 7],
+    recommendations: [3, 6, 7],
     tags: ["dress", "long dress", "black dress", "party dress", "elegant dress"],
     featured: true
   },
   {
-    id: 9,
+    id: 2,
     slug: "striped-cotton-top",
     title: "Stripped Cotton Top",
     shortDescription: "A Brown and White knit top, crew necked, short sleeves.",
@@ -328,7 +328,7 @@ const products = [
     featured: true
   },
   {
-    id: 10,
+    id: 1,
     slug: "nike-tote-delight",
     title: "Nike Tote Delight",
     shortDescription: "Essential Carry, Highly Practical.",
