@@ -8,34 +8,34 @@ const products = [
   {
     // CORE IDENTIFIERS
     id: 1,
-    slug: "classic-little-black-dress",
+    slug: "ribbed-frill-wrap-dress",
     
     // DISPLAY & SEO FIELDS
-    title: "Classic Little Black Dress",
-    shortDescription: "Timeless black dress for any occasion",
+    title: "Ribbed Frill Wrap Dress",
+    shortDescription: "Short-sleeved wrap dress with a stylish frilled hem design.",
     
     // PRICING & AVAILABILITY
-    price: 3000,
-    availability: false,
+    price: 30000,
+    availability: true,
     
     // IMAGES (all .webp)
-    mainImages: ["db1.webp", "db2.webp", "db3.webp"],
-    secondaryImage: "sdb.webp",
+    mainImages: ["ribbed-frill-wrap_03.webp", "ribbed-frill-wrap_02.webp", "ribbed-frill-wrap_01.webp", "ribbed-frill-wrap_00.webp"],
+    secondaryImage: "sribbed-frill-wrap_01.webp",
     
     // COLOR VARIANTS ARRAY - CRITICAL FOR PRODUCT PAGES & CARDS
     colors: [
       {
-        name: "Black",
-        code: "#000000",
-        mainImages: ["db1.webp"],
-        secondaryImage: "db1.webp",
+        name: "Emerald Green",
+        code: "#1f5330ff",
+        mainImages: ["ribbed-frill-wrap_03.webp"],
+        secondaryImage: "sribbed-frill-wrap_03.webp",
         availability: true
       },
       {
-        name: "Navy Blue", 
-        code: "#000080",
-        mainImages: ["db3.webp"],
-        secondaryImage: "db3.webp",
+        name: "Roso Blue", 
+        code: "#3245ebff",
+        mainImages: ["ribbed-frill-wrap_02.webp"],
+        secondaryImage: "sribbed-frill-wrap_02.webp",
         availability: true
       }
     ],
@@ -44,16 +44,16 @@ const products = [
     category: "dresses",
     mood: ["elegant", "classic"],
     occasion: ["evening", "cocktail", "formal"],
-    sizeRange: ["small", "medium", "large"],
-    colorNames: ["black", "navy blue"],
-    material: "premium stretch fabric",
+    sizeRange: ["N/a"],
+    colorNames: ["green", "blue"],
+    material: "Premium Ribbed Fabric",
     
     // SEO & SEARCH
-    searchKeywords: ["little black dress", "LBD", "cocktail dress"],
+    searchKeywords: ["wrap dress", "dress", "green dress", "blue dress", "frill hem"],
     
     // RECOMMENDATIONS
-    recommendations: [2, 10],
-    tags: ["dress", "black", "elegant"],
+    recommendations: [3, 7, 8],
+    tags: ["dress", "blue", "elegant", "green", "formal"],
     
     featured: true
   },
