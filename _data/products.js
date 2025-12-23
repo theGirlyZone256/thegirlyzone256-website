@@ -95,7 +95,7 @@ const products = [
     price: 25000,
     availability: true,
     mainImages: ["floral-red-wrap-skirt_00.webp", "floral-red-wrap-skirt_01.webp", "floral-red-wrap-skirt_02.webp", "floral-red-wrap-skirt_03.webp"],
-    secondaryImage: "sfloral-red-wrap-skirt_00.webp",
+    secondaryImage: "sfloral-red-wrap-skirt_01.webp",
     colors: [
       {
         name: "Synced Red",
