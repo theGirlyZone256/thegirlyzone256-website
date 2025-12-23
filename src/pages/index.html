@@ -456,6 +456,7 @@ html { scroll-behavior: smooth; }
                         <button class="filter-option" data-filter="occasion" data-value="beach">Beach</button>
                         <button class="filter-option" data-filter="occasion" data-value="party">Party</button>
                         <button class="filter-option" data-filter="occasion" data-value="office">Office</button>
+                        <button class="filter-option" data-filter="occasion" data-value="day time">Day Time</button>
                     </div>
                 </div>
             </div>
@@ -549,6 +550,7 @@ html { scroll-behavior: smooth; }
             <button class="filter-banner-option" data-filter="occasion" data-value="beach">BEACH</button>
             <button class="filter-banner-option" data-filter="occasion" data-value="party">PARTY</button>
             <button class="filter-banner-option" data-filter="occasion" data-value="office">OFFICE</button>
+            <button class="filter-banner-option" data-filter="occasion" data-value="day time">DAY TIME</button>
         </div>
     </div>
 
@@ -753,6 +755,7 @@ html { scroll-behavior: smooth; }
             "business": [3, 8],
             "practicle": [10],
             "free": [2, 9],
+            "vintage":[7],
             
             // 🌿 MATERIALS & FABRICS
             "linen": [8],
@@ -766,6 +769,7 @@ html { scroll-behavior: smooth; }
             "casual": [10, 9, 2],
             "everyday": [9],
             "floral": [2],
+            "daytime": [7],
             
         };
         // 🟦🟦🟦 END SEARCH DATA 🟦🟦🟦
@@ -864,21 +868,21 @@ class CategoriesPanel {
 
         //=================================================================================================================================================================================
         this.filterProductIds = {
-            'dresses': [1, 2],
+            'dresses': [1, 2, 7],
             'tote-bags': [4, 10],
-            'skirts': [2, 7],
+            'skirts': [2,],
             'tops': [5, 9],
             'elegant': [1, 4, 6, 10],
             'romantic': [1, 2, 4, 5],
-            'casual': [2, 9, 10, 8],
-            'professional': [3, 7, 8],
+            'casual': [2, 9, 10, 8, 7],
+            'professional': [3, 8],
             'practicle': [10],
             'wedding': [1, 4, 6],
-            'beach': [2, 6, 7],
+            'beach': [2, 6],
             'party': [1, 4, ,9, 10],
-            'office': [3, 7, 8],
+            'office': [3, 8],
             'everyday': [9],
-            'floral': [2],
+            'floral': [2, 7],
         };
         //================================================================================================================================================================================
         
