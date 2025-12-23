@@ -135,7 +135,7 @@ const products = [
     colors: [
       {
         name: "Night Red",
-        code: "#fd0404ff",
+        code: "#a10000ff",
         mainImages: ["pijama-2pc_00.webp", "pijama-2pc_02.webp", "pijama-2pc_03.webp", "pijama-2pc_06.webp"],
         secondaryImage: "spijama-2pc_00.webp",
         availability: true
