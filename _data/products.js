@@ -101,7 +101,7 @@ const products = [
         name: "Synced Red",
         code: "#a70606d2",
         mainImages: ["floral-red-wrap-skirt_00.webp", "floral-red-wrap-skirt_01.webp", "floral-red-wrap-skirt_02.webp", "floral-red-wrap-skirt_03.webp"],
-        secondaryImage: "sfloral-red-wrap-skirt_00.webp",
+        secondaryImage: "sfloral-red-wrap-skirt_01.webp",
         availability: true
       },
       
