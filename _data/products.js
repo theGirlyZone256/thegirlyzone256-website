@@ -180,14 +180,14 @@ const products = [
       {
         name: "Red",
         code: "#f12a2aff",
-        mainImages: ["vertical_strip_shirt_03.webp"],
+        mainImages: ["vertical_strip_shirt_02.webp"],
         secondaryImage: "svertical_strip_shirt_04.webp",
         availability: true
       },
       {
         name: "Blue",
         code: "#0f58dfff",
-        mainImages: ["vertical_strip_shirt_02.webp"],
+        mainImages: ["vertical_strip_shirt_03.webp"],
         secondaryImage: "svertical_strip_shirt_01.webp",
         availability: true
       },
