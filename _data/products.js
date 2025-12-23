@@ -232,7 +232,7 @@ const products = [
     price: 35000,
     availability: true,
     mainImages: ["floral-mesh-dress_02.webp", "floral-mesh-dress_03.webp", "floral-mesh-dress_04.webp", "floral-mesh-dress_05.webp", "floral-mesh-dress_06.webp", "floral-mesh-dress_07.webp", "floral-mesh-dress_08.webp", "floral-mesh-dress_09.webp", "floral-mesh-dress_10.webp"],
-    secondaryImage: "shorts-thumb.webp",
+    secondaryImage: "sfloral-mesh-dress_00.webp",
     colors: [
       {
         name: "Black",
