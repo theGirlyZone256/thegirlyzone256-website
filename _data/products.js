@@ -94,33 +94,27 @@ const products = [
     shortDescription: "Stylish, comfortable wrap skirt with a beautiful floral print.",
     price: 12000,
     availability: true,
-    mainImages: ["blazer-1.webp", "blazer-2.webp", "blazer-3.webp"],
-    secondaryImage: "blazer-thumb.webp",
+    mainImages: ["floral-red-wrap-skirt_00.webp", "floral-red-wrap-skirt_01.webp", "floral-red-wrap-skirt_02.webp", "floral-red-wrap-skirt_03.webp"],
+    secondaryImage: "sfloral-red-wrap-skirt_00.webp",
     colors: [
       {
-        name: "Navy Blue",
-        code: "#000080",
-        mainImages: ["blazer-navy-1.webp", "blazer-navy-2.webp"],
-        secondaryImage: "blazer-navy-thumb.webp",
+        name: "Synced Red",
+        code: "#a70606d2",
+        mainImages: ["floral-red-wrap-skirt_00.webp", "floral-red-wrap-skirt_01.webp", "floral-red-wrap-skirt_02.webp", "floral-red-wrap-skirt_03.webp"],
+        secondaryImage: "sfloral-red-wrap-skirt_00.webp",
         availability: true
       },
-      {
-        name: "Charcoal",
-        code: "#36454f",
-        mainImages: ["blazer-charcoal-1.webp", "blazer-charcoal-2.webp"],
-        secondaryImage: "blazer-charcoal-thumb.webp",
-        availability: true
-      }
+      
     ],
-    category: "tops",
-    mood: ["professional", "sophisticated"],
-    occasion: ["office", "formal", "business"],
-    sizeRange: ["small", "medium", "large"],
-    colorNames: ["navy blue", "charcoal"],
+    category: "skirt",
+    mood: ["Srofessional", "Sophisticated"],
+    occasion: ["Office", "Formal", "Business"],
+    sizeRange: ["Fit-All"],
+    colorNames: ["Red"],
     material: "wool blend",
-    searchKeywords: ["blazer", "office wear", "professional"],
-    recommendations: [5, 1],
-    tags: ["blazer", "professional", "office"],
+    searchKeywords: ["skirt", "wrap shirt", "red skirt"],
+    recommendations: [2, 6],
+    tags: ["skirt", "professional", "office"],
     featured: true
   },
   {
