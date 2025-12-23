@@ -197,38 +197,31 @@ const products = [
   },
   {
     id: 6,
-    slug: "block-heel-sandals",
-    title: "Block Heel Sandals",
-    shortDescription: "Comfortable block heel sandals",
-    price: 23000,
+    slug: "gold-button-skirt",
+    title: "Gold Button Skirt",
+    shortDescription: "Classy high-waist pencil skirt with elegant gold button details",
+    price: 30000,
     availability: true,
-    mainImages: ["sandals-1.webp", "sandals-2.webp", "sandals-3.webp"],
-    secondaryImage: "sandals-thumb.webp",
+    mainImages: ["gold_button_black_skirt_00.webp", "gold_button_black_skirt_01.webp"],
+    secondaryImage: "sgold_button_black_skirt_00.webp",
     colors: [
-      {
-        name: "Tan",
-        code: "#d2b48c",
-        mainImages: ["sandals-tan-1.webp", "sandals-tan-2.webp"],
-        secondaryImage: "sandals-tan-thumb.webp",
-        availability: true
-      },
       {
         name: "Black",
         code: "#000000",
-        mainImages: ["sandals-black-1.webp", "sandals-black-2.webp"],
-        secondaryImage: "sandals-black-thumb.webp",
+        mainImages: ["gold_button_black_skirt_00.webp", "gold_button_black_skirt_01.webp"],
+        secondaryImage: "sgold_button_black_skirt_00.webp",
         availability: true
       }
     ],
-    category: "shoes",
-    mood: ["chic", "comfortable"],
-    occasion: ["office", "casual", "evening"],
-    sizeRange: ["36", "37", "38", "39", "40"],
-    colorNames: ["tan", "black"],
-    material: "genuine leather",
-    searchKeywords: ["block heel", "sandals", "comfortable shoes"],
-    recommendations: [3, 5],
-    tags: ["shoes", "sandals", "heels"],
+    category: "skirts",
+    mood: ["chic", "office", "comfortable"],
+    occasion: ["office", "casual", "afternoon"],
+    sizeRange: ["Medium"],
+    colorNames: ["black"],
+    material: "Cotton",
+    searchKeywords: ["black skirt", "black", "gold button", "pencil skirt"],
+    recommendations: [2],
+    tags: ["skirt", "black", "pencil skirt", "gold button"],
     featured: true
   },
   {
@@ -252,7 +245,7 @@ const products = [
         name: "White",
         code: "#ffffffff",
         mainImages: ["floral-mesh-dress_01.webp", "floral-mesh-dress_07.webp", "floral-mesh-dress_08.webp", "floral-mesh-dress_09.webp", "floral-mesh-dress_10.webp"],
-        secondaryImage: "floral-mesh-dress_01.webp",
+        secondaryImage: "sfloral-mesh-dress_01.webp",
         availability: true
       }
     ],
