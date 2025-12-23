@@ -275,33 +275,26 @@ const products = [
     shortDescription: "Elegant slim-fit dress with a stylish pleated bottom.",
     price: 50000,
     availability: true,
-    mainImages: ["trousers-1.webp", "trousers-2.webp", "trousers-3.webp"],
-    secondaryImage: "trousers-thumb.webp",
+    mainImages: ["black-bodycon_00.webp", "black-bodycon_01.webp", "black-bodycon_02.webp", "black-bodycon_03.webp", "black-bodycon_04.webp", "black-bodycon_05.webp"],
+    secondaryImage: "sblack-bodycon_01.webp",
     colors: [
-      {
-        name: "Cream",
-        code: "#f5f5dc",
-        mainImages: ["trousers-cream-1.webp", "trousers-cream-2.webp"],
-        secondaryImage: "trousers-cream-thumb.webp",
-        availability: true
-      },
       {
         name: "Black",
         code: "#000000",
-        mainImages: ["trousers-black-1.webp", "trousers-black-2.webp"],
-        secondaryImage: "trousers-black-thumb.webp",
+        mainImages: ["black-bodycon_00.webp"],
+        secondaryImage: "sblack-bodycon_01.webp",
         availability: true
       }
     ],
-    category: "trousers",
+    category: "dresses",
     mood: ["elegant", "comfortable"],
-    occasion: ["office", "casual", "evening"],
-    sizeRange: ["small", "medium", "large", "x-large"],
-    colorNames: ["cream", "black"],
-    material: "linen blend",
-    searchKeywords: ["wide leg", "trousers", "pants"],
-    recommendations: [3, 9],
-    tags: ["trousers", "pants", "wide leg"],
+    occasion: ["Excecutive Party", "Formal", "Wedding", "Date"],
+    sizeRange: ["medium", "large"],
+    colorNames: ["Black"],
+    material: "Stretch-Hugging Fabric",
+    searchKeywords: ["long dress", "black dress", "party dress", "bodycon dress", "elegant dress",  "hugging dress"],
+    recommendations: [3,6, 7],
+    tags: ["dress", "long dress", "black dress", "party dress", "elegant dress"],
     featured: true
   },
   {
