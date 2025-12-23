@@ -418,6 +418,7 @@ html { scroll-behavior: smooth; }
                     <div class="filter-options">
                         <button class="filter-option active" data-filter="category" data-value="any">Any Category</button>
                         <button class="filter-option" data-filter="category" data-value="dresses">Dresses</button>
+                        <button class="filter-option" data-filter="category" data-value="2-piece sets">2-piece sets</button>
                         <button class="filter-option" data-filter="category" data-value="tote-bags">Tote Bags</button>
                         <button class="filter-option" data-filter="category" data-value="skirts">Skirts</button>
                         <button class="filter-option" data-filter="category" data-value="tops">Tops</button>
@@ -439,6 +440,7 @@ html { scroll-behavior: smooth; }
                         <button class="filter-option" data-filter="mood" data-value="professional">Professional</button>
                         <button class="filter-option" data-filter="mood" data-value="practicle">Practicle</button>
                         <button class="filter-option" data-filter="mood" data-value="floral">Floral</button>
+                        <button class="filter-option" data-filter="mood" data-value="sleep">Sleep</button>
                     </div>
                 </div>
             </div>
@@ -457,6 +459,7 @@ html { scroll-behavior: smooth; }
                         <button class="filter-option" data-filter="occasion" data-value="party">Party</button>
                         <button class="filter-option" data-filter="occasion" data-value="office">Office</button>
                         <button class="filter-option" data-filter="occasion" data-value="day time">Day Time</button>
+                        <button class="filter-option" data-filter="occasion" data-value="night">Night</button>
                     </div>
                 </div>
             </div>
@@ -531,6 +534,7 @@ html { scroll-behavior: smooth; }
             <span class="filter-separator"><strong>|-|</strong></span>
             <button class="filter-banner-option" data-filter="category" data-value="dresses">DRESSES</button>
             <button class="filter-banner-option" data-filter="category" data-value="tote-bags">TOTE BAGS</button>
+            <button class="filter-banner-option" data-filter="category" data-value="2-piece sets">2-PIECE SETS</button>
             <button class="filter-banner-option" data-filter="category" data-value="skirts">SKIRTS</button>
             <button class="filter-banner-option" data-filter="category" data-value="tops">TOPS</button>
             
@@ -542,6 +546,7 @@ html { scroll-behavior: smooth; }
             <button class="filter-banner-option" data-filter="mood" data-value="professional">PROFESSIONAL</button>
             <button class="filter-banner-option" data-filter="mood" data-value="practicle">PRACTICLE</button>
             <button class="filter-banner-option" data-filter="mood" data-value="floral">FLORAL</button>
+            <button class="filter-banner-option" data-filter="mood" data-value="sleep">SLEEP</button>
             
             <!-- Occasions -->
             <span class="filter-separator"><strong>|-|</strong></span>
@@ -551,6 +556,7 @@ html { scroll-behavior: smooth; }
             <button class="filter-banner-option" data-filter="occasion" data-value="party">PARTY</button>
             <button class="filter-banner-option" data-filter="occasion" data-value="office">OFFICE</button>
             <button class="filter-banner-option" data-filter="occasion" data-value="day time">DAY TIME</button>
+            <button class="filter-banner-option" data-filter="occasion" data-value="night">NIGHT</button>
         </div>
     </div>
 
@@ -726,11 +732,12 @@ html { scroll-behavior: smooth; }
             
             // 🎨 COLORS & DESCRIPTIONS
             "black": [1, 2, 5, 6, 10, 7],
-            "navy": [1, 3, 10],
-            "pink": [10, 5, 4],
+            "blue": [1, 3, 4, 10],
+            "pink": [10, 5],
             "brown": [9],
             "white": [7, 9],
             "gold": [6],
+            "red": [4],
             
             // 👗 PRODUCT TYPES
             "dress": [1, 2],
@@ -746,6 +753,8 @@ html { scroll-behavior: smooth; }
             "tops": [9],
             "crossbody": [10],
 			"mini": [2],
+            "two piece": [4], 
+            "2 piece": [4],
             
             // 🌟 STYLES & MOODS
             "elegant": [1, 4, 6, 10],
@@ -755,8 +764,9 @@ html { scroll-behavior: smooth; }
             "casual": [2, 4, 7, 8, 9],
             "business": [3, 8, 6],
             "practicle": [10],
-            "free": [2, 9],
+            "free": [2, 4, 9],
             "vintage":[7],
+            "sleep": [4],
             
             // 🌿 MATERIALS & FABRICS
             "linen": [8],
@@ -764,6 +774,9 @@ html { scroll-behavior: smooth; }
             "silk": [5],
             "denim": [4],
             "mesh": [7],
+            "comfortable": [4],
+            "comfy": [4],
+            "free": [4],
             
             // 🎉 SEASONS & OCCASIONS
             "hot day": [2, 6, 7],
@@ -773,6 +786,7 @@ html { scroll-behavior: smooth; }
             "floral": [2],
             "daytime": [7],
             "pencil skirt": [6],
+            "night": [4],
             
         };
         // 🟦🟦🟦 END SEARCH DATA 🟦🟦🟦
@@ -873,6 +887,7 @@ class CategoriesPanel {
         this.filterProductIds = {
             'dresses': [1, 2, 7],
             'tote-bags': [4, 10],
+            '2-piece sets': [4],
             'skirts': [2,],
             'tops': [5, 9],
             'elegant': [1, 4, 6, 10],
@@ -887,6 +902,8 @@ class CategoriesPanel {
             'everyday': [9],
             'floral': [2, 7],
             'day time': [6, 7],
+            'night': [4],
+            'sleep': [4],
         };
         //================================================================================================================================================================================
         
