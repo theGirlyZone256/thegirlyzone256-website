@@ -2,7 +2,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+     <!-- 🔴 ADD GOOGLE ANALYTICS HERE -->
+    <!-- Google Analytics 4 for theGirlyZone Uganda -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFG4EDT2DJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WFG4EDT2DJ');
+        
+        // Enhanced e-commerce tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('cartUpdated', function() {
+                gtag('event', 'add_to_cart');
+            });
+            document.addEventListener('favouritesUpdated', function() {
+                gtag('event', 'add_to_wishlist');
+            });
+            const newsletterForm = document.querySelector('.email-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function() {
+                    gtag('event', 'generate_lead');
+                });
+            }
+        });
+    </script>
     <title>theGirlyZone Uganda - Minimalist Ladies' Clothing & Fashion</title>
     <meta name="description" content="Discover affordable ladies' clothing, dresses, tote bags and accessories in Kampala, Uganda. Affordable fashion at theGirlyZone Uganda.">
     <meta name="keywords" content="ladies clothing Uganda, dresses Kampala, tote bags, women fashion Uganda, minimalist fashion, jewelry, affordable clothing Kampala">

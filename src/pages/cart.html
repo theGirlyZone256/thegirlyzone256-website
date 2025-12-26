@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFG4EDT2DJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WFG4EDT2DJ');
+        
+        // Track cart page views
+        document.addEventListener('DOMContentLoaded', function() {
+            const cart = JSON.parse(localStorage.getItem('thegirlyzone_cart') || '[]');
+            gtag('event', 'view_cart', {
+                'items': cart.map(item => ({
+                    'item_id': item.id,
+                    'item_name': item.title,
+                    'price': item.price,
+                    'quantity': 1
+                }))
+            });
+        });
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart | theGirlyZone Uganda</title>

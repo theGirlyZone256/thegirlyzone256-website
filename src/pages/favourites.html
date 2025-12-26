@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFG4EDT2DJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WFG4EDT2DJ');
+        
+        // Track favourites page views
+        document.addEventListener('DOMContentLoaded', function() {
+            gtag('event', 'view_item_list', {
+                'item_list_name': 'Favourites'
+            });
+        });
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Favourites | theGirlyZone Uganda</title>

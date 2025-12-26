@@ -14,6 +14,39 @@ eleventyComputed:
 <!DOCTYPE html>
 <html lang="en">
 <head>
+     <!-- Google Analytics 4 for theGirlyZone Uganda -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFG4EDT2DJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WFG4EDT2DJ');
+        
+        // Track product views
+        document.addEventListener('DOMContentLoaded', function() {
+            const productData = {{ product | json }};
+            if (productData) {
+                gtag('event', 'view_item', {
+                    'items': [{
+                        'item_id': productData.id,
+                        'item_name': productData.title,
+                        'price': productData.price,
+                        'item_category': productData.category || 'clothing'
+                    }]
+                });
+            }
+            
+            // Listen to cart events
+            document.addEventListener('cartUpdated', function() {
+                gtag('event', 'add_to_cart');
+            });
+            
+            // Listen to favourites events
+            document.addEventListener('favouritesUpdated', function() {
+                gtag('event', 'add_to_wishlist');
+            });
+        });
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 🎯 FAVICON CONFIGURATION -->
