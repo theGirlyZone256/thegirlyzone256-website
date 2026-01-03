@@ -388,7 +388,7 @@ const products = [
       code: "#c0c0c0"
     }
     ],
-    category: "undefined",
+    category: "jewelry",
     mood: ["classic", "elegant", "floral", "luxurious"],
     occasion: ["beach", "casual", "date", "day time", "office", "wedding"],
     sizeRange: ["n/a"],
@@ -397,6 +397,35 @@ const products = [
     searchKeywords: ["floral", "jewlry", "necklace", "floral necklace"],
     recommendations: [1],
     tags: ["floral", "luxurious", "jewlry", "necklace", "floral necklace"],
+    featured: true
+  },
+  {
+    id: 12,
+    slug: "the-frost-foliage",
+    title: "The Frost Foliage",
+    shortDescription: "A Nature-inspired touch to your neck.",
+    price: 10000,
+    availability: true,
+    mainImages: ["the-frost-foliage_01.webp", "the-frost-foliage_02.webp", "the-frost-foliage_03.webp"],
+    secondaryImage: "sthe-frost-foliage.webp",
+    colors: [
+    {
+      name: "Metallic Silver",
+      availability: true,
+      mainImages: ["the-frost-foliage_01.webp", "the-frost-foliage_02.webp", "the-frost-foliage_03.webp"],
+      secondaryImage: "sthe-frost-foliage.webp",
+      code: "#c0c0c0"
+    }
+    ],
+    category: "jewelry",
+    mood: ["classic", "elegant", "luxurious"],
+    occasion: ["afternoon", "beach", "casual"],
+    sizeRange: ["n/a"],
+    colorNames: ["metallic silver"],
+    material: "Metallic",
+    searchKeywords: ["jewlry", "necklace", "silver"],
+    recommendations: [11],
+    tags: ["elegant", "jewlry", "luxurious", "necklace", "silver"],
     featured: true
   },
 
