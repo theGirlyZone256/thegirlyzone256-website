@@ -395,7 +395,7 @@ const products = [
     colorNames: ["metal silver"],
     material: "Metallic",
     searchKeywords: ["floral", "jewlry", "necklace", "floral necklace"],
-    recommendations: [1],
+    recommendations: [12],
     tags: ["floral", "luxurious", "jewlry", "necklace", "floral necklace"],
     featured: true
   },
