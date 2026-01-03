@@ -107,7 +107,7 @@ const products = [
       
     ],
     category: "skirt",
-    mood: ["Srofessional", "Sophisticated"],
+    mood: ["Professional", "Sophisticated"],
     occasion: ["Office", "Formal", "Business"],
     sizeRange: ["Fit-All"],
     colorNames: ["Red"],
@@ -394,9 +394,9 @@ const products = [
     sizeRange: ["n/a"],
     colorNames: ["metal silver"],
     material: "Metallic",
-    searchKeywords: ["floral", "jewlry", "necklace", "floral necklace"],
-    recommendations: [12],
-    tags: ["floral", "luxurious", "jewlry", "necklace", "floral necklace"],
+    searchKeywords: ["floral", "jewelry", "necklace", "floral necklace"],
+    recommendations: [12, 13, 14, 15],
+    tags: ["floral", "luxurious", "jewelry", "necklace", "floral necklace"],
     featured: true
   },
   {
@@ -423,9 +423,96 @@ const products = [
     sizeRange: ["n/a"],
     colorNames: ["metallic silver"],
     material: "Metallic",
-    searchKeywords: ["jewlry", "necklace", "silver"],
-    recommendations: [11],
-    tags: ["elegant", "jewlry", "luxurious", "necklace", "silver"],
+    searchKeywords: ["jewelry", "necklace", "silver"],
+    recommendations: [11, 13, 14, 15],
+    tags: ["elegant", "jewelry", "luxurious", "necklace", "silver"], 
+    featured: true
+  },
+  {
+    id: 13,
+    slug: "the-silver-talon",
+    title: "The Silver Talon",
+    shortDescription: "Elevate your style with this sleek, tapered pendant necklace.",
+    price: 10000,
+    availability: true,
+    mainImages: ["the-silver-talon_00.webp", "the-silver-talon_02.webp", "the-silver-talon_03.webp"],
+    secondaryImage: "sthe-silver-talon.webp",
+    colors: [
+    {
+      name: "Metallic Silver",
+      availability: true,
+      mainImages: ["the-silver-talon_00.webp", "the-silver-talon_02.webp", "the-silver-talon_03.webp"],
+      secondaryImage: "sthe-silver-talon.webp",
+      code: "#c0c0c0"
+    }
+    ],
+    category: "jewelry",
+    mood: ["casual", "chic", "classic", "elegant", "luxurious"],
+    occasion: ["casual", "in-house"],
+    sizeRange: ["n/a"],
+    colorNames: ["metallic silver"],
+    material: "Metallic",
+    searchKeywords: ["jewelry", "necklace"],
+    recommendations: [11, 12, 13, 15],
+    tags: ["jewelry", "luxurious", "necklace"],
+    featured: true
+  },
+  {
+    id: 14,
+    slug: "the-silver-cleat",
+    title: "The Silver Cleat",
+    shortDescription: "Showcase your passion with this finely detailed sneaker-themed pendant necklace.",
+    price: 10000,
+    availability: true,
+    mainImages: ["the-silver-cleat_02.webp", "the-silver-cleat_00.webp", "the-silver-cleat_03.webp"],
+    secondaryImage: "sthe-silver-cleat.webp",
+    colors: [
+    {
+      name: "Metallic Silver",
+      availability: true,
+      mainImages: ["the-silver-cleat_02.webp", "the-silver-cleat_00.webp", "the-silver-cleat_03.webp"],
+      secondaryImage: "sthe-silver-cleat.webp",
+      code: "#c0c0c0"
+    }
+    ],
+    category: "jewelry",
+    mood: ["chic", "classic", "luxurious", "vintage"],
+    occasion: ["afternoon", "beach", "casual"],
+    sizeRange: ["n/a"],
+    colorNames: ["metallic silver"],
+    material: "Metallic",
+    searchKeywords: ["jewelry", "necklace"],
+    recommendations: [11, 12, 13, 15],
+    tags: ["jewelry", "necklace"],
+    featured: true
+  },
+  {
+    id: 15,
+    slug: "the-silver-blade",
+    title: "The Silver Blade",
+    shortDescription: "Make a sharp statetement with this craft-inspired pendant necklace.",
+    price: 10000,
+    availability: true,
+    mainImages: ["the-silver-blade_01.webp", "the-silver-blade_02.webp", "the-silver-blade_03.webp"],
+    secondaryImage: "sthe-silver-blade.webp",
+    colors: [
+    {
+      name: "Metallic Silver",
+      availability: true,
+      mainImages: ["the-silver-blade_01.webp", "the-silver-blade_02.webp", "the-silver-blade_03.webp"],
+      secondaryImage: "sthe-silver-blade.webp",
+      code: "#c0c0c0"
+    }
+    ],
+    category: "jewelry",
+    mood: ["classic", "vintage"],
+    occasion: ["day time"],
+    sizeRange: ["n/a"],
+    colorNames: ["metallic silver"],
+    material: "Metallic",
+    searchKeywords: ["jewelry", "necklace", "silver"],
+    recommendations: [11, 12, 13, 14],
+    tags: ["jewelry", "necklace", "silver"],
     featured: true
   },
 
