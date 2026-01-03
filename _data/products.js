@@ -370,7 +370,36 @@ const products = [
     tags: ["arm", "bag", "cotton", "tote"],
     featured: true
   },
-  
+    {
+    id: 11,
+    slug: "the-gilded-rose",
+    title: "The Gilded Rose",
+    shortDescription: "Capture timeless beauty!",
+    price: 10000,
+    availability: true,
+    mainImages: ["the-gilded-rose_00.webp", "the-gilded-rose_01.webp", "the-gilded-rose_02.webp"],
+    secondaryImage: "s_the-gilded-rose_01.webp",
+    colors: [
+    {
+      name: "Metal Silver",
+      availability: true,
+      mainImages: ["the-gilded-rose_00.webp", "the-gilded-rose_01.webp", "the-gilded-rose_02.webp"],
+      secondaryImage: "s_the-gilded-rose_01.webp",
+      code: "#c0c0c0"
+    }
+    ],
+    category: "undefined",
+    mood: ["classic", "elegant", "floral", "luxurious"],
+    occasion: ["beach", "casual", "date", "day time", "office", "wedding"],
+    sizeRange: ["n/a"],
+    colorNames: ["metal silver"],
+    material: "Metallic",
+    searchKeywords: ["floral", "jewlry", "necklace", "floral necklace"],
+    recommendations: [1],
+    tags: ["floral", "luxurious", "jewlry", "necklace", "floral necklace"],
+    featured: true
+  },
+
   
 ];
 
