@@ -113,7 +113,7 @@ const products = [
     colorNames: ["Red"],
     material: "wool blend",
     searchKeywords: ["skirt", "wrap skirt", "red skirt"],
-    recommendations: [2, 6],
+    recommendations: [6, 19],
     tags: ["skirt", "professional", "office"],
     featured: true
   },
@@ -292,9 +292,9 @@ const products = [
     sizeRange: ["medium", "large"],
     colorNames: ["Black"],
     material: "Stretch-Hugging Fabric",
-    searchKeywords: ["long dress", "black dress", "party dress", "bodycon dress", "elegant dress",  "hugging dress"],
+    searchKeywords: ["long dress", "black dress", "party", "bodycon dress", "elegant dress",  "hugging dress"],
     recommendations: [3, 6, 7],
-    tags: ["dress", "long dress", "black dress", "party dress", "elegant dress"],
+    tags: ["dress", "long dress", "black dress", "party", "elegant dress"],
     featured: true
   },
   {
@@ -513,6 +513,310 @@ const products = [
     searchKeywords: ["jewelry", "necklace", "silver"],
     recommendations: [11, 12, 13, 14],
     tags: ["jewelry", "necklace", "silver"],
+    featured: true
+  },
+  {
+    id: 16,
+    slug: "violet-bloom-wrap-skirt",
+    title: "Violet Bloom Wrap Skirt",
+    shortDescription: "Floral elegance meets effortless style for your dreamiest look.",
+    price: 30000,
+    availability: true,
+    mainImages: ["Violet Bloom Wrap Skirt_00.webp", "Violet Bloom Wrap Skirt_01.webp", "Violet Bloom Wrap Skirt_02.webp"],
+    secondaryImage: "sViolet Bloom Wrap Skirt.webp",
+    colors: [
+    {
+      name: "Violet(floral)",
+      availability: true,
+      mainImages: ["Violet Bloom Wrap Skirt_00.webp", "Violet Bloom Wrap Skirt_01.webp", "Violet Bloom Wrap Skirt_02.webp"],
+      secondaryImage: "sViolet Bloom Wrap Skirt.webp",
+      code: "#76599c"
+    }
+    ],
+    category: "skirts",
+    mood: ["casual", "comfortable", "luxurious"],
+    occasion: ["beach", "casual", "daytime", "evening"],
+    sizeRange: ["n/a"],
+    colorNames: ["violet(floral)"],
+    material: "Cotton",
+    searchKeywords: ["cotton", "floral", "skirt", "long skirt", "lavender"],
+    recommendations: [2, 6],
+    tags: ["comfortable", "cotton", "floral", "skirt"],
+    featured: true
+  },
+  {
+    id: 17,
+    slug: "art-deco-mirage-skirt",
+    title: "Art Deco Mirage Skirt",
+    shortDescription: "Capture timeless elegance with this striking, intricate geometric print.",
+    price: 25000,
+    availability: true,
+    mainImages: ["Art Deco Mirage Skirt_00.webp", "Art Deco Mirage Skirt_01.webp"],
+    secondaryImage: "sArt Deco Mirage Skirt.webp",
+    colors: [
+    {
+      name: "Dark Blue(Artistic)",
+      availability: true,
+      mainImages: ["Art Deco Mirage Skirt_00.webp", "Art Deco Mirage Skirt_01.webp"],
+      secondaryImage: "sArt Deco Mirage Skirt.webp",
+      code: "#181b47"
+    }
+    ],
+    category: "skirts",
+    mood: ["casual", "comfortable", "luxurious", "sophisticated"],
+    occasion: ["beach", "casual", "date", "daytime"],
+    sizeRange: ["n/a"],
+    colorNames: ["dark blue(artistic)"],
+    material: "Cotton",
+    searchKeywords: ["cotton", "floral", "long skirt", "wrap skirt", "blue"],
+    recommendations: [16],
+    tags: ["blue", "casual", "elegant", "floral", "luxurious", "skirt", "long skirt"],
+    featured: true
+  },
+  {
+    id: 18,
+    slug: "dream-silk-skirt",
+    title: "Dream Silk Skirt",
+    shortDescription: "Soft, ethereal hues meet a flattering, luxurious wrap silhouette.",
+    price: 35000,
+    availability: true,
+    mainImages: ["Dream Silk Skirt_00.webp", "Dream Silk Skirt_03.webp", "Dream Silk Skirt_01.webp", "Dream Silk Skirt_04.webp", "Dream Silk Skirt_02.webp"],
+    secondaryImage: "sDream Silk Skirt.webp",
+    colors: [
+    {
+      name: "Neon Pink",
+      availability: true,
+      mainImages: ["Dream Silk Skirt_00.webp", "Dream Silk Skirt_01.webp", "Dream Silk Skirt_02.webp"],
+      secondaryImage: "sDream Silk Skirt.webp",
+      code: "#b594ae"
+    },
+    {
+      name: "Neon Indigo",
+      availability: true,
+      mainImages: ["Dream Silk Skirt_03.webp", "Dream Silk Skirt_04.webp"],
+      secondaryImage: "sDream Silk Skirt.webp",
+      code: "#9c94bb"
+    }
+    ],
+    category: "skirts",
+    mood: ["casual", "comfortable", "luxurious"],
+    occasion: ["date", "excecutive party", "formal"],
+    sizeRange: ["n/a"],
+    colorNames: ["neon pink", "neon indigo"],
+    material: "Silky",
+    searchKeywords: ["long skirt", "skirt", "luxurious", "pink", "silk"],
+    recommendations: [16, 17, 19, 20],
+    tags: ["long skirt", "luxurious", "skirt", "silk", "pink"],
+    featured: true
+  },
+  {
+    id: 19,
+    slug: "tropical-breeze-ruffle-skirt",
+    title: "Tropical Breeze Ruffle Skirt",
+    shortDescription: "Fresh palm prints and playful ruffles for effortless vacation vibes.",
+    price: 25000,
+    availability: true,
+    mainImages: ["Tropical Breeze Ruffle Skirt_04.webp", "Tropical Breeze Ruffle Skirt_00.webp", "Tropical Breeze Ruffle Skirt_01.webp", "Tropical Breeze Ruffle Skirt_05.webp", "Tropical Breeze Ruffle Skirt_06.webp", "Tropical Breeze Ruffle Skirt_02.webp", "Tropical Breeze Ruffle Skirt_03.webp"],
+    secondaryImage: "sTropical Breeze Ruffle Skirt.webp",
+    colors: [
+    {
+      name: "Blued-Olive",
+      availability: true,
+      mainImages: ["Tropical Breeze Ruffle Skirt_04.webp", "Tropical Breeze Ruffle Skirt_05.webp", "Tropical Breeze Ruffle Skirt_06.webp"],
+      secondaryImage: "sTropical Breeze Ruffle Skirt.webp",
+      code: "#b1a84a"
+    },
+    {
+      name: "Yellowed-Blue",
+      availability: true,
+      mainImages: ["Tropical Breeze Ruffle Skirt_00.webp", "Tropical Breeze Ruffle Skirt_01.webp", "Tropical Breeze Ruffle Skirt_02.webp", "Tropical Breeze Ruffle Skirt_03.webp"],
+      secondaryImage: "sTropical Breeze Ruffle Skirt.webp",
+      code: "#9ba8c8"
+    }
+    ],
+    category: "skirts",
+    mood: ["comfortable", "vacation"],
+    occasion: ["beach", "cocktail", "travel"],
+    sizeRange: ["n/a"],
+    colorNames: ["blued-olive", "yellowed-blue"],
+    material: "N/A",
+    searchKeywords: ["long skirt", "skirt", "beach", "vacation", "travel"],
+    recommendations: [17, 18, 20],
+    tags: ["green", "skirt", "beach", "green skirt"],
+    featured: true
+  },
+  {
+    id: 20,
+    slug: "bordeaux-floral-wrap-skirt",
+    title: "Bordeaux Floral Wrap Skirt",
+    shortDescription: "Rich wine tones paired with delicate, romantic blooms.",
+    price: 30000,
+    availability: true,
+    mainImages: ["Bordeaux Floral Wrap Skirt_01.webp", "Bordeaux Floral Wrap Skirt_00.webp", "Bordeaux Floral Wrap Skirt_02.webp", "Bordeaux Floral Wrap Skirt_03.webp"],
+    secondaryImage: "sBordeaux Floral Wrap Skirt.webp",
+    colors: [
+    {
+      name: "Dark-Red",
+      availability: true,
+      mainImages: ["Bordeaux Floral Wrap Skirt_01.webp", "Bordeaux Floral Wrap Skirt_00.webp", "Bordeaux Floral Wrap Skirt_02.webp", "Bordeaux Floral Wrap Skirt_03.webp"],
+      secondaryImage: "sBordeaux Floral Wrap Skirt.webp",
+      code: "#723039"
+    }
+    ],
+    category: "skirts",
+    mood: ["comfortable", "floral", "romantic", "vacation"],
+    occasion: ["casual", "date", "daytime"],
+    sizeRange: ["medium"],
+    colorNames: ["dark-red"],
+    material: "Cotton",
+    searchKeywords: ["cotton", "skirt", "wrap skirt", "casual", "date", "romantic"],
+    recommendations: [3, 19, 21],
+    tags: ["casual", "comfortable", "elegant", "floral", "skirt", "smart"],
+    featured: true
+  },
+  {
+    id: 21,
+    slug: "emerald-garden-wrap-skirt",
+    title: "Emerald Garden Wrap Skirt",
+    shortDescription: "Deep forest greens with charming, sunny floral accents.",
+    price: 25000,
+    availability: true,
+    mainImages: ["Emerald Garden Wrap Skirt_00.webp", "Emerald Garden Wrap Skirt_01.webp", "Emerald Garden Wrap Skirt_02.webp"],
+    secondaryImage: "sEmerald Garden Wrap Skirt.webp",
+    colors: [
+    {
+      name: "Dark-Green",
+      availability: true,
+      mainImages: ["Emerald Garden Wrap Skirt_00.webp", "Emerald Garden Wrap Skirt_01.webp", "Emerald Garden Wrap Skirt_02.webp"],
+      secondaryImage: "sEmerald Garden Wrap Skirt.webp",
+      code: "#3f544d"
+    }
+    ],
+    category: "skirts",
+    mood: ["comfortable", "floral", "romantic", "vacation"],
+    occasion: ["casual", "date", "daytime"],
+    sizeRange: ["medium"],
+    colorNames: ["dark-green"],
+    material: "Cotton",
+    searchKeywords: ["casual", "cotton", "date", "luxurious", "romantic", "skirt", "wrap skirt", "green"],
+    recommendations: [3, 20],
+    tags: ["cotton", "floral", "green", "green skirt", "skirt", "date"],
+    featured: true
+  },
+  {
+    id: 22,
+    slug: "midnight-meadow-ruffle-skirt",
+    title: "Midnight Meadow Ruffle Skirt",
+    shortDescription: "Vibrant floral blooms meet a playful, breezy asymmetric hemline.",
+    price: 25000,
+    availability: true,
+    mainImages: ["Midnight Meadow Ruffle Skirt_00.webp", "Midnight Meadow Ruffle Skirt_01.webp", "Midnight Meadow Ruffle Skirt_02.webp"],
+    secondaryImage: "sMidnight Meadow Ruffle Skirt.webp",
+    colors: [
+    {
+      name: "Colourful-Black",
+      availability: true,
+      mainImages: ["Midnight Meadow Ruffle Skirt_00.webp", "Midnight Meadow Ruffle Skirt_01.webp", "Midnight Meadow Ruffle Skirt_02.webp"],
+      secondaryImage: "sMidnight Meadow Ruffle Skirt.webp",
+      code: "#2e282e"
+    }
+    ],
+    category: "skirts",
+    mood: ["casual", "chic", "comfortable", "practicle", "professional", "smart"],
+    occasion: ["beach"],
+    sizeRange: ["n/a"],
+    colorNames: ["colourful-black"],
+    material: "Cotton",
+    searchKeywords: ["beach", "black skirt", "casual", "floral", "luxurious", "skirt", "wrap skirt"],
+    recommendations: [18, 19],
+    tags: ["black", "luxurious", "skirt"],
+    featured: true
+  },
+  {
+    id: 23,
+    slug: "mint-green-wrap-skirt",
+    title: "Mint Green Wrap Skirt",
+    shortDescription: "A soft, elegant wrap style for a fresh look.",
+    price: 25000,
+    availability: true,
+    mainImages: ["Mint Green Wrap Skirt_00.webp", "Mint Green Wrap Skirt_01.webp", "Mint Green Wrap Skirt_02.webp"],
+    secondaryImage: "sMint Green Wrap Skirt.webp",
+    colors: [
+    {
+      name: "Mint Green",
+      availability: true,
+      mainImages: ["Mint Green Wrap Skirt_00.webp", "Mint Green Wrap Skirt_01.webp", "Mint Green Wrap Skirt_02.webp"],
+      secondaryImage: "sMint Green Wrap Skirt.webp",
+      code: "#afc3aa"
+    }
+    ],
+    category: "skirts",
+    mood: ["casual", "comfortable", "luxurious", "romantic"],
+    occasion: ["date", "daytime", "party"],
+    sizeRange: ["n/a"],
+    colorNames: ["mint green"],
+    material: "Cotton",
+    searchKeywords: ["casual", "cotton", "date", "green", "luxurious", "skirt"],
+    recommendations: [20, 21],
+    tags: ["casual", "green", "green skirt", "skirt"],
+    featured: true
+  },
+  {
+    id: 24,
+    slug: "sunlit-meadow-wrap-skirt",
+    title: "Sunlit Meadow Wrap Skirt",
+    shortDescription: "Effortless floral elegance for your brightest sunny days.",
+    price: 30000,
+    availability: true,
+    mainImages: ["Sunlit Meadow Wrap Skirt_00.webp", "Sunlit Meadow Wrap Skirt_01.webp", "Sunlit Meadow Wrap Skirt_02.webp"],
+    secondaryImage: "sSunlit Meadow Wrap Skirt.webp",
+    colors: [
+    {
+      name: "Floral Olive-Yellow",
+      availability: true,
+      mainImages: ["Sunlit Meadow Wrap Skirt_00.webp", "Sunlit Meadow Wrap Skirt_01.webp", "Sunlit Meadow Wrap Skirt_02.webp"],
+      secondaryImage: "sSunlit Meadow Wrap Skirt.webp",
+      code: "#ccbb6f"
+    }
+    ],
+    category: "skirt",
+    mood: ["comfortable", "luxurious", "vintage"],
+    occasion: ["afternoon", "evening", "professional"],
+    sizeRange: ["medium"],
+    colorNames: ["floral olive-yellow"],
+    material: "Cotton",
+    searchKeywords: ["cotton", "floral", "green", "long skirt", "skirt", "comfortable"],
+    recommendations: [20, 22],
+    tags: ["casual", "comfortable", "cotton", "floral"],
+    featured: true
+  },
+  {
+    id: 25,
+    slug: "midnight-dot-ruched-skirt",
+    title: "Midnight Dot Ruched Skirt",
+    shortDescription: "A classic polka dot look with flattering side gathers.",
+    price: 25000,
+    availability: true,
+    mainImages: ["Midnight Dot Ruched Skirt_00.webp", "Midnight Dot Ruched Skirt_01.webp", "Midnight Dot Ruched Skirt_02.webp", "Midnight Dot Ruched Skirt_03.webp"],
+    secondaryImage: "sMidnight Dot Ruched Skirt.webp",
+    colors: [
+    {
+      name: "Dark Grey-Blue",
+      availability: true,
+      mainImages: ["Midnight Dot Ruched Skirt_00.webp", "Midnight Dot Ruched Skirt_01.webp", "Midnight Dot Ruched Skirt_02.webp", "Midnight Dot Ruched Skirt_03.webp"],
+      secondaryImage: "sMidnight Dot Ruched Skirt.webp",
+      code: "#171d2e"
+    }
+    ],
+    category: "skirts",
+    mood: ["chic", "classic", "luxurious", "smart"],
+    occasion: ["date", "professional"],
+    sizeRange: ["medium"],
+    colorNames: ["dark grey-blue"],
+    material: "silk",
+    searchKeywords: ["black skirt", "luxurious", "skirt"],
+    recommendations: [23, 24],
+    tags: ["black", "date", "elegant", "luxurious", "skirt"],
     featured: true
   },
 
