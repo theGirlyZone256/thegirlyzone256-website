@@ -76,7 +76,7 @@ const products = [
 
     ],
     category: "bottoms",
-    mood: ["casual", "romantic"],
+    mood: ["free", "romantic"],
     occasion: ["casual", "vacation"],
     sizeRange: ["small", "medium"],
     colorNames: ["black",],
@@ -118,12 +118,12 @@ const products = [
   },
   {
     id: 4,
-    slug: "pajama-set",
-    title: "Pajama Set",
-    shortDescription: "Comfortable 2-piece pajama set with a stylish print.",
+    slug: "checkered-pajama-set",
+    title: "Checkered Pajama Set",
+    shortDescription: "Comfortable 2-piece pajama set with a checkered print.",
     price: 30000,
     availability: true,
-    mainImages: ["pijama-2pc_00.webp", "pijama-2pc_01.webp", "pijama-2pc_02.webp", "pijama-2pc_03.webp", "pijama-2pc_04.webp", "pijama-2pc_05.webp", "pijama-2pc_06.webp"],
+    mainImages: ["pijama-2pc_00.webp", "pijama-2pc_02.webp", "pijama-2pc_03.webp","pijama-2pc_06.webp"],
     secondaryImage: "spijama-2pc_00.webp",
     colors: [
       {
@@ -133,19 +133,12 @@ const products = [
         secondaryImage: "spijama-2pc_00.webp",
         availability: true
       },
-      {
-        name: "Shaded Blue",
-        code: "#006cc4ff",
-        mainImages: ["pijama-2pc_01.webp", "pijama-2pc_04.webp", "pijama-2pc_05.webp"],
-        secondaryImage: "spijama-2pc_01.webp",
-        availability: true
-      }
     ],
     category: "Sets",
-    mood: ["Casual"],
+    mood: ["Free"],
     occasion: ["Casual"],
     sizeRange: ["N/A"],
-    colorNames: ["Red", "Blue"],
+    colorNames: ["Red"],
     material: "Comfy-Smooth Fabric",
     searchKeywords: ["pajama", "night", "sleep"],
     recommendations: [2, 8],
@@ -192,7 +185,7 @@ const products = [
       },
     ],
     category: "tops",
-    mood: ["smart", "elegant", "casual"],
+    mood: ["smart", "elegant", "Free"],
     occasion: ["Casual", "Office"],
     sizeRange: ["Medium"],
     colorNames: ["Red", "Black", "Blue", "Green"],
@@ -221,7 +214,7 @@ const products = [
       }
     ],
     category: "Bottoms",
-    mood: ["Smart", "Casual"],
+    mood: ["Smart", "Free"],
     occasion: ["Office", "Casual"],
     sizeRange: ["Medium"],
     colorNames: ["black"],
@@ -257,7 +250,7 @@ const products = [
       }
     ],
     category: "Dresses",
-    mood: ["Casual", "Elegant"],
+    mood: ["Free", "Elegant"],
     occasion: ["Vacation", "Casual"],
     sizeRange: ["medium"],
     colorNames: ["Black", "White"],
@@ -286,7 +279,7 @@ const products = [
       }
     ],
     category: "Dresses",
-    mood: ["Elegant", "Casual"],
+    mood: ["Elegant", "Free"],
     occasion: ["Party", "Office"],
     sizeRange: ["Medium", "Large"],
     colorNames: ["Black"],
@@ -316,7 +309,7 @@ const products = [
       
     ],
     category: "tops",
-    mood: ["casual"],
+    mood: ["Free"],
     occasion: ["Casual"],
     sizeRange: ["small", "medium", "large"],
     colorNames: ["brown", "white"],
@@ -446,7 +439,7 @@ const products = [
     }
     ],
     category: "accessories",
-    mood: ["casual", "elegant"],
+    mood: ["Free", "elegant"],
     occasion: ["casual"],
     sizeRange: ["n/a"],
     colorNames: ["metallic silver"],
@@ -533,7 +526,7 @@ const products = [
     }
     ],
     category: "Bottoms",
-    mood: ["Casual", "Elegant"],
+    mood: ["Free", "Elegant"],
     occasion: ["Vacation", "Casual"],
     sizeRange: ["N/A"],
     colorNames: ["violet(floral)"],
@@ -562,7 +555,7 @@ const products = [
     }
     ],
     category: "Bottoms",
-    mood: ["Casual", "Elegant"],
+    mood: ["Free", "Elegant"],
     occasion: ["Vacation", "Casual"],
     sizeRange: ["N/A"],
     colorNames: ["dark blue(artistic)"],
@@ -598,7 +591,7 @@ const products = [
     }
     ],
     category: "bottoms",
-    mood: ["casual", "elegant"],
+    mood: ["Free", "elegant"],
     occasion: ["Party", "office"],
     sizeRange: ["n/a"],
     colorNames: ["neon pink", "neon indigo"],
@@ -634,7 +627,7 @@ const products = [
     }
     ],
     category: "bottoms",
-    mood: ["casual"],
+    mood: ["Free"],
     occasion: ["party", "vacation"],
     sizeRange: ["n/a"],
     colorNames: ["blued-olive", "yellowed-blue"],
@@ -663,7 +656,7 @@ const products = [
     }
     ],
     category: "bottoms",
-    mood: ["romantic", "casual"],
+    mood: ["romantic", "Free"],
     occasion: ["casual"],
     sizeRange: ["medium"],
     colorNames: ["dark-red"],
@@ -692,7 +685,7 @@ const products = [
     }
     ],
     category: "bottoms",
-    mood: ["casual", "romantic"],
+    mood: ["Free", "romantic"],
     occasion: ["casual", "date"],
     sizeRange: ["medium"],
     colorNames: ["dark-green"],
@@ -721,7 +714,7 @@ const products = [
     }
     ],
     category: "bottoms",
-    mood: ["casual","smart"],
+    mood: ["Free", "smart"],
     occasion: ["beach"],
     sizeRange: ["n/a"],
     colorNames: ["colourful-black"],
@@ -750,7 +743,7 @@ const products = [
     }
     ],
     category: "Bottoms",
-    mood: ["Casual", "Elegant", "Romantic"],
+    mood: ["Free", "Elegant", "Romantic"],
     occasion: ["Date", "Casual", "Party"],
     sizeRange: ["N/A"],
     colorNames: ["mint green"],
@@ -779,7 +772,7 @@ const products = [
     }
     ],
     category: "Bottoms",
-    mood: ["Casual", "Elegant"],
+    mood: ["Free", "Elegant"],
     occasion: ["Vacation", "Casual"],
     sizeRange: ["N/A"],
     colorNames: ["floral olive-yellow"],
@@ -816,6 +809,187 @@ const products = [
     searchKeywords: ["black skirt", "luxurious", "skirt"],
     recommendations: [23, 24],
     tags: ["black", "date", "elegant", "luxurious", "skirt"],
+    featured: true
+  },
+  {
+    id: 26,
+    slug: "lime-glow-pajamas",
+    title: "Lime Glow Pajamas",
+    shortDescription: "Soft, stylish nightwear for a cool and comfortable sleep.",
+    price: 30000,
+    availability: true,
+    mainImages: ["Lime Glow Pajamas_00.webp", "Lime Glow Pajamas_01.webp", "Lime Glow Pajamas_02.webp"],
+    secondaryImage: "sLime Glow Pajamas.webp",
+    colors: [
+    {
+      name: "Olive-Lime",
+      availability: true,
+      mainImages: ["Lime Glow Pajamas_00.webp", "Lime Glow Pajamas_01.webp", "Lime Glow Pajamas_02.webp"],
+      secondaryImage: "sLime Glow Pajamas.webp",
+      code: "#a9b62c"
+    }
+    ],
+    category: "sets",
+    mood: ["free"],
+    occasion: ["casual"],
+    sizeRange: ["n/a"],
+    colorNames: ["olive-lime"],
+    material: "Silk-Cotton",
+    searchKeywords: ["comfortable", "green", "sleep", "pajama"],
+    recommendations: [28, 29, 31],
+    tags: ["casual", "cotton", "green", "night", "pajama", "silk", "sleep"],
+    featured: true
+  },
+  {
+    id: 27,
+    slug: "classy-rust-ruffle-dress",
+    title: "Classy Rust Ruffle Dress",
+    shortDescription: "Elegant belted dress perfect for office, church, or special dates.",
+    price: 35000,
+    availability: true,
+    mainImages: ["Classy Rust Ruffle Dress_00.webp", "Classy Rust Ruffle Dress_01.webp", "Classy Rust Ruffle Dress_02.webp", "Classy Rust Ruffle Dress_03.webp"],
+    secondaryImage: "sClassy Rust Ruffle Dress.webp",
+    colors: [
+    {
+      name: "Rust Red",
+      availability: true,
+      mainImages: ["Classy Rust Ruffle Dress_00.webp", "Classy Rust Ruffle Dress_01.webp", "Classy Rust Ruffle Dress_02.webp", "Classy Rust Ruffle Dress_03.webp"],
+      secondaryImage: "sClassy Rust Ruffle Dress.webp",
+      code: "#c3434a"
+    }
+    ],
+    category: "dresses",
+    mood: ["office", "romantic", "smart"],
+    occasion: ["date", "office"],
+    sizeRange: ["n/a"],
+    colorNames: ["rust-red"],
+    material: "Cotton",
+    searchKeywords: ["date", "dress", "romantic", "office"],
+    recommendations: [6, 8],
+    tags: ["date", "dress", "elegant", "formal", "office", "smart"],
+    featured: true
+  },
+  {
+    id: 28,
+    slug: "purple-floral-pajamas",
+    title: "Purple Floral Pajamas",
+    shortDescription: "Relax in style with these soft and beautiful flower pajamas.",
+    price: 30000,
+    availability: true,
+    mainImages: ["Purple Floral Pajamas_00.webp", "Purple Floral Pajamas_01.webp", "Purple Floral Pajamas_02.webp", "Purple Floral Pajamas_03.webp"],
+    secondaryImage: "sPurple Floral Pajamas.webp",
+    colors: [
+    {
+      name: "Dark-Magenta",
+      availability: true,
+      mainImages: ["Purple Floral Pajamas_00.webp", "Purple Floral Pajamas_01.webp", "Purple Floral Pajamas_02.webp", "Purple Floral Pajamas_03.webp"],
+      secondaryImage: "sPurple Floral Pajamas.webp",
+      code: "#711856"
+    }
+    ],
+    category: "sets",
+    mood: ["free"],
+    occasion: ["casual"],
+    sizeRange: ["n/a"],
+    colorNames: ["dark-magenta"],
+    material: "Silk-Cotton",
+    searchKeywords: ["comfortable", "floral", "pajama", "sleep"],
+    recommendations: [26, 29],
+    tags: ["casual", "comfortable", "cotton", "pajama", "silk"],
+    featured: true
+  },
+  {
+    id: 29,
+    slug: "midnight-pleated-mini-dress",
+    title: " Midnight Pleated Mini Dress",
+    shortDescription: "Effortless elegance with a perfect fit for every special occasion.",
+    price: 30000,
+    availability: true,
+    mainImages: ["Midnight Pleated Mini Dress_00.webp", "Midnight Pleated Mini Dress_01.webp", "Midnight Pleated Mini Dress_02.webp"],
+    secondaryImage: "sMidnight Pleated Mini Dress.webp",
+    colors: [
+    {
+      name: "Glossy-Black",
+      availability: true,
+      mainImages: ["Midnight Pleated Mini Dress_00.webp", "Midnight Pleated Mini Dress_01.webp", "Midnight Pleated Mini Dress_02.webp"],
+      secondaryImage: "sMidnight Pleated Mini Dress.webp",
+      code: "#000000"
+    }
+    ],
+    category: "dresses",
+    mood: ["elegant", "office", "smart"],
+    occasion: ["office"],
+    sizeRange: ["n/a"],
+    colorNames: ["glossy-black"],
+    material: "Silky",
+    searchKeywords: ["black", "black dress", "dress", "office"],
+    recommendations: [27],
+    tags: ["black", "black dress", "dress", "elegant", "formal", "office"],
+    featured: true
+  },
+  {
+    id: 30,
+    slug: "classy-floral-silk-pajama",
+    title: "Classy Floral Silk Pajama",
+    shortDescription: "Step out in style with this elegant, comfortable designer set.",
+    price: 30000,
+    availability: true,
+    mainImages: ["Classy Floral Silk Pajama_00.webp", "Classy Floral Silk Pajama_01.webp", "Classy Floral Silk Pajama_02.webp"],
+    secondaryImage: "sClassy Floral Silk Pajama.webp",
+    colors: [
+    {
+      name: "Black",
+      availability: true,
+      mainImages: ["Classy Floral Silk Pajama_00.webp", "Classy Floral Silk Pajama_01.webp", "Classy Floral Silk Pajama_02.webp"],
+      secondaryImage: "sClassy Floral Silk Pajama.webp",
+      code: "#000000"
+    }
+    ],
+    category: "sets",
+    mood: ["free"],
+    occasion: ["casual"],
+    sizeRange: ["n/a"],
+    colorNames: ["black"],
+    material: "Silk-Cotton",
+    searchKeywords: ["black", "casual", "pajama", "sleep"],
+    recommendations: [26, 28],
+    tags: ["black", "cotton", "floral", "pajama", "sleep"],
+    featured: true
+  },
+  {
+    id: 31,
+    slug: "trendy-art-pajamas",
+    title: "Trendy Art Pajamas",
+    shortDescription: "Soft, stylish loungewear perfect for chilling or a cozy night.",
+    price: 30000,
+    availability: true,
+    mainImages: ["Trendy Art Pajamas_00.webp", "pijama-2pc_01.webp", "Trendy Art Pajamas_01.webp", "pijama-2pc_04.webp", "Trendy Art Pajamas_02.webp", "pijama-2pc_05.webp"],
+    secondaryImage: "sTrendy Art Pajamas.webp",
+    colors: [
+    {
+      name: "Pink",
+      availability: true,
+      mainImages: ["Trendy Art Pajamas_00.webp", "Trendy Art Pajamas_01.webp", "Trendy Art Pajamas_02.webp"],
+      secondaryImage: "sTrendy Art Pajamas.webp",
+      code: "#cf3480"
+    },
+    {
+      name: "Orange",
+      availability: true,
+      mainImages: ["pijama-2pc_01.webp", "pijama-2pc_04.webp", "pijama-2pc_05.webp"],
+      secondaryImage: "sTrendy Art Pajamas.webp",
+      code: "#ff751f"
+    }
+    ],
+    category: "sets",
+    mood: ["free"],
+    occasion: ["casual"],
+    sizeRange: ["n/a"],
+    colorNames: ["pink", "orange"],
+    material: "Silk-Cotton",
+    searchKeywords: ["casual", "comfortable", "long sleeved", "pajama", "pink", "sleep"],
+    recommendations: [26, 28, 30],
+    tags: ["casual", "comfortable", "formal", "night", "sleep"],
     featured: true
   },
 
