@@ -42,8 +42,7 @@ const products = [
     
     // SEARCH & FILTERING
     category: "dresses",
-    mood: ["elegant", "classic"],
-    occasion: ["evening", "cocktail", "formal"],
+    mood: ["elegant", "party", "office"],
     sizeRange: ["N/a"],
     colorNames: ["green", "blue"],
     material: "Premium Ribbed Fabric",
@@ -76,9 +75,9 @@ const products = [
       },
 
     ],
-    category: "skirts",
+    category: "bottoms",
     mood: ["casual", "romantic"],
-    occasion: ["daytime", "brunch", "beach"],
+    occasion: ["casual", "vacation"],
     sizeRange: ["small", "medium"],
     colorNames: ["black",],
     material: "N/A",
@@ -106,13 +105,13 @@ const products = [
       },
       
     ],
-    category: "skirt",
-    mood: ["Professional", "Sophisticated"],
-    occasion: ["Office", "Formal", "Business"],
-    sizeRange: ["Fit-All"],
+    category: "Bottoms",
+    mood: ["Smart", "Elegant"],
+    occasion: ["office"],
+    sizeRange: ["N/A"],
     colorNames: ["Red"],
-    material: "wool blend",
-    searchKeywords: ["skirt", "wrap skirt", "red skirt"],
+    material: "Wool blend",
+    searchKeywords: ["skirt", "wrap skirt", "red"],
     recommendations: [6, 19],
     tags: ["skirt", "professional", "office"],
     featured: true
@@ -142,11 +141,11 @@ const products = [
         availability: true
       }
     ],
-    category: "2-piece sets",
-    mood: ["casual", "free"],
-    occasion: ["night", "in-house", "sleep"],
+    category: "Sets",
+    mood: ["Casual"],
+    occasion: ["Casual"],
     sizeRange: ["N/A"],
-    colorNames: ["red", "blue"],
+    colorNames: ["Red", "Blue"],
     material: "Comfy-Smooth Fabric",
     searchKeywords: ["pajama", "night", "sleep"],
     recommendations: [2, 8],
@@ -192,10 +191,10 @@ const products = [
         availability: true
       },
     ],
-    category: "Shirts",
-    mood: ["smart", "luxurious", "comfortable"],
-    occasion: ["Day time", "Professional", "layering"],
-    sizeRange: ["medium"],
+    category: "tops",
+    mood: ["smart", "elegant", "casual"],
+    occasion: ["Casual", "Office"],
+    sizeRange: ["Medium"],
     colorNames: ["Red", "Black", "Blue", "Green"],
     material: "Smooth Cotton",
     searchKeywords: ["stripped shirt", "long sleeved", "shirt", "button up", "layering", "cotton shirt", "comfortable shirt", "luxurious shirt", "smart shirt", "professional shirt"],
@@ -221,9 +220,9 @@ const products = [
         availability: true
       }
     ],
-    category: "skirts",
-    mood: ["chic", "office", "comfortable"],
-    occasion: ["office", "casual", "afternoon"],
+    category: "Bottoms",
+    mood: ["Smart", "Casual"],
+    occasion: ["Office", "Casual"],
     sizeRange: ["Medium"],
     colorNames: ["black"],
     material: "Cotton",
@@ -257,9 +256,9 @@ const products = [
         availability: true
       }
     ],
-    category: "dresses",
-    mood: ["casual", "elegant", "floral", "vintage"],
-    occasion: ["daytime", "beach", "casual"],
+    category: "Dresses",
+    mood: ["Casual", "Elegant"],
+    occasion: ["Vacation", "Casual"],
     sizeRange: ["medium"],
     colorNames: ["Black", "White"],
     material: "Comfy-Mesh",
@@ -286,10 +285,10 @@ const products = [
         availability: true
       }
     ],
-    category: "dresses",
-    mood: ["elegant", "comfortable"],
-    occasion: ["Excecutive Party", "Formal", "Wedding", "Date"],
-    sizeRange: ["medium", "large"],
+    category: "Dresses",
+    mood: ["Elegant", "Casual"],
+    occasion: ["Party", "Office"],
+    sizeRange: ["Medium", "Large"],
     colorNames: ["Black"],
     material: "Stretch-Hugging Fabric",
     searchKeywords: ["long dress", "black dress", "party", "bodycon dress", "elegant dress",  "hugging dress"],
@@ -317,8 +316,8 @@ const products = [
       
     ],
     category: "tops",
-    mood: ["free", "casual"],
-    occasion: ["everyday"],
+    mood: ["casual"],
+    occasion: ["Casual"],
     sizeRange: ["small", "medium", "large"],
     colorNames: ["brown", "white"],
     material: "cotton",
@@ -359,9 +358,9 @@ const products = [
         availability: true
       }
     ],
-    category: "tote bags",
-    mood: ["chic", "practicle"],
-    occasion: ["evening", "casual", "travel"],
+    category: "bags",
+    mood: ["smart"],
+    occasion: ["casual", "vacation"],
     sizeRange: ["medium"],
     colorNames: ["pink", "blue", "black"],
     material: "Threaded Cotton",
@@ -388,9 +387,9 @@ const products = [
       code: "#c0c0c0"
     }
     ],
-    category: "jewelry",
-    mood: ["classic", "elegant", "floral", "luxurious"],
-    occasion: ["beach", "casual", "date", "day time", "office", "wedding"],
+    category: "accessories",
+    mood: ["elegant"],
+    occasion: ["vacation", "casual", "party"],
     sizeRange: ["n/a"],
     colorNames: ["metal silver"],
     material: "Metallic",
@@ -417,9 +416,9 @@ const products = [
       code: "#c0c0c0"
     }
     ],
-    category: "jewelry",
-    mood: ["classic", "elegant", "luxurious"],
-    occasion: ["afternoon", "beach", "casual"],
+    category: "accessories",
+    mood: ["elegant"],
+    occasion: ["Vacation", "casual"],
     sizeRange: ["n/a"],
     colorNames: ["metallic silver"],
     material: "Metallic",
@@ -446,9 +445,9 @@ const products = [
       code: "#c0c0c0"
     }
     ],
-    category: "jewelry",
-    mood: ["casual", "chic", "classic", "elegant", "luxurious"],
-    occasion: ["casual", "in-house"],
+    category: "accessories",
+    mood: ["casual", "elegant"],
+    occasion: ["casual"],
     sizeRange: ["n/a"],
     colorNames: ["metallic silver"],
     material: "Metallic",
@@ -475,9 +474,9 @@ const products = [
       code: "#c0c0c0"
     }
     ],
-    category: "jewelry",
-    mood: ["chic", "classic", "luxurious", "vintage"],
-    occasion: ["afternoon", "beach", "casual"],
+    category: "accessories",
+    mood: ["elegant"],
+    occasion: ["vacation", "casual"],
     sizeRange: ["n/a"],
     colorNames: ["metallic silver"],
     material: "Metallic",
@@ -504,9 +503,9 @@ const products = [
       code: "#c0c0c0"
     }
     ],
-    category: "jewelry",
-    mood: ["classic", "vintage"],
-    occasion: ["day time"],
+    category: "accessories",
+    mood: ["elegant"],
+    occasion: ["casual"],
     sizeRange: ["n/a"],
     colorNames: ["metallic silver"],
     material: "Metallic",
@@ -533,10 +532,10 @@ const products = [
       code: "#76599c"
     }
     ],
-    category: "skirts",
-    mood: ["casual", "comfortable", "luxurious"],
-    occasion: ["beach", "casual", "daytime", "evening"],
-    sizeRange: ["n/a"],
+    category: "Bottoms",
+    mood: ["Casual", "Elegant"],
+    occasion: ["Vacation", "Casual"],
+    sizeRange: ["N/A"],
     colorNames: ["violet(floral)"],
     material: "Cotton",
     searchKeywords: ["cotton", "floral", "skirt", "long skirt", "lavender"],
@@ -562,10 +561,10 @@ const products = [
       code: "#181b47"
     }
     ],
-    category: "skirts",
-    mood: ["casual", "comfortable", "luxurious", "sophisticated"],
-    occasion: ["beach", "casual", "date", "daytime"],
-    sizeRange: ["n/a"],
+    category: "Bottoms",
+    mood: ["Casual", "Elegant"],
+    occasion: ["Vacation", "Casual"],
+    sizeRange: ["N/A"],
     colorNames: ["dark blue(artistic)"],
     material: "Cotton",
     searchKeywords: ["cotton", "floral", "long skirt", "wrap skirt", "blue"],
@@ -598,9 +597,9 @@ const products = [
       code: "#9c94bb"
     }
     ],
-    category: "skirts",
-    mood: ["casual", "comfortable", "luxurious"],
-    occasion: ["date", "excecutive party", "formal"],
+    category: "bottoms",
+    mood: ["casual", "elegant"],
+    occasion: ["Party", "office"],
     sizeRange: ["n/a"],
     colorNames: ["neon pink", "neon indigo"],
     material: "Silky",
@@ -634,9 +633,9 @@ const products = [
       code: "#9ba8c8"
     }
     ],
-    category: "skirts",
-    mood: ["comfortable", "vacation"],
-    occasion: ["beach", "cocktail", "travel"],
+    category: "bottoms",
+    mood: ["casual"],
+    occasion: ["party", "vacation"],
     sizeRange: ["n/a"],
     colorNames: ["blued-olive", "yellowed-blue"],
     material: "N/A",
@@ -663,9 +662,9 @@ const products = [
       code: "#723039"
     }
     ],
-    category: "skirts",
-    mood: ["comfortable", "floral", "romantic", "vacation"],
-    occasion: ["casual", "date", "daytime"],
+    category: "bottoms",
+    mood: ["romantic", "casual"],
+    occasion: ["casual"],
     sizeRange: ["medium"],
     colorNames: ["dark-red"],
     material: "Cotton",
@@ -692,9 +691,9 @@ const products = [
       code: "#3f544d"
     }
     ],
-    category: "skirts",
-    mood: ["comfortable", "floral", "romantic", "vacation"],
-    occasion: ["casual", "date", "daytime"],
+    category: "bottoms",
+    mood: ["casual", "romantic"],
+    occasion: ["casual", "date"],
     sizeRange: ["medium"],
     colorNames: ["dark-green"],
     material: "Cotton",
@@ -721,8 +720,8 @@ const products = [
       code: "#2e282e"
     }
     ],
-    category: "skirts",
-    mood: ["casual", "chic", "comfortable", "practicle", "professional", "smart"],
+    category: "bottoms",
+    mood: ["casual","smart"],
     occasion: ["beach"],
     sizeRange: ["n/a"],
     colorNames: ["colourful-black"],
@@ -750,10 +749,10 @@ const products = [
       code: "#afc3aa"
     }
     ],
-    category: "skirts",
-    mood: ["casual", "comfortable", "luxurious", "romantic"],
-    occasion: ["date", "daytime", "party"],
-    sizeRange: ["n/a"],
+    category: "Bottoms",
+    mood: ["Casual", "Elegant", "Romantic"],
+    occasion: ["Date", "Casual", "Party"],
+    sizeRange: ["N/A"],
     colorNames: ["mint green"],
     material: "Cotton",
     searchKeywords: ["casual", "cotton", "date", "green", "luxurious", "skirt"],
@@ -779,10 +778,10 @@ const products = [
       code: "#ccbb6f"
     }
     ],
-    category: "skirt",
-    mood: ["comfortable", "luxurious", "vintage"],
-    occasion: ["afternoon", "evening", "professional"],
-    sizeRange: ["medium"],
+    category: "Bottoms",
+    mood: ["Casual", "Elegant"],
+    occasion: ["Vacation", "Casual"],
+    sizeRange: ["N/A"],
     colorNames: ["floral olive-yellow"],
     material: "Cotton",
     searchKeywords: ["cotton", "floral", "green", "long skirt", "skirt", "comfortable"],
@@ -808,9 +807,9 @@ const products = [
       code: "#171d2e"
     }
     ],
-    category: "skirts",
-    mood: ["chic", "classic", "luxurious", "smart"],
-    occasion: ["date", "professional"],
+    category: "bottoms",
+    mood: ["elegant", "smart"],
+    occasion: ["date", "office"],
     sizeRange: ["medium"],
     colorNames: ["dark grey-blue"],
     material: "silk",
