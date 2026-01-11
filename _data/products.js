@@ -988,8 +988,124 @@ const products = [
     colorNames: ["pink", "orange"],
     material: "Silk-Cotton",
     searchKeywords: ["casual", "comfortable", "long sleeved", "pajama", "pink", "sleep"],
-    recommendations: [26, 28, 30],
+    recommendations: [26, 28, 30, 35],
     tags: ["casual", "comfortable", "formal", "night", "sleep"],
+    featured: true
+  },
+  {
+    id: 32,
+    slug: "emerald-floral-tea-dress",
+    title: "Emerald Floral Tea Dress",
+    shortDescription: "Charming flowery dress with a perfect fit for any occasion.",
+    price: 35000,
+    availability: true,
+    mainImages: ["Emerald Floral Tea Dress_00.webp", "Emerald Floral Tea Dress_01.webp", "Emerald Floral Tea Dress_02.webp"],
+    secondaryImage: "sEmerald Floral Tea Dress.webp",
+    colors: [
+    {
+      name: "Azure",
+      availability: true,
+      mainImages: ["Emerald Floral Tea Dress_00.webp", "Emerald Floral Tea Dress_01.webp", "Emerald Floral Tea Dress_02.webp"],
+      secondaryImage: "sEmerald Floral Tea Dress.webp",
+      code: "#2d5966"
+    }
+    ],
+    category: "dresses",
+    mood: ["elegant", "free"],
+    occasion: ["casual"],
+    sizeRange: ["medium"],
+    colorNames: ["azure"],
+    material: "Cotton",
+    searchKeywords: ["casual", "comfortable", "cotton", "dress", "green", "green dress"],
+    recommendations: [27, 29],
+    tags: ["casual", "comfortable", "cotton", "dress", "floral"],
+    featured: true
+  },
+  {
+    id: 33,
+    slug: "classy-rose-satin-pajama",
+    title: "Classy Rose Satin Pajama",
+    shortDescription: "Soft, smart silk pajamas for a cozy and stylish night",
+    price: 30000,
+    availability: true,
+    mainImages: ["Classy Rose Satin Pajama_00.webp", "Classy Rose Satin Pajama_01.webp", "Classy Rose Satin Pajama_02.webp"],
+    secondaryImage: "sClassy Rose Satin Pajama.webp",
+    colors: [
+    {
+      name: "Pink-Red",
+      availability: true,
+      mainImages: ["Classy Rose Satin Pajama_00.webp", "Classy Rose Satin Pajama_01.webp", "Classy Rose Satin Pajama_02.webp"],
+      secondaryImage: "sClassy Rose Satin Pajama.webp",
+      code: "#cd737c"
+    }
+    ],
+    category: "sets",
+    mood: ["free"],
+    occasion: ["casual"],
+    sizeRange: ["n/a"],
+    colorNames: ["pink-red"],
+    material: "Silk-Cotton",
+    searchKeywords: ["casual", "comfortable", "cotton", "pajama", "pink", "sleep"],
+    recommendations: [28, 31, 35],
+    tags: ["casual", "comfortable", "cotton", "floral", "pajama", "sleep"],
+    featured: true
+  },
+  {
+    id: 34,
+    slug: "diamond-flare-set",
+    title: "Diamond Flare Set",
+    shortDescription: "Look smart and classy in this trendy, stylish office-to-party shirt-skirt set.",
+    price: 30000,
+    availability: true,
+    mainImages: ["Diamond Flare Set_00.webp", "Diamond Flare Set_01.webp", "Diamond Flare Set_02.webp"],
+    secondaryImage: "sDiamond Flare Set.webp",
+    colors: [
+    {
+      name: "Vivid Blue",
+      availability: true,
+      mainImages: ["Diamond Flare Set_00.webp", "Diamond Flare Set_01.webp", "Diamond Flare Set_02.webp"],
+      secondaryImage: "sDiamond Flare Set.webp",
+      code: "#0a37ca"
+    }
+    ],
+    category: "sets",
+    mood: ["free", "office", "party"],
+    occasion: ["casual", "office", "party"],
+    sizeRange: ["medium"],
+    colorNames: ["vivid blue"],
+    material: "Silk-Cotton",
+    searchKeywords: ["blue", "office", "party", "shirt", "skirt", "tops"],
+    recommendations: [5, 27],
+    tags: ["blue", "casual", "comfortable", "party", "tops"],
+    featured: true
+  },
+  {
+    id: 35,
+    slug: "zebra-pattern-pajama-set",
+    title: "Zebra Pattern Pajama Set",
+    shortDescription: "Stay stylish and comfortable in this elegant, classy designer outfit",
+    price: 30000,
+    availability: true,
+    mainImages: ["Zebra Pattern Pajama Set_00.webp", "Zebra Pattern Pajama Set_01.webp", "Zebra Pattern Pajama Set_02.webp"],
+    secondaryImage: "sZebra Pattern Pajama Set.webp",
+    colors: [
+    {
+      name: "Blue",
+      availability: true,
+      mainImages: ["Zebra Pattern Pajama Set_00.webp", "Zebra Pattern Pajama Set_01.webp", "Zebra Pattern Pajama Set_02.webp"],
+      secondaryImage: "sZebra Pattern Pajama Set.webp",
+      code: "#0d40c0"
+    }
+    ],
+    category: "sets",
+    mood: ["free"],
+    occasion: ["casual"],
+    sizeRange: ["n/a"],
+    colorNames: ["blue"],
+    material: "Silk-Cotton",
+    searchKeywords: ["blue", "casual", "cotton", "pajama", "sleep"],
+    recommendations: [30, 28],
+    tags: ["blue", "casual", "night", "pajama", "silk", "sleep"],
     featured: true
   },
 
