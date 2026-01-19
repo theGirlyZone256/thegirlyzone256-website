@@ -1108,6 +1108,390 @@ const products = [
     tags: ["blue", "casual", "night", "pajama", "silk", "sleep"],
     featured: true
   },
+  {
+    id: 36,
+    slug: "gingham-wrap-short-skirt",
+    title: "Gingham Wrap Short Skirt",
+    shortDescription: "Fashionable wrap-around skirt for office or casual weekend wear.",
+    price: 20000,
+    availability: true,
+    mainImages: ["Gingham Wrap Short Skirt_00.webp", "Gingham Wrap Short Skirt_01.webp", "Gingham Wrap Short Skirt_02.webp"],
+    secondaryImage: "sGingham Wrap Short Skirt.webp",
+    colors: [
+    {
+      name: "Checkered-White",
+      availability: true,
+      mainImages: ["Gingham Wrap Short Skirt_00.webp", "Gingham Wrap Short Skirt_01.webp", "Gingham Wrap Short Skirt_02.webp"],
+      secondaryImage: "sGingham Wrap Short Skirt.webp",
+      code: "#cfced2"
+    }
+    ],
+    category: "bottoms",
+    mood: ["office", "smart"],
+    occasion: ["casual", "office"],
+    sizeRange: ["n/a"],
+    colorNames: ["checkered-white", "black on white"],
+    material: "Cotton",
+    searchKeywords: ["black", "cotton", "green dress", "mini skirt", "office", "wrap skirt"],
+    recommendations: [3, 9],
+    tags: ["black", "casual", "cotton", "skirt"],
+    featured: true
+  },
+  {
+    id: 37,
+    slug: "blue-floral-wrap-skirt",
+    title: "Blue Floral Wrap Skirt",
+    shortDescription: "Stylish navy blue skirt with beautiful flower patterns.",
+    price: 25000,
+    availability: true,
+    mainImages: ["Blue Floral Wrap Skirt_00.webp", "Blue Floral Wrap Skirt_01.webp", "Blue Floral Wrap Skirt_02.webp"],
+    secondaryImage: "sBlue Floral Wrap Skirt.webp",
+    colors: [
+    {
+      name: "Navy Blue",
+      availability: true,
+      mainImages: ["Blue Floral Wrap Skirt_00.webp", "Blue Floral Wrap Skirt_01.webp", "Blue Floral Wrap Skirt_02.webp"],
+      secondaryImage: "sBlue Floral Wrap Skirt.webp",
+      code: "#202248"
+    }
+    ],
+    category: "bottoms",
+    mood: ["free", "office"],
+    occasion: ["casual", "office"],
+    sizeRange: ["medium"],
+    colorNames: ["navy blue"],
+    material: "N/A",
+    searchKeywords: ["blue", "casual", "comfortable", "floral", "long skirt", "skirt", "wrap skirt", "tie"],
+    recommendations: [3, 5],
+    tags: ["blue", "casual", "floral", "long skirt", "skirt"],
+    featured: true
+  },
+  {
+    id: 38,
+    slug: "yellow-florals-wrap-skirt",
+    title: "Yellow Florals Wrap Skirt",
+    shortDescription: "Pretty yellow floral skirt with a lovely frill bottom.",
+    price: 25000,
+    availability: true,
+    mainImages: ["Yellow Florals Wrap Skirt_00.webp", "Yellow Florals Wrap Skirt_01.webp", "Yellow Florals Wrap Skirt_02.webp", "Yellow Florals Wrap Skirt_03.webp"],
+    secondaryImage: "sYellow Florals Wrap Skirt.webp",
+    colors: [
+    {
+      name: "Yellow-on-White",
+      availability: true,
+      mainImages: ["Yellow Florals Wrap Skirt_00.webp", "Yellow Florals Wrap Skirt_01.webp", "Yellow Florals Wrap Skirt_02.webp", "Yellow Florals Wrap Skirt_03.webp"],
+      secondaryImage: "sYellow Florals Wrap Skirt.webp",
+      code: "#e6e6e6"
+    }
+    ],
+    category: "bottoms",
+    mood: ["free", "office"],
+    occasion: ["casual", "office"],
+    sizeRange: ["medium"],
+    colorNames: ["yellow-on-white"],
+    material: "N/A",
+    searchKeywords: ["casual", "comfortable", "floral", "long skirt", "skirt", "wrap skirt"],
+    recommendations: [36, 37, 39],
+    tags: ["casual", "comfortable", "floral", "long skirt", "skirt"],
+    featured: true
+  },
+  {
+    id: 39,
+    slug: "black-floral-wrap-skirt",
+    title: "Black Floral Wrap Skirt",
+    shortDescription: "Beautiful dark flowery skirt with a stylish wrap design.",
+    price: 25000,
+    availability: true,
+    mainImages: ["Black Floral Wrap Skirt_00.webp", "Black Floral Wrap Skirt_01.webp", "Black Floral Wrap Skirt_02.webp", "Black Floral Wrap Skirt_03.webp"],
+    secondaryImage: "sBlack Floral Wrap Skirt.webp",
+    colors: [
+    {
+      name: "Black",
+      availability: true,
+      mainImages: ["Black Floral Wrap Skirt_00.webp", "Black Floral Wrap Skirt_01.webp", "Black Floral Wrap Skirt_02.webp", "Black Floral Wrap Skirt_03.webp"],
+      secondaryImage: "sBlack Floral Wrap Skirt.webp",
+      code: "#171717"
+    }
+    ],
+    category: "bottoms",
+    mood: ["free", "office"],
+    occasion: ["casual", "office"],
+    sizeRange: ["medium"],
+    colorNames: ["black"],
+    material: "N/A",
+    searchKeywords: ["black", "black skirt", "casual", "floral", "long skirt", "skirt"],
+    recommendations: [37, 38],
+    tags: ["black", "casual", "comfortable", "long skirt", "skirt"],
+    featured: true
+  },
+  {
+    id: 40,
+    slug: "green-daisy-wrap-skirt",
+    title: "Green Daisy Wrap Skirt",
+    shortDescription: "Bright green skirt with large, pretty daisy flower prints.",
+    price: 25000,
+    availability: true,
+    mainImages: ["Green Daisy Wrap Skirt_02.webp", "Green Daisy Wrap Skirt_00.webp", "Green Daisy Wrap Skirt_01.webp", "Green Daisy Wrap Skirt_04.webp"],
+    secondaryImage: "sGreen Daisy Wrap Skirt.webp",
+    colors: [
+    {
+      name: "Green",
+      availability: true,
+      mainImages: ["Green Daisy Wrap Skirt_02.webp", "Green Daisy Wrap Skirt_00.webp", "Green Daisy Wrap Skirt_01.webp", "Green Daisy Wrap Skirt_04.webp"],
+      secondaryImage: "sGreen Daisy Wrap Skirt.webp",
+      code: "#819e7d"
+    }
+    ],
+    category: "bottoms",
+    mood: ["free", "office"],
+    occasion: ["casual", "office"],
+    sizeRange: ["medium"],
+    colorNames: ["green"],
+    material: "N/A",
+    searchKeywords: ["floral", "green", "long skirt", "office", "wrap skirt"],
+    recommendations: [3, 39],
+    tags: ["casual", "comfortable", "green", "green skirt", "long skirt", "skirt", "wrap skirt"],
+    featured: true
+  },
+  {
+    id: 41,
+    slug: "red-floral-ruffled-skirt",
+    title: "Red Floral Ruffled Skirt",
+    shortDescription: "Stylish red flowery skirt with a beautiful ruffled hem.",
+    price: 25000,
+    availability: true,
+    mainImages: ["Red Floral Ruffled Skirt_00.webp", "Red Floral Ruffled Skirt_01.webp", "Red Floral Ruffled Skirt_02.webp", "Red Floral Ruffled Skirt_03.webp"],
+    secondaryImage: "sRed Floral Ruffled Skirt.webp",
+    colors: [
+    {
+      name: "Red",
+      availability: true,
+      mainImages: ["Red Floral Ruffled Skirt_00.webp", "Red Floral Ruffled Skirt_01.webp", "Red Floral Ruffled Skirt_02.webp", "Red Floral Ruffled Skirt_03.webp"],
+      secondaryImage: "sRed Floral Ruffled Skirt.webp",
+      code: "#a62a11"
+    }
+    ],
+    category: "bottoms",
+    mood: ["office", "smart"],
+    occasion: ["casual", "office"],
+    sizeRange: ["n/a"],
+    colorNames: ["red"],
+    material: "N/A",
+    searchKeywords: ["casual", "floral", "skirt"],
+    recommendations: [19, 36],
+    tags: ["casual", "comfortable", "skirt"],
+    featured: true
+  },
+  {
+    id: 42,
+    slug: "mini-ruffle-tie-skirt",
+    title: "Mini Ruffle Tie Skirt",
+    shortDescription: "Comfortable short skirt with flowers and a side ribbon.",
+    price: 20000,
+    availability: true,
+    mainImages: ["Mini Ruffle Tie Skirt_03.webp", "Mini Ruffle Tie Skirt_00.webp", "Mini Ruffle Tie Skirt_01.webp", "Mini Ruffle Tie Skirt_04.webp", "Mini Ruffle Tie Skirt_05.webp", "Mini Ruffle Tie Skirt_02.webp"],
+    secondaryImage: "sMini Ruffle Tie Skirt.webp",
+    colors: [
+    {
+      name: "Red",
+      availability: true,
+      mainImages: ["Mini Ruffle Tie Skirt_03.webp", "Mini Ruffle Tie Skirt_04.webp", "Mini Ruffle Tie Skirt_05.webp"],
+      secondaryImage: "sMini Ruffle Tie Skirt.webp",
+      code: "#a52021"
+    },
+    {
+      name: "Orange",
+      availability: true,
+      mainImages: ["Mini Ruffle Tie Skirt_00.webp", "Mini Ruffle Tie Skirt_01.webp", "Mini Ruffle Tie Skirt_02.webp"],
+      secondaryImage: "sMini Ruffle Tie Skirt.webp",
+      code: "#e04942"
+    }
+    ],
+    category: "bottoms",
+    mood: ["elegant", "free", "party", "romantic"],
+    occasion: ["casual", "date", "party"],
+    sizeRange: ["medium", "small"],
+    colorNames: ["red", "orange"],
+    material: "N/A",
+    searchKeywords: ["floral", "party", "red", "romantic", "skirt", "wrap skirt"],
+    recommendations: [2, 9],
+    tags: ["floral", "skirt"],
+    featured: true
+  },
+  {
+    id: 43,
+    slug: "green-floral-ruffle-skirt",
+    title: "Green Floral Ruffle Skirt",
+    shortDescription: "Beautiful green flowery skirt with a stylish ruffled bottom.",
+    price: 20000,
+    availability: true,
+    mainImages: ["Green Floral Ruffle Skirt_00.webp", "Green Floral Ruffle Skirt_01.webp", "Green Floral Ruffle Skirt_02.webp"],
+    secondaryImage: "sGreen Floral Ruffle Skirt.webp",
+    colors: [
+    {
+      name: "Green",
+      availability: true,
+      mainImages: ["Green Floral Ruffle Skirt_00.webp", "Green Floral Ruffle Skirt_01.webp", "Green Floral Ruffle Skirt_02.webp"],
+      secondaryImage: "sGreen Floral Ruffle Skirt.webp",
+      code: "#258577"
+    }
+    ],
+    category: "bottoms",
+    mood: ["smart"],
+    occasion: ["casual"],
+    sizeRange: ["small"],
+    colorNames: ["green"],
+    material: "N/A",
+    searchKeywords: ["casual", "green", "skirt"],
+    recommendations: [37, 40],
+    tags: ["casual", "green", "green skirt", "skirt"],
+    featured: true
+  },
+  {
+    id: 44,
+    slug: "short-floral-ruffle-skirt",
+    title: "Short-Floral Ruffle Skirt",
+    shortDescription: "Beautiful flower-print skirt with stylish frills and wrap-tie.",
+    price: 20000,
+    availability: true,
+    mainImages: ["Short-Floral Ruffle Skirt_00.webp", "Short-Floral Ruffle Skirt_01.webp", "Short-Floral Ruffle Skirt_02.webp", "Short-Floral Ruffle Skirt_03.webp", "Short-Floral Ruffle Skirt_04.webp"],
+    secondaryImage: "sShort-Floral Ruffle Skirt.webp",
+    colors: [
+    {
+      name: "Floral-White",
+      availability: true,
+      mainImages: ["Short-Floral Ruffle Skirt_00.webp", "Short-Floral Ruffle Skirt_01.webp", "Short-Floral Ruffle Skirt_02.webp", "Short-Floral Ruffle Skirt_03.webp", "Short-Floral Ruffle Skirt_04.webp"],
+      secondaryImage: "sShort-Floral Ruffle Skirt.webp",
+      code: "#efeeee"
+    }
+    ],
+    category: "bottoms",
+    mood: ["elegant", "free", "party", "smart"],
+    occasion: ["casual", "date", "party", "vacation"],
+    sizeRange: ["small"],
+    colorNames: ["floral-white"],
+    material: "N/A",
+    searchKeywords: ["floral", "frill hem", "skirt", "wrap skirt"],
+    recommendations: [42, 43],
+    tags: ["casual", "floral", "party", "wrap skirt"],
+    featured: true
+  },
+  {
+    id: 45,
+    slug: "green-leaf-floral-skirt",
+    title: "Green Leaf Floral Skirt",
+    shortDescription: "Elegant long skirt with fresh green floral patterns.",
+    price: 25000,
+    availability: true,
+    mainImages: ["Green Leaf Floral Skirt_00.webp", "Green Leaf Floral Skirt_01.webp", "Green Leaf Floral Skirt_02.webp", "Green Leaf Floral Skirt_03.webp"],
+    secondaryImage: "sGreen Leaf Floral Skirt.webp",
+    colors: [
+    {
+      name: "Cool-White",
+      availability: true,
+      mainImages: ["Green Leaf Floral Skirt_00.webp", "Green Leaf Floral Skirt_01.webp", "Green Leaf Floral Skirt_02.webp", "Green Leaf Floral Skirt_03.webp"],
+      secondaryImage: "sGreen Leaf Floral Skirt.webp",
+      code: "#bcc2cf"
+    }
+    ],
+    category: "bottoms",
+    mood: ["free"],
+    occasion: ["vacation"],
+    sizeRange: ["medium"],
+    colorNames: ["cool-white"],
+    material: "N/A",
+    searchKeywords: ["casual", "comfortable", "green", "long skirt", "travel", "vacation"],
+    recommendations: [37, 38],
+    tags: ["casual", "comfortable", "green", "long skirt", "skirt"],
+    featured: true
+  },
+  {
+    id: 46,
+    slug: "green-mix-floral-skirt",
+    title: "Green Mix Floral Skirt",
+    shortDescription: "Stylish green skirt with colorful prints and a wavy hem.",
+    price: 25000,
+    availability: true,
+    mainImages: ["Green Mix Floral Skirt_00.webp", "Green Mix Floral Skirt_01.webp", "Green Mix Floral Skirt_02.webp"],
+    secondaryImage: "sGreen Mix Floral Skirt.webp",
+    colors: [
+    {
+      name: "Green",
+      availability: true,
+      mainImages: ["Green Mix Floral Skirt_00.webp", "Green Mix Floral Skirt_01.webp", "Green Mix Floral Skirt_02.webp"],
+      secondaryImage: "sGreen Mix Floral Skirt.webp",
+      code: "#1d5c2f"
+    }
+    ],
+    category: "bottoms",
+    mood: ["free"],
+    occasion: ["casual"],
+    sizeRange: ["medium", "small"],
+    colorNames: ["green"],
+    material: "N/A",
+    searchKeywords: ["casual", "comfortable", "floral", "green", "long skirt", "skirt"],
+    recommendations: [43, 45],
+    tags: ["casual", "floral", "green", "green skirt", "long skirt", "skirt"],
+    featured: true
+  },
+  {
+    id: 47,
+    slug: "navy-floral-wrap-skirt",
+    title: "Navy Floral Wrap Skirt",
+    shortDescription: "Pretty flowery skirt with a side tie and ruffles.",
+    price: 20000,
+    availability: true,
+    mainImages: ["Navy Floral Wrap Skirt_00.webp", "Navy Floral Wrap Skirt_01.webp", "Navy Floral Wrap Skirt_02.webp"],
+    secondaryImage: "sNavy Floral Wrap Skirt.webp",
+    colors: [
+    {
+      name: "Dark-Indigo",
+      availability: true,
+      mainImages: ["Navy Floral Wrap Skirt_00.webp", "Navy Floral Wrap Skirt_01.webp", "Navy Floral Wrap Skirt_02.webp"],
+      secondaryImage: "sNavy Floral Wrap Skirt.webp",
+      code: "#2b2b3f"
+    }
+    ],
+    category: "bottoms",
+    mood: ["free", "party"],
+    occasion: ["casual", "party", "vacation"],
+    sizeRange: ["small"],
+    colorNames: ["dark-indigo"],
+    material: "N/A",
+    searchKeywords: ["casual", "floral", "mini skirt", "skirt", "tie", "wrap skirt"],
+    recommendations: [36, 42],
+    tags: ["black", "casual", "floral", "party", "skirt", "wrap skirt"],
+    featured: true
+  },
+  {
+    id: 48,
+    slug: "orange-ruched-bodycon-skirt",
+    title: "Orange Ruched Bodycon Skirt",
+    shortDescription: "Bright, stretchy skirt that fits your body perfectly.",
+    price: 25000,
+    availability: true,
+    mainImages: ["Orange Ruched Bodycon Skirt_00.webp", "Orange Ruched Bodycon Skirt_01.webp", "Orange Ruched Bodycon Skirt_02.webp"],
+    secondaryImage: "sOrange Ruched Bodycon Skirt.webp",
+    colors: [
+    {
+      name: "Orange",
+      availability: true,
+      mainImages: ["Orange Ruched Bodycon Skirt_00.webp", "Orange Ruched Bodycon Skirt_01.webp", "Orange Ruched Bodycon Skirt_02.webp"],
+      secondaryImage: "sOrange Ruched Bodycon Skirt.webp",
+      code: "#ff6600"
+    }
+    ],
+    category: "bottoms",
+    mood: ["party"],
+    occasion: ["party"],
+    sizeRange: ["small"],
+    colorNames: ["orange"],
+    material: "N/A",
+    searchKeywords: ["mini skirt", "party", "skirt"],
+    recommendations: [35, 41],
+    tags: ["party", "skirt"],
+    featured: true
+  },
 
   
 ];
