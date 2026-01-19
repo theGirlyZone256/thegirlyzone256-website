@@ -1289,13 +1289,13 @@ const products = [
     shortDescription: "Comfortable short skirt with flowers and a side ribbon.",
     price: 20000,
     availability: true,
-    mainImages: ["Mini Ruffle Tie Skirt_03.webp", "Mini Ruffle Tie Skirt_00.webp", "Mini Ruffle Tie Skirt_01.webp", "Mini Ruffle Tie Skirt_04.webp", "Mini Ruffle Tie Skirt_05.webp", "Mini Ruffle Tie Skirt_02.webp"],
+    mainImages: ["Mini Ruffle Tie-Skirt_03.webp", "Mini Ruffle Tie-Skirt_00.webp", "Mini Ruffle Tie-Skirt_01.webp", "Mini Ruffle Tie-Skirt_04.webp", "Mini Ruffle Tie-Skirt_05.webp", "Mini Ruffle Tie-Skirt_02.webp"],
     secondaryImage: "sMini Ruffle Tie Skirt.webp",
     colors: [
     {
       name: "Red",
       availability: true,
-      mainImages: ["Mini Ruffle Tie Skirt_03.webp", "Mini Ruffle Tie Skirt_04.webp", "Mini Ruffle Tie Skirt_05.webp"],
+      mainImages: ["Mini Ruffle Tie-Skirt_03.webp", "Mini Ruffle Tie-Skirt_04.webp", "Mini Ruffle Tie-Skirt_05.webp"],
       secondaryImage: "sMini Ruffle Tie Skirt.webp",
       code: "#a52021"
     },
