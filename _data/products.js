@@ -1302,7 +1302,7 @@ const products = [
     {
       name: "Orange",
       availability: true,
-      mainImages: ["Mini Ruffle Tie Skirt_00.webp", "Mini Ruffle Tie Skirt_01.webp", "Mini Ruffle Tie Skirt_02.webp"],
+      mainImages: ["Mini Ruffle Tie-Skirt_00.webp", "Mini Ruffle Tie-Skirt_01.webp", "Mini Ruffle Tie-0Skirt_02.webp"],
       secondaryImage: "sMini Ruffle Tie Skirt.webp",
       code: "#e04942"
     }
