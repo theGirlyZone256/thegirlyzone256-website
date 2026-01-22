@@ -47,6 +47,26 @@ eleventyComputed:
             });
         });
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "{{ product.title }}",
+  "image": [
+    "https://thegirlyzone.netlify.app/assets/images/main/{{ product.mainImages[0] }}"
+   ],
+  "description": "{{ product.shortDescription }}",
+  "sku": "{{ product.id }}",
+  "offers": {
+    "@type": "Offer",
+    "url": "https://thegirlyzone.netlify.app/product/{{ product.slug }}/",
+    "priceCurrency": "UGX",
+    "price": "{{ product.price }}",
+    "availability": "https://schema.org/{% if product.availability %}InStock{% else %}OutOfStock{% endif %}",
+    "itemCondition": "https://schema.org/NewCondition"
+  }
+}
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 🎯 FAVICON CONFIGURATION -->
@@ -76,6 +96,7 @@ eleventyComputed:
     <meta property="twitter:image" content="https://thegirlyzone.netlify.app/assets/images/main/{{ product.mainImages[0] }}">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
@@ -299,7 +320,9 @@ a:has(img) { -webkit-tap-highlight-color: transparent !important; }
                             <div class="gallery-slides" id="gallerySlides">
                                 {% for image in product.mainImages %}
                                 <div class="gallery-slide" data-index="{{ forloop.index0 }}">
-                                    <img src="/assets/images/main/{{ image }}" alt="{{ product.title }} - Image {{ forloop.index }}" loading="lazy">
+                                    <img src="/assets/images/main/{{ image }}" 
+                                    alt="{{ product.title }} - {{ product.material }} {{ product.category }} available at theGirlyZone Kampala" 
+                                    loading="lazy">
                                 </div>
                                 {% endfor %}
                             </div>
@@ -593,7 +616,9 @@ a:has(img) { -webkit-tap-highlight-color: transparent !important; }
                 <div class="product-card">
                     <div class="product-image">
                         <a href="/product/${product.slug}/">
-                            <img src="/assets/images/secondary/${product.secondaryImage}" alt="${product.title}" loading="lazy">
+                            <img src="/assets/images/secondary/${product.secondaryImage}" 
+                            alt="${product.title} - Women's Fashion at theGirlyZone Uganda" 
+                            loading="lazy">
                         </a>
                         <!-- HEART BUTTON REMOVED FROM HERE -->
                     </div>
@@ -1001,13 +1026,16 @@ a:has(img) { -webkit-tap-highlight-color: transparent !important; }
 
         // Mobile detection
         function checkMobile() {
-            const mobileBtn = document.querySelector('.mobile-only');
-            if (window.innerWidth < 768) {
-                mobileBtn.style.display = 'block';
-            } else {
-                mobileBtn.style.display = 'none';
-            }
-        }
+    const mobileBtn = document.querySelector('.mobile-only');
+    
+          if (mobileBtn) {
+              if (window.innerWidth < 768) {
+                  mobileBtn.style.display = 'block';
+              } else {
+                  mobileBtn.style.display = 'none';
+              }
+          }
+      }
 
         // Navigation functions (placeholder)
         function openCategories() {
