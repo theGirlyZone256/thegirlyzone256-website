@@ -280,15 +280,15 @@ class SearchPanel {
                 category: 'any',
                 mood: 'any',
                 occasion: 'any',
-                price: 50000
+                price: 100000
             };
             
             // Reset UI elements
             if (window.categoriesPanelInstance.priceSlider) {
-                window.categoriesPanelInstance.priceSlider.value = 50000;
+                window.categoriesPanelInstance.priceSlider.value = 100000;
             }
             if (window.categoriesPanelInstance.priceDisplay) {
-                window.categoriesPanelInstance.priceDisplay.textContent = 'UGX 50,000';
+                window.categoriesPanelInstance.priceDisplay.textContent = 'UGX 100,000';
             }
             
             // Reset filter options to "any"

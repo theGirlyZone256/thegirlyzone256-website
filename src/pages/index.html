@@ -433,10 +433,10 @@ html { scroll-behavior: smooth; }
         <div class="price-filter-section">
             <div class="price-header">
                 <h3>Price Range</h3>
-                <div class="price-display" id="priceDisplay">UGX 50,000</div>
+                <div class="price-display" id="priceDisplay">UGX 100,000</div>
             </div>
             <div class="price-slider-container">
-                <input type="range" class="price-slider" id="priceSlider" min="2000" max="50000" value="50000">
+                <input type="range" class="price-slider" id="priceSlider" min="2000" max="100000" value="100000">
             </div>
         </div>
         
@@ -964,7 +964,7 @@ class CategoriesPanel {
             category: 'any',
             mood: 'any',
             occasion: 'any',
-            price: 50000
+            price: 100000
         };
 
 
@@ -1143,7 +1143,7 @@ class CategoriesPanel {
         const priceValue = parseInt(this.priceSlider.value);
         this.currentFilters.price = priceValue;
         
-        this.isPriceFilterActive = priceValue < 50000;
+        this.isPriceFilterActive = priceValue < 100000;
         this.checkIfAnyFilterActive();
         this.updateFilterIndicators();
         this.filterProducts();
@@ -1160,8 +1160,8 @@ class CategoriesPanel {
     
     clearFilters() {
         this.clearSearchResults();
-        this.priceSlider.value = 50000;
-        this.priceDisplay.textContent = 'UGX 50,000';
+        this.priceSlider.value = 100000;
+        this.priceDisplay.textContent = 'UGX 100,000';
         
         document.querySelectorAll('.filter-option[data-value="any"]').forEach(option => {
             const filterType = option.dataset.filter;
@@ -1174,7 +1174,7 @@ class CategoriesPanel {
             this.currentFilters[filterType] = 'any';
         });
         
-        this.currentFilters.price = 50000;
+        this.currentFilters.price = 100000;
         this.isPriceFilterActive = false;
         this.hasAnyFilter = false;
         
@@ -1203,7 +1203,7 @@ class CategoriesPanel {
         const hasCategoryFilter = this.currentFilters.category !== 'any';
         const hasMoodFilter = this.currentFilters.mood !== 'any';
         const hasOccasionFilter = this.currentFilters.occasion !== 'any';
-        const hasPriceFilter = this.currentFilters.price < 50000;
+        const hasPriceFilter = this.currentFilters.price < 100000;
         
         this.hasAnyFilter = hasCategoryFilter || hasMoodFilter || hasOccasionFilter || hasPriceFilter;
         this.updateClearButtonsState();
