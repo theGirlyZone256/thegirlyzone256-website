@@ -1,6 +1,7 @@
 {
     "name": "theGirlyZone Uganda",
     "short_name": "theGirlyZone",
+    "start_url": "/",
     "icons": [
         {
             "src": "/assets/images/favicon/favicon-16x16.png",
