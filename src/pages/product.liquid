@@ -257,6 +257,129 @@ a:has(img) { -webkit-tap-highlight-color: transparent !important; }
 .color-option.single-color { cursor: default !important; opacity: 1 !important; border-color: var(--text-color) !important; }
 .color-option.single-color::after { content: none !important; }
 .color-option.single-color:hover { transform: none !important; border-color: var(--text-color) !important; } 
+/* 🎯 BUY NOW & ADD TO CART BUTTON LAYOUT */
+.product-actions-grid {
+    display: flex;
+    gap: 0.75rem;
+    margin: 2.5rem 0;
+}
+
+.buy-now-container {
+    flex: 7; /* 70% width */
+}
+
+.add-to-cart-container {
+    flex: 3; /* 30% width */
+}
+
+/* 🎯 GOLDEN SHIMMER BUTTON */
+.buy-now-btn {
+    background: linear-gradient(135deg, #FFD700 0%, #D4AF37 25%, #FFD700 50%, #D4AF37 75%, #FFD700 100%);
+    background-size: 400% 400%;
+    color: #000 !important;
+    border: none;
+    padding: 1.5rem 2rem;
+    width: 100%;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.buy-now-btn:hover {
+    animation: shimmer 1.5s infinite linear;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+}
+
+.buy-now-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
+}
+
+.buy-now-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    animation: none;
+    box-shadow: none;
+    transform: none;
+}
+
+.buy-now-btn i {
+    margin-right: 8px;
+}
+
+/* 🎯 GREEN CART BUTTON */
+.add-to-cart-btn {
+    background: #25D366 !important;
+    color: white !important;
+    border: none;
+    padding: 1.5rem 0;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 60px;
+}
+
+.add-to-cart-btn:hover {
+    background: #128C7E !important;
+    transform: scale(1.05);
+}
+
+.add-to-cart-btn:active {
+    transform: scale(0.95);
+}
+
+.add-to-cart-btn:disabled {
+    background: #ccc !important;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* 🎯 FAVOURITES BUTTON ADJUSTMENT */
+.add-to-favourites {
+    margin-top: 1rem;
+    background: white;
+    border: 1px solid #ff004d;
+    color: #ff004d;
+    padding: 1.5rem 2rem;
+    width: 100%;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.add-to-favourites:hover {
+    background: #fff0f3;
+    border-color: #ff004d;
+}
     </style>
 </head>
 <body>
@@ -373,18 +496,23 @@ a:has(img) { -webkit-tap-highlight-color: transparent !important; }
                         {% endif %}
 
                         <!-- Action Buttons -->
-<div class="product-actions">
-    <button class="add-to-cart" id="addToCartBtn" onclick="toggleCart()">
-        <span id="cartButtonText">
-            {% if product.availability %}Add to Cart{% else %}Out of Stock{% endif %}
-        </span>
-    </button>
-    <button class="add-to-favourites" id="favouriteBtn" onclick="toggleFavourite()">
-        <i class="far fa-heart" id="favouriteIcon"></i> 
-        <span id="favouriteButtonText">Add to Favourites</span>
-    </button>
+<div class="product-actions-grid">
+    <div class="buy-now-container">
+        <button class="buy-now-btn" id="buyNowBtn" onclick="buyNowProduct()">
+            <i class="fas fa-bolt"></i> BUY NOW
+        </button>
+    </div>
+    <div class="add-to-cart-container">
+        <button class="add-to-cart-btn" id="addToCartBtn" onclick="toggleCart()" title="Add to Cart">
+            <i class="fas fa-cart-plus"></i>
+        </button>
+    </div>
 </div>
 
+<button class="add-to-favourites" id="favouriteBtn" onclick="toggleFavourite()">
+    <i class="far fa-heart" id="favouriteIcon"></i> 
+    <span id="favouriteButtonText">Add to Favourites</span>
+</button>
                         <!-- Product Meta -->
                         <div class="product-meta">
                             <p><span class="meta-label">Category:</span> {{ product.category | capitalize }}</p>
@@ -713,6 +841,105 @@ a:has(img) { -webkit-tap-highlight-color: transparent !important; }
         syncButtonStates();
     };
 
+    // 🎯 BUY NOW FUNCTION - Immediate WhatsApp Checkout
+window.buyNowProduct = function() {
+    // Get selected color data from the product page
+    const selectedColorElement = document.getElementById('selectedColor');
+    const activeColorOption = document.querySelector('.color-option.active');
+    
+    let selectedColor = null;
+    
+    if (activeColorOption && activeColorOption.dataset.colorName) {
+        selectedColor = activeColorOption.dataset.colorName;
+    } else if (selectedColorElement) {
+        selectedColor = selectedColorElement.textContent;
+    }
+    
+    const product = {
+        id: {{ product.id }},
+        title: "{{ product.title | escape }}",
+        price: {{ product.price }},
+        slug: "{{ product.slug }}",
+        selectedColor: selectedColor
+    };
+    
+    // Format WhatsApp message for single product
+    let message = "🛍️ *BUY NOW REQUEST* 🛍️%0A%0A";
+    message += "*Order Item:*%0A";
+    message += `1. *${product.title}*%0A`;
+    message += `   Price: UGX ${product.price.toLocaleString()}%0A`;
+    
+    if (product.selectedColor) {
+        message += `   Color: ${product.selectedColor}%0A`;
+    }
+    
+    message += `   Link: https://thegirlyzone.netlify.app/product/${product.slug}/%0A%0A`;
+    message += `*TOTAL: UGX ${product.price.toLocaleString()}*%0A%0A`;
+    message += "Thank you! 🎀";
+
+    // WhatsApp API URL (using same number as cart)
+    const phoneNumber = "256744868456";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    
+    // Open WhatsApp in new tab
+    window.open(whatsappUrl, '_blank');
+    
+    // Show golden shimmer confirmation toast
+    showBuyNowConfirmation();
+    
+    // Track GA event
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'begin_checkout', {
+            'items': [{
+                'item_id': product.id,
+                'item_name': product.title,
+                'price': product.price,
+                'quantity': 1
+            }]
+        });
+    }
+}
+
+// 🎯 BUY NOW CONFIRMATION TOAST
+function showBuyNowConfirmation() {
+    const toast = document.createElement('div');
+    toast.style.cssText = `
+        position: fixed;
+        bottom: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #FFD700 0%, #D4AF37 100%);
+        color: #000;
+        padding: 14px 28px;
+        border-radius: 8px;
+        z-index: 10000;
+        font-weight: bold;
+        font-size: 0.95rem;
+        animation: toastSlideUp 0.3s ease, shimmer 2s infinite linear;
+        border: 2px solid #000;
+        box-shadow: 0 4px 20px rgba(212, 175, 55, 0.7);
+        text-align: center;
+        min-width: 250px;
+    `;
+    
+    toast.innerHTML = `
+        <i class="fas fa-check-circle" style="margin-right: 8px;"></i>
+        Opening WhatsApp for immediate purchase!
+    `;
+    
+    document.body.appendChild(toast);
+    
+    // Remove toast after 3 seconds
+    setTimeout(() => {
+        toast.style.animation = 'toastSlideUp 0.3s ease reverse';
+        setTimeout(() => {
+            if (toast.parentNode) {
+                toast.parentNode.removeChild(toast);
+            }
+        }, 300);
+    }, 3000);
+}
+
         window.toggleFavourite = function() {
             const product = {
                 id: {{ product.id }},
@@ -752,27 +979,31 @@ a:has(img) { -webkit-tap-highlight-color: transparent !important; }
             const isInCart = cart.some(item => item.id === productId);
             const isFavourite = favourites.some(item => item.id === productId);
             
-            // Sync Cart Button
-            const cartBtn = document.getElementById('addToCartBtn');
-            const cartText = document.getElementById('cartButtonText');
-            
-            if (cartBtn && cartText) {
-                if (isInCart) {
-                    cartText.textContent = 'Remove from Cart';
-                    cartBtn.style.background = '#ff004d';
-                } else {
-                    cartText.textContent = 'Add to Cart';
-                    cartBtn.style.background = 'var(--text-color)';
-                }
-                
-                // Update disabled state based on availability
-                const isAvailable = {{ product.availability | default: true }};
-                cartBtn.disabled = !isAvailable;
-                if (!isAvailable) {
-                    cartText.textContent = 'Out of Stock';
-                    cartBtn.style.background = '#ccc';
-                }
-            }
+            // Sync Cart Button (Now just icon button)
+const cartBtn = document.getElementById('addToCartBtn');
+const buyNowBtn = document.getElementById('buyNowBtn');
+
+if (cartBtn) {
+    // Update cart button appearance
+    if (isInCart) {
+        cartBtn.style.background = '#ff004d !important';
+        cartBtn.title = 'Remove from Cart';
+    } else {
+        cartBtn.style.background = '#25D366 !important';
+        cartBtn.title = 'Add to Cart';
+    }
+    
+    // Update disabled state based on availability
+    const isAvailable = {{ product.availability | default: true }};
+    cartBtn.disabled = !isAvailable;
+    buyNowBtn.disabled = !isAvailable;
+    
+    if (!isAvailable) {
+        cartBtn.style.background = '#ccc !important';
+        buyNowBtn.style.background = '#ccc';
+        cartBtn.title = 'Out of Stock';
+    }
+}
             
             
             // Sync Favourite Button
