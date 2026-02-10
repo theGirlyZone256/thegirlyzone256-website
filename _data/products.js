@@ -284,9 +284,9 @@ const products = [
     sizeRange: ["Medium", "Large"],
     colorNames: ["Black"],
     material: "Stretch-Hugging Fabric",
-    searchKeywords: ["long dress", "black dress", "party", "bodycon dress", "elegant dress",  "hugging dress"],
+    searchKeywords: ["long dress", "black dress", "party", "bodycon dress",  "hugging dress"],
     recommendations: [3, 6, 7],
-    tags: ["dress", "long dress", "black dress", "party", "elegant dress"],
+    tags: ["dress", "long dress", "black dress", "party"],
     featured: true
   },
   {
@@ -1490,6 +1490,280 @@ const products = [
     searchKeywords: ["mini skirt", "party", "skirt"],
     recommendations: [35, 41],
     tags: ["party", "skirt"],
+    featured: true
+  },
+  {
+    id: 49,
+    slug: "satin-gala-maxi-dress",
+    title: "Satin Gala Maxi Dress",
+    shortDescription: "Look smart and elegant in this stylish, figure-hugging long dress.",
+    price: 70000,
+    availability: true,
+    mainImages: ["Satin Gala Maxi Dress_00.webp", "Satin Gala Maxi Dress_01.webp", "Satin Gala Maxi Dress_02.webp"],
+    secondaryImage: "sSatin Gala Maxi Dress_00.webp",
+    colors: [
+    {
+      name: "Dark Olive",
+      availability: true,
+      mainImages: ["Satin Gala Maxi Dress_00.webp", "Satin Gala Maxi Dress_01.webp", "Satin Gala Maxi Dress_02.webp"],
+      secondaryImage: "sSatin Gala Maxi Dress_00.webp",
+      code: "#717b12"
+    }
+    ],
+    category: "dresses",
+    mood: ["elegant", "party", "smart"],
+    occasion: ["date", "party"],
+    sizeRange: ["n/a"],
+    colorNames: ["dark olive"],
+    material: "Silk",
+    searchKeywords: ["dress","green", "green dress", "long dress", "luxurious", "party", "satin"],
+    recommendations: [53, 54],
+    tags: ["dress","green", "long dress", "luxurious", "satin"],
+    featured: true
+  },
+  {
+    id: 50,
+    slug: "cosy-fleece-half-zip-sweater",
+    title: "Cosy Fleece Half-Zip Sweater",
+    shortDescription: "Stay warm and look trendy with this soft, fuzzy sweater.",
+    price: 35000,
+    availability: true,
+    mainImages: ["Cosy Fleece Half-Zip Sweater_00.webp", "Cosy Fleece Half-Zip Sweater_01.webp", "Cosy Fleece Half-Zip Sweater_02.webp", "Cosy Fleece Half-Zip Sweater_03.webp", "Cosy Fleece Half-Zip Sweater_04.webp", "Cosy Fleece Half-Zip Sweater_05.webp", "Cosy Fleece Half-Zip Sweater_06.webp", "Cosy Fleece Half-Zip Sweater_07.webp"],
+    secondaryImage: "sCosy Fleece Half-Zip Sweater_00.webp",
+    colors: [
+    {
+      name: "Brown",
+      availability: true,
+      mainImages: ["Cosy Fleece Half-Zip Sweater_00.webp", "Cosy Fleece Half-Zip Sweater_03.webp", "Cosy Fleece Half-Zip Sweater_06.webp", "Cosy Fleece Half-Zip Sweater_07.webp"],
+      secondaryImage: "sCosy Fleece Half-Zip Sweater_00.webp",
+      code: "#caa276"
+    },
+    {
+      name: "Black",
+      availability: true,
+      mainImages: ["Cosy Fleece Half-Zip Sweater_02.webp", "Cosy Fleece Half-Zip Sweater_04.webp"],
+      secondaryImage: "sCosy Fleece Half-Zip Sweater_00.webp",
+      code: "#000000"
+    },
+    {
+      name: "White",
+      availability: true,
+      mainImages: ["Cosy Fleece Half-Zip Sweater_01.webp", "Cosy Fleece Half-Zip Sweater_05.webp"],
+      secondaryImage: "sCosy Fleece Half-Zip Sweater_00.webp",
+      code: "#ffffff"
+    }
+    ],
+    category: "tops",
+    mood: ["free"],
+    occasion: ["casual", "vacation"],
+    sizeRange: ["n/a"],
+    colorNames: ["brown", "black", "white"],
+    material: "Cotton",
+    searchKeywords: ["black", "casual", "comfortable", "cotton", "sweater", "white"],
+    recommendations: [2, 4],
+    tags: ["brown", "casual", "comfortable", "sweater", "white"],
+    featured: true
+  },
+  {
+    id: 51,
+    slug: "radiant-summer-maxi-dress",
+    title: "Radiant Summer Maxi Dress",
+    shortDescription: "Slay in this beautiful, stylish dress for your special occasions.",
+    price: 35000,
+    availability: true,
+    mainImages: ["Radiant Summer Maxi Dress_00.webp", "Radiant Summer Maxi Dress_01.webp", "Radiant Summer Maxi Dress_02.webp", "Radiant Summer Maxi Dress_03.webp", "Radiant Summer Maxi Dress_04.webp", "Radiant Summer Maxi Dress_05.webp"],
+    secondaryImage: "sRadiant Summer Maxi Dress_02.webp",
+    colors: [
+    {
+      name: "Multi-Colored",
+      availability: true,
+      mainImages: ["Radiant Summer Maxi Dress_00.webp", "Radiant Summer Maxi Dress_01.webp", "Radiant Summer Maxi Dress_02.webp", "Radiant Summer Maxi Dress_03.webp", "Radiant Summer Maxi Dress_04.webp", "Radiant Summer Maxi Dress_05.webp"],
+      secondaryImage: "sRadiant Summer Maxi Dress_02.webp",
+      code: "#ac181c"
+    }
+    ],
+    category: "dresses",
+    mood: ["elegant"],
+    occasion: ["vacation"],
+    sizeRange: ["n/a"],
+    colorNames: ["multi-colored"],
+    material: "silk",
+    searchKeywords: ["beach", "casual", "comfortable", "dress","long dress", "party", "silk"],
+    recommendations: [49, 55],
+    tags: ["casual", "comfortable", "dress", "elegant"],
+    featured: true
+  },
+  {
+    id: 52,
+    slug: "alo-two-piece-set",
+    title: "alo Two-Piece Set",
+    shortDescription: "Look smart and feel comfortable in this trendy matching set.",
+    price: 45000,
+    availability: true,
+    mainImages: ["alo Two-Piece Set_00.webp", "alo Two-Piece Set_01.webp", "alo Two-Piece Set_02.webp", "alo Two-Piece Set_03.webp", "alo Two-Piece Set_04.webp", "alo Two-Piece Set_05.webp"],
+    secondaryImage: "salo Two-Piece Set_01.webp",
+    colors: [
+    {
+      name: "Lime Green",
+      availability: true,
+      mainImages: ["alo Two-Piece Set_00.webp", "alo Two-Piece Set_03.webp", "alo Two-Piece Set_04.webp"],
+      secondaryImage: "salo Two-Piece Set_01.webp",
+      code: "#b6be03"
+    },
+    {
+      name: "White",
+      availability: true,
+      mainImages: ["alo Two-Piece Set_01.webp", "alo Two-Piece Set_02.webp", "alo Two-Piece Set_05.webp"],
+      secondaryImage: "salo Two-Piece Set_01.webp",
+      code: "#d8d7e2"
+    }
+    ],
+    category: "sets",
+    mood: ["free", "smart"],
+    occasion: ["casual"],
+    sizeRange: ["n/a"],
+    colorNames: ["Lime Green, White"],
+    material: "Linen",
+    searchKeywords: ["casual", "comfortable", "green", "hot day", "white", "linen"],
+    recommendations: [26, 28],
+    tags: ["casual", "comfortable", "green", "white", "linen"],
+    featured: true
+  },
+  {
+    id: 53,
+    slug: "elegant-satin-luxury-dress",
+    title: "Elegant Satin Luxury Dress",
+    shortDescription: "Look expensive and stunning at your next wedding or party.",
+    price: 70000,
+    availability: true,
+    mainImages: ["Elegant Satin Luxury Dress_00.webp", "Elegant Satin Luxury Dress_01.webp", "Elegant Satin Luxury Dress_02.webp", "Elegant Satin Luxury Dress_03.webp", "Elegant Satin Luxury Dress_04.webp", "Elegant Satin Luxury Dress_05.webp", "Elegant Satin Luxury Dress_06.webp"],
+    secondaryImage: "sElegant Satin Luxury Dress_00.webp",
+    colors: [
+    {
+      name: "Greyed Pink",
+      availability: true,
+      mainImages: ["Elegant Satin Luxury Dress_01.webp", "Elegant Satin Luxury Dress_02.webp", "Elegant Satin Luxury Dress_04.webp", "Elegant Satin Luxury Dress_06.webp"],
+      secondaryImage: "sElegant Satin Luxury Dress_00.webp",
+      code: "#bf8ea2"
+    },
+    {
+      name: "Greyed Olive",
+      availability: true,
+      mainImages: ["Elegant Satin Luxury Dress_00.webp", "Elegant Satin Luxury Dress_03.webp", "Elegant Satin Luxury Dress_05.webp"],
+      secondaryImage: "sElegant Satin Luxury Dress_00.webp",
+      code: "#a9ae43"
+    }
+    ],
+    category: "dresses",
+    mood: ["elegant", "free", "smart"],
+    occasion: ["date", "party"],
+    sizeRange: ["n/a"],
+    colorNames: ["greyed olive", "greyed pink"],
+    material: "silk",
+    searchKeywords: ["comfortable", "dress","green", "green dress", "long dress", "long sleeved", "luxurious", "silk"],
+    recommendations: [49, 51],
+    tags: ["comfortable","long dress", "long sleeved", "pink", "silk"],
+    featured: true
+  },
+  {
+    id: 54,
+    slug: "classy-satin-drape-dress",
+    title: "Classy Satin Drape Dress",
+    shortDescription: "Look like a boss lady at your next big event.",
+    price: 70000,
+    availability: true,
+    mainImages: ["Classy Satin Drape Dress_00.webp", "Classy Satin Drape Dress_03.webp", "Classy Satin Drape Dress_01.webp", "Classy Satin Drape Dress_02.webp", "Classy Satin Drape Dress_04.webp"],
+    secondaryImage: "sClassy Satin Drape Dress_00.webp",
+    colors: [
+    {
+      name: "Lure Black",
+      availability: true,
+      mainImages: ["Classy Satin Drape Dress_00.webp", "Classy Satin Drape Dress_03.webp", "Classy Satin Drape Dress_01.webp", "Classy Satin Drape Dress_02.webp", "Classy Satin Drape Dress_04.webp"],
+      secondaryImage: "sClassy Satin Drape Dress_00.webp",
+      code: "#000000"
+    }
+    ],
+    category: "dresses",
+    mood: ["elegant", "smart"],
+    occasion: ["party"],
+    sizeRange: ["n/a"],
+    colorNames: ["lure black"],
+    material: "silk",
+    searchKeywords: ["black", "black dress", "comfortable", "dress","long dress", "luxurious", "night", "party"],
+    recommendations: [49, 53],
+    tags: ["black", "dress", "elegant","luxurious", "professional"],
+    featured: true
+  },
+  {
+    id: 55,
+    slug: "casual-luxe-lounge-dress",
+    title: "Casual Luxe Lounge Dress",
+    shortDescription: "Stay smart and comfortable in this trendy two-piece outfit.",
+    price: 70000,
+    availability: true,
+    mainImages: ["Casual Luxe Lounge Dress_02.webp", "Casual Luxe Lounge Dress_00.webp", "Casual Luxe Lounge Dress_02.webp", "Casual Luxe Lounge Dress_14.webp", "Casual Luxe Lounge Dress_01.webp", "Casual Luxe Lounge Dress_12.webp", "Casual Luxe Lounge Dress_06.webp", "Casual Luxe Lounge Dress_11.webp", "Casual Luxe Lounge Dress_13.webp", "Casual Luxe Lounge Dress_08.webp", "Casual Luxe Lounge Dress_09.webp", "Casual Luxe Lounge Dress_10.webp", "Casual Luxe Lounge Dress_03.webp", "Casual Luxe Lounge Dress_05.webp", "Casual Luxe Lounge Dress_04.webp", "Casual Luxe Lounge Dress_07.webp"],
+    secondaryImage: "sCasual Luxe Lounge Dress_02.webp",
+    colors: [
+    {
+      name: "Rust",
+      availability: true,
+      mainImages: ["Casual Luxe Lounge Dress_00.webp", "Casual Luxe Lounge Dress_08.webp", "Casual Luxe Lounge Dress_10.webp", "Casual Luxe Lounge Dress_03.webp", "Casual Luxe Lounge Dress_05.webp", "Casual Luxe Lounge Dress_07.webp"],
+      secondaryImage: "sCasual Luxe Lounge Dress_02.webp",
+      code: "#582a19"
+    },
+    {
+      name: "Greyed Brown",
+      availability: true,
+      mainImages: ["Casual Luxe Lounge Dress_02.webp", "Casual Luxe Lounge Dress_01.webp", "Casual Luxe Lounge Dress_06.webp", "Casual Luxe Lounge Dress_09.webp", "Casual Luxe Lounge Dress_04.webp"],
+      secondaryImage: "sCasual Luxe Lounge Dress_02.webp",
+      code: "#52453d"
+    },
+    {
+      name: "Black",
+      availability: true,
+      mainImages: ["Casual Luxe Lounge Dress_14.webp", "Casual Luxe Lounge Dress_12.webp", "Casual Luxe Lounge Dress_11.webp", "Casual Luxe Lounge Dress_13.webp"],
+      secondaryImage: "sCasual Luxe Lounge Dress_02.webp",
+      code: "#000000"
+    }
+    ],
+    category: "dresses",
+    mood: ["elegant", "smart"],
+    occasion: ["date", "party"],
+    sizeRange: ["n/a"],
+    colorNames: ["black", "luxe rust", "greyed brown"],
+    material: "silk",
+    searchKeywords: ["black", "dress","long dress", "luxurious", "satin", "silk"],
+    recommendations: [49, 53, 54],
+    tags: ["black", "black dress", "brown","linen", "long dress", "luxurious", "smart"],
+    featured: true
+  },
+  {
+    id: 56,
+    slug: "svelte-desire-dress",
+    title: "Svelte Desire Dress",
+    shortDescription: "Turn those heads.",
+    price: 35000,
+    availability: true,
+    mainImages: ["Svelte Desire Dress_00.webp", "Svelte Desire Dress_01.webp", "Svelte Desire Dress_02.webp", "Svelte Desire Dress_03.webp", "Svelte Desire Dress_03.webp"],
+    secondaryImage: "sSvelte Desire Dress_03.webp",
+    colors: [
+    {
+      name: "Crimson",
+      availability: true,
+      mainImages: ["Svelte Desire Dress_00.webp", "Svelte Desire Dress_01.webp", "Svelte Desire Dress_02.webp", "Svelte Desire Dress_03.webp", "Svelte Desire Dress_03.webp"],
+      secondaryImage: "sSvelte Desire Dress_03.webp",
+      code: "#e10b32"
+    }
+    ],
+    category: "dresses",
+    mood: ["elegant", "party", "romantic"],
+    occasion: ["date", "party"],
+    sizeRange: ["n/a"],
+    colorNames: ["red", "crimson"],
+    material: "Cotton",
+    searchKeywords: ["cotton", "date", "dress", "party", "red", "romantic"],
+    recommendations: [1, 2],
+    tags: ["date", "party"],
     featured: true
   },
 
