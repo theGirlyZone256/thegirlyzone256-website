@@ -139,10 +139,9 @@ body { font-family: Arial, Helvetica, sans-serif; color: var(--text-color); back
 .color-option.active::after { content: "✓"; color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 0.8rem; font-weight: bold; text-shadow: 0 0 2px rgba(0,0,0,0.5); }
 .color-option.unavailable { opacity: 0.5; cursor: not-allowed; position: relative; }
 .color-option.unavailable::before { content: ""; position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: var(--primary-color); transform: rotate(-45deg); }
-.product-actions { margin: 2.5rem 0; }
-.add-to-cart { background: var(--text-color); color: var(--background-color); border: none; padding: 1.5rem 2rem; width: 100%; cursor: pointer; text-transform: uppercase; font-weight: bold; margin-bottom: 1rem; font-size: 1rem; transition: background-color 0.3s ease; }
-.add-to-cart:hover { background: #333; }
-.add-to-cart:disabled { background: #ccc; cursor: not-allowed; }
+
+
+
 .add-to-favourites { background: white; border: 1px solid #ff004d; color: #ff004d; padding: 1.5rem 2rem; width: 100%; cursor: pointer; text-transform: uppercase; font-size: 1rem; transition: all 0.3s ease; }
 .add-to-favourites:hover { background: white; color: #ff004d; border-color: #ff004d; }
 .product-meta { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border-color); }
@@ -272,9 +271,17 @@ a:has(img) { -webkit-tap-highlight-color: transparent !important; }
     flex: 3; /* 30% width */
 }
 
-/* 🎯 GOLDEN SHIMMER BUTTON */
+/* 🎯 GOLDEN SHIMMER BUTTON - ENHANCED VERSION */
 .buy-now-btn {
-    background: linear-gradient(135deg, #FFD700 0%, #D4AF37 25%, #FFD700 50%, #D4AF37 75%, #FFD700 100%);
+    background: linear-gradient(135deg, 
+        #FFD700 0%, 
+        #FFEC8B 15%, 
+        #FFD700 30%, 
+        #FFF380 45%, 
+        #FFD700 60%, 
+        #FFEC8B 75%, 
+        #FFD700 90%, 
+        #FFF380 100%);
     background-size: 400% 400%;
     color: #000 !important;
     border: none;
@@ -282,38 +289,81 @@ a:has(img) { -webkit-tap-highlight-color: transparent !important; }
     width: 100%;
     cursor: pointer;
     text-transform: uppercase;
-    font-weight: bold;
-    font-size: 1rem;
+    font-weight: 800;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    border-radius: 4px;
-    letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-    animation: shimmer 3s infinite linear;
+    border-radius: 6px;
+    letter-spacing: 1.5px;
+    box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5),
+                0 0 0 1px rgba(255, 215, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    animation: shimmer 2.5s infinite linear;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+/* Add a bright shine overlay */
+.buy-now-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.8) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    animation: shine 3s infinite linear;
 }
 
 @keyframes shimmer {
     0% {
         background-position: 0% 50%;
+        box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5),
+                    0 0 0 1px rgba(255, 215, 0, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.6);
     }
     50% {
         background-position: 100% 50%;
+        box-shadow: 0 6px 30px rgba(255, 215, 0, 0.8),
+                    0 0 0 1px rgba(255, 215, 0, 0.5),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.8);
     }
     100% {
         background-position: 0% 50%;
+        box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5),
+                    0 0 0 1px rgba(255, 215, 0, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+}
+
+@keyframes shine {
+    0% {
+        left: -50%;
+    }
+    100% {
+        left: 150%;
     }
 }
 
 .buy-now-btn:hover {
-    animation: shimmer 1.5s infinite linear;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+    animation: shimmer 1s infinite linear;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.7),
+                0 0 0 1px rgba(255, 215, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .buy-now-btn:active {
     transform: translateY(0);
-    box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4),
+                0 0 0 1px rgba(255, 215, 0, 0.3);
+    animation: shimmer 0.5s infinite linear;
 }
 
 .buy-now-btn:disabled {
@@ -324,13 +374,18 @@ a:has(img) { -webkit-tap-highlight-color: transparent !important; }
     transform: none;
 }
 
-.buy-now-btn i {
-    margin-right: 8px;
+.buy-now-btn:disabled::before {
+    display: none;
 }
 
-/* 🎯 GREEN CART BUTTON */
+.buy-now-btn i {
+    margin-right: 10px;
+    text-shadow: 0 1px 2px rgba(255, 215, 0, 0.5);
+}
+
+/* 🎯 CART BUTTON - Black by default, Green when in cart */
 .add-to-cart-btn {
-    background: #25D366 !important;
+    background: #000000 !important; /* Black by default */
     color: white !important;
     border: none;
     padding: 1.5rem 0;
@@ -338,7 +393,7 @@ a:has(img) { -webkit-tap-highlight-color: transparent !important; }
     cursor: pointer;
     border-radius: 4px;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
@@ -348,8 +403,7 @@ a:has(img) { -webkit-tap-highlight-color: transparent !important; }
 }
 
 .add-to-cart-btn:hover {
-    background: #128C7E !important;
-    transform: scale(1.05);
+    background: #333333 !important; /* Darker gray on hover */
 }
 
 .add-to-cart-btn:active {
@@ -360,6 +414,15 @@ a:has(img) { -webkit-tap-highlight-color: transparent !important; }
     background: #ccc !important;
     cursor: not-allowed;
     transform: none;
+}
+
+/* Special class for when item is in cart */
+.add-to-cart-btn.in-cart {
+    background: #25D366 !important; /* Green when in cart */
+}
+
+.add-to-cart-btn.in-cart:hover {
+    background: #128C7E !important;
 }
 
 /* 🎯 FAVOURITES BUTTON ADJUSTMENT */
@@ -979,28 +1042,39 @@ function showBuyNowConfirmation() {
             const isInCart = cart.some(item => item.id === productId);
             const isFavourite = favourites.some(item => item.id === productId);
             
-            // Sync Cart Button (Now just icon button)
+            // 🎯 SYNC CART BUTTON - Black by default, Green when in cart
 const cartBtn = document.getElementById('addToCartBtn');
 const buyNowBtn = document.getElementById('buyNowBtn');
 
 if (cartBtn) {
-    // Update cart button appearance
+    // Remove any inline background styles first
+    cartBtn.style.background = '';
+    
+    // Add/remove class for cart state
     if (isInCart) {
-        cartBtn.style.background = '#ff004d !important';
+        cartBtn.classList.add('in-cart');
         cartBtn.title = 'Remove from Cart';
     } else {
-        cartBtn.style.background = '#25D366 !important';
+        cartBtn.classList.remove('in-cart');
         cartBtn.title = 'Add to Cart';
     }
     
     // Update disabled state based on availability
     const isAvailable = {{ product.availability | default: true }};
     cartBtn.disabled = !isAvailable;
-    buyNowBtn.disabled = !isAvailable;
+    
+    if (buyNowBtn) {
+        buyNowBtn.disabled = !isAvailable;
+        
+        if (!isAvailable) {
+            buyNowBtn.style.background = '#ccc';
+        } else {
+            buyNowBtn.style.background = ''; // Reset to default
+        }
+    }
     
     if (!isAvailable) {
-        cartBtn.style.background = '#ccc !important';
-        buyNowBtn.style.background = '#ccc';
+        cartBtn.classList.remove('in-cart'); // Remove green color when out of stock
         cartBtn.title = 'Out of Stock';
     }
 }
