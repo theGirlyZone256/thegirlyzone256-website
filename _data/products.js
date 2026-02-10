@@ -1744,13 +1744,13 @@ const products = [
     shortDescription: "Turn those heads.",
     price: 35000,
     availability: true,
-    mainImages: ["Svelte Desire Dress_00.webp", "Svelte Desire Dress_01.webp", "Svelte Desire Dress_02.webp", "Svelte Desire Dress_03.webp", "Svelte Desire Dress_03.webp"],
+    mainImages: ["Svelte Desire Dress_00.webp", "Svelte Desire Dress_01.webp", "Svelte Desire Dress_02.webp", "Svelte Desire Dress_03.webp", "Svelte Desire Dress_04.webp"],
     secondaryImage: "sSvelte Desire Dress_03.webp",
     colors: [
     {
       name: "Crimson",
       availability: true,
-      mainImages: ["Svelte Desire Dress_00.webp", "Svelte Desire Dress_01.webp", "Svelte Desire Dress_02.webp", "Svelte Desire Dress_03.webp", "Svelte Desire Dress_03.webp"],
+      mainImages: ["Svelte Desire Dress_00.webp", "Svelte Desire Dress_01.webp", "Svelte Desire Dress_02.webp", "Svelte Desire Dress_03.webp", "Svelte Desire Dress_04.webp"],
       secondaryImage: "sSvelte Desire Dress_03.webp",
       code: "#e10b32"
     }
