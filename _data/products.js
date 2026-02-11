@@ -1528,7 +1528,7 @@ const products = [
     shortDescription: "Stay warm and look trendy with this soft, fuzzy sweater.",
     price: 35000,
     availability: true,
-    mainImages: ["Cosy Fleece Half-Zip Sweater_00.webp", "Cosy Fleece Half-Zip Sweater_01.webp", "Cosy Fleece Half-Zip Sweater_02.webp", "Cosy Fleece Half-Zip Sweater_03.webp", "Cosy Fleece Half-Zip Sweater_04.webp", "Cosy Fleece Half-Zip Sweater_05.webp", "Cosy Fleece Half-Zip Sweater_06.webp", "Cosy Fleece Half-Zip Sweater_07.webp"],
+    mainImages: ["Cosy Fleece Half-Zip Sweater_01.webp", "Cosy Fleece Half-Zip Sweater_00.webp", "Cosy Fleece Half-Zip Sweater_02.webp", "Cosy Fleece Half-Zip Sweater_03.webp", "Cosy Fleece Half-Zip Sweater_04.webp", "Cosy Fleece Half-Zip Sweater_05.webp", "Cosy Fleece Half-Zip Sweater_06.webp", "Cosy Fleece Half-Zip Sweater_07.webp"],
     secondaryImage: "sCosy Fleece Half-Zip Sweater_00.webp",
     colors: [
     {
