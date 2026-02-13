@@ -93,6 +93,17 @@ body { font-family: Arial, Helvetica, sans-serif; color: var(--text-color); back
 .product-info { padding: 1rem; }
 .product-title { font-size: 0.8rem; margin-bottom: 0.5rem; text-transform: uppercase; }
 .product-price { font-weight: 500; margin-bottom: 0.5rem; }
+/* Available colours hint – micro, brand pink, no layout shift */
+.available-colours-text {
+    color: #ff004d;
+    font-size: 0.45rem;      /* ~7.2px - exactly half of 0.9rem (typical product text) */
+    display: block;
+    margin-bottom: 4px;      /* reduced to match smaller text */
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    line-height: 1.2;        /* tighter line height for tiny text */
+}
 .color-selector { display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap; }
 .color-option { width: 16px; height: 16px; border: 1px solid var(--border-color); cursor: pointer; background: none; transition: border-color 0.3s ease; position: relative; }
 .color-option.active { border-color: var(--text-color); }
@@ -796,6 +807,7 @@ html { scroll-behavior: smooth; }
                 <p class="product-price">UGX {{ product.price | formatNumber }}</p>
                 
                 {% if product.colors.length > 0 %}
+	<span class="available-colours-text">Available Colors</span>
                 <div class="color-selector">
                     {% for color in product.colors %}
                     <button class="color-option {% if forloop.first %}active{% endif %}" 

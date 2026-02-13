@@ -429,7 +429,7 @@ a:has(img) { -webkit-tap-highlight-color: transparent !important; }
 .add-to-favourites {
     margin-top: 1rem;
     background: white;
-    border: 1px solid #ff004d;
+    border: none;
     color: #ff004d;
     padding: 1.5rem 2rem;
     width: 100%;
@@ -599,6 +599,286 @@ a:has(img) { -webkit-tap-highlight-color: transparent !important; }
         transition-delay: 0.2s;
     }
 }
+
+
+
+/* 🎯 FAVOURITES ANIMATIONS - Joy & Sadness (NO EMOJIS) */
+.favourites-animation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 99999;
+    overflow: hidden;
+}
+
+/* 💖 JOY ANIMATION - Floating Font Awesome hearts */
+.heart-joy {
+    position: absolute;
+    color: #ff004d;
+    font-size: 1.5rem;
+    animation: floatUp 2.5s ease-out forwards;
+    text-shadow: 0 0 10px rgba(255, 0, 77, 0.5);
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heart-joy i {
+    display: block;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 1;
+    }
+    70% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-150px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Different heart sizes for variety */
+.heart-joy.large i {
+    font-size: 2.2rem;
+}
+.heart-joy.small i {
+    font-size: 1rem;
+}
+.heart-joy.tiny i {
+    font-size: 0.7rem;
+}
+
+/* 💔 SADNESS ANIMATION - One beat, then grey and fade */
+.sadness-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 99999;
+    animation: sadnessFade 1.5s ease-out forwards;
+}
+
+.heart-sad {
+    font-size: 5rem;
+    color: #999999;  /* Start grey */
+    animation: oneBeat 0.4s ease-in-out;
+}
+
+@keyframes oneBeat {
+    0% {
+        transform: scale(1);
+        color: #999999;
+    }
+    50% {
+        transform: scale(1.3);
+        color: #cccccc;  /* Lighter grey on beat */
+    }
+    100% {
+        transform: scale(1);
+        color: #999999;
+    }
+}
+
+@keyframes sadnessFade {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+}
+
+/* 🎯 FAVOURITES BUTTON CLICK ANIMATION */
+.add-to-favourites:active {
+    transform: scale(0.97);
+    transition: transform 0.1s ease;
+}
+
+@keyframes heartPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+.add-to-favourites i {
+    transition: all 0.2s ease;
+}
+
+.add-to-favourites:active i {
+    animation: heartPulse 0.3s ease;
+}
+
+
+
+/* 🛒 CART ANIMATION - Jump & Dash */
+.cart-animation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100000;
+    overflow: hidden;
+}
+
+.cart-flyer {
+    position: absolute;
+    color: #000000;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+    animation: cartJumpDash 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.98) forwards;
+    z-index: 100001;
+}
+
+.cart-flyer i {
+    display: block;
+}
+
+/* Shopping bag with plus for "added" */
+.cart-flyer.added i {
+    color: #25D366; /* WhatsApp green when added */
+}
+
+/* Jump up then dash right */
+@keyframes cartJumpDash {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    20% {
+        transform: translate(0, -60px) scale(1.2); /* Jump up */
+        opacity: 1;
+    }
+    40% {
+        transform: translate(30px, -80px) scale(1.1); /* Start moving right */
+        opacity: 1;
+    }
+    60% {
+        transform: translate(100px, -60px) scale(0.9); /* Mid-flight */
+        opacity: 0.9;
+    }
+    80% {
+        transform: translate(200px, -30px) scale(0.7); /* Getting smaller */
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(300px, 0) scale(0.4); /* Dash off right */
+        opacity: 0;
+    }
+}
+
+/* Desktop - dash further */
+@media (min-width: 768px) {
+    @keyframes cartJumpDash {
+        0% {
+            transform: translate(0, 0) scale(1);
+            opacity: 1;
+        }
+        20% {
+            transform: translate(0, -80px) scale(1.3);
+            opacity: 1;
+        }
+        40% {
+            transform: translate(80px, -100px) scale(1.2);
+            opacity: 1;
+        }
+        60% {
+            transform: translate(250px, -70px) scale(0.9);
+            opacity: 0.9;
+        }
+        80% {
+            transform: translate(450px, -30px) scale(0.6);
+            opacity: 0.7;
+        }
+        100% {
+            transform: translate(600px, 0) scale(0.3);
+            opacity: 0;
+        }
+    }
+}
+
+/* Mobile - shorter dash */
+@media (max-width: 767px) {
+    @keyframes cartJumpDash {
+        0% {
+            transform: translate(0, 0) scale(1);
+            opacity: 1;
+        }
+        20% {
+            transform: translate(0, -50px) scale(1.2);
+            opacity: 1;
+        }
+        40% {
+            transform: translate(40px, -70px) scale(1.1);
+            opacity: 1;
+        }
+        60% {
+            transform: translate(100px, -50px) scale(0.9);
+            opacity: 0.9;
+        }
+        80% {
+            transform: translate(150px, -20px) scale(0.7);
+            opacity: 0.7;
+        }
+        100% {
+            transform: translate(200px, 0) scale(0.4);
+            opacity: 0;
+        }
+    }
+}
+
+/* Cart dash for REMOVE action (reverse dash out) */
+.cart-flyer.remove {
+    color: #ff4444; /* Red for remove */
+}
+
+.cart-flyer.remove i {
+    color: #ff4444;
+}
+
+@keyframes cartDashOut {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    30% {
+        transform: translate(-30px, -40px) scale(0.9); /* Jump back/up */
+        opacity: 1;
+    }
+    60% {
+        transform: translate(-150px, -20px) scale(0.7);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-300px, 0) scale(0.4);
+        opacity: 0;
+    }
+}
+
+.cart-flyer.dash-out {
+    animation: cartDashOut 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.98) forwards;
+}
+
+
+
     </style>
 </head>
 <body>
@@ -1019,52 +1299,60 @@ a:has(img) { -webkit-tap-highlight-color: transparent !important; }
         // Global products array (would be populated from your data)
         const products = {{ products | json }};
 
-        window.toggleCart = function() {
-        // Get selected color data from the product page
-        const selectedColorElement = document.getElementById('selectedColor');
-        const activeColorOption = document.querySelector('.color-option.active');
-        
-        let selectedColor = null;
-        let selectedColorIndex = null;
-        
-        if (activeColorOption) {
-            selectedColor = activeColorOption.dataset.colorName;
-            selectedColorIndex = parseInt(activeColorOption.dataset.colorIndex);
-        }
-        
-        const product = {
-            id: {{ product.id }},
-            title: "{{ product.title | escape }}",
-            price: {{ product.price }},
-            image: "{{ product.secondaryImage | default: product.mainImages[0] }}",
-            slug: "{{ product.slug }}",
-            colors: {{ product.colors | json }},
-            selectedColor: selectedColor,
-            selectedColorIndex: selectedColorIndex
-        };
-        
-        let cart = JSON.parse(localStorage.getItem('thegirlyzone_cart') || '[]');
-        
-        // Quick limit check
-        if (cart.length >= 10 && !cart.some(item => item.id === product.id)) {
-            showToast('Cart is full!');
-            return;
-        }
-        
-        const existingIndex = cart.findIndex(item => item.id === product.id);
-        
-        if (existingIndex > -1) {
-            cart.splice(existingIndex, 1);
-            showToast('Removed from cart');
-        } else {
-            cart.push(product);
-            showToast('Added to cart!');
-        }
-        
-        localStorage.setItem('thegirlyzone_cart', JSON.stringify(cart));
-        updateCartCount();
-        syncButtonStates();
+       window.toggleCart = function() {
+    // Get selected color data from the product page
+    const selectedColorElement = document.getElementById('selectedColor');
+    const activeColorOption = document.querySelector('.color-option.active');
+    
+    let selectedColor = null;
+    let selectedColorIndex = null;
+    
+    if (activeColorOption) {
+        selectedColor = activeColorOption.dataset.colorName;
+        selectedColorIndex = parseInt(activeColorOption.dataset.colorIndex);
+    }
+    
+    const product = {
+        id: {{ product.id }},
+        title: "{{ product.title | escape }}",
+        price: {{ product.price }},
+        image: "{{ product.secondaryImage | default: product.mainImages[0] }}",
+        slug: "{{ product.slug }}",
+        colors: {{ product.colors | json }},
+        selectedColor: selectedColor,
+        selectedColorIndex: selectedColorIndex
     };
+    
+    let cart = JSON.parse(localStorage.getItem('thegirlyzone_cart') || '[]');
+    
+    // Quick limit check
+    if (cart.length >= 10 && !cart.some(item => item.id === product.id)) {
+        showToast('Cart is full!');
+        return;
+    }
+    
+    const existingIndex = cart.findIndex(item => item.id === product.id);
+    
+    if (existingIndex > -1) {
+        // REMOVE from cart - dash out left
+        cart.splice(existingIndex, 1);
+        showToast('Removed from cart');
+        animateCartRemove(); // 🛒 Dashes out left
+        
+    } else {
+        // ADD to cart - jump up and dash right
+        cart.push(product);
+        showToast('Added to cart!');
+        animateCartAdd(); // 🛒 Jumps up and dashes right
+    }
+    
+    localStorage.setItem('thegirlyzone_cart', JSON.stringify(cart));
+    updateCartCount();
+    syncButtonStates();
+    
+    // Dispatch event for tracking
+    document.dispatchEvent(new Event('cartUpdated'));
+};
 
     // 🎯 BUY NOW FUNCTION - Immediate WhatsApp Checkout
 window.buyNowProduct = function() {
@@ -1123,34 +1411,37 @@ window.buyNowProduct = function() {
 }
 
 
-        window.toggleFavourite = function() {
-            const product = {
-                id: {{ product.id }},
-                title: "{{ product.title | escape }}",
-                price: {{ product.price }},
-                image: "{{ product.secondaryImage | default: product.mainImages[0] }}",
-                slug: "{{ product.slug }}"
-            };
-            
-            let favourites = JSON.parse(localStorage.getItem('thegirlyzone_favourites') || '[]');
-            const existingIndex = favourites.findIndex(item => item.id === product.id);
-            
-            if (existingIndex > -1) {
-                // Remove from favourites
-                favourites.splice(existingIndex, 1);
-                showToast('Removed from favourites');
-            } else {
-                // Add to favourites
-                favourites.push(product);
-                showToast('Added to favourites!');
-            }
-            
-            localStorage.setItem('thegirlyzone_favourites', JSON.stringify(favourites));
-            updateFavouritesCount();
-            syncButtonStates();
-            
-            console.log('Favourites updated:', favourites);
-        }
+window.toggleFavourite = function() {
+    const product = {
+        id: {{ product.id }},
+        title: "{{ product.title | escape }}",
+        price: {{ product.price }},
+        image: "{{ product.secondaryImage | default: product.mainImages[0] }}",
+        slug: "{{ product.slug }}"
+    };
+    
+    let favourites = JSON.parse(localStorage.getItem('thegirlyzone_favourites') || '[]');
+    const existingIndex = favourites.findIndex(item => item.id === product.id);
+    
+    if (existingIndex > -1) {
+        // 💔 REMOVE - Simple broken heart that beats and fades
+        favourites.splice(existingIndex, 1);
+        showToast('Removed from favourites');
+        expressSadness();  // Clean, elegant sadness
+        
+    } else {
+        // 💖 ADD - Celebration hearts
+        favourites.push(product);
+        showToast('Added to favourites!');
+        celebrateFavouriteAdded();
+    }
+    
+    localStorage.setItem('thegirlyzone_favourites', JSON.stringify(favourites));
+    updateFavouritesCount();
+    syncButtonStates();
+    
+    document.dispatchEvent(new Event('favouritesUpdated'));
+}
 
         // SYNC BUTTON STATES WITH LOCALSTORAGE
         function syncButtonStates() {
@@ -1718,6 +2009,261 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 10000);
     }
 });
+
+
+// 🎯 FAVOURITES ANIMATIONS - Joy & Sadness Engine (NO EMOJIS)
+function celebrateFavouriteAdded() {
+    // Create container if it doesn't exist
+    let container = document.querySelector('.favourites-animation-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.className = 'favourites-animation-container';
+        document.body.appendChild(container);
+    }
+    
+    // Create 12-15 hearts for a nice burst
+    const heartCount = window.innerWidth < 768 ? 10 : 15;
+    
+    for (let i = 0; i < heartCount; i++) {
+        setTimeout(() => {
+            createHeart(container);
+        }, i * 50);
+    }
+    
+    // Auto-remove container after animation
+    setTimeout(() => {
+        if (container && container.children.length === 0) {
+            container.remove();
+        }
+    }, 3000);
+}
+
+function createHeart(container) {
+    const heart = document.createElement('div');
+    heart.className = 'heart-joy';
+    
+    // Random size variation
+    const sizeRand = Math.random();
+    if (sizeRand < 0.3) {
+        heart.classList.add('large');
+    } else if (sizeRand < 0.6) {
+        heart.classList.add('small');
+    } else if (sizeRand < 0.8) {
+        heart.classList.add('tiny');
+    }
+    
+    // Use Font Awesome heart icons - 100% reliable
+    const heartType = Math.random();
+    if (heartType < 0.4) {
+        heart.innerHTML = '<i class="fas fa-heart"></i>';      // Solid red
+    } else if (heartType < 0.7) {
+        heart.innerHTML = '<i class="fas fa-heartbeat"></i>'; // Heartbeat
+    } else {
+        heart.innerHTML = '<i class="fas fa-star"></i>';      // Sparkle star
+    }
+    
+    // Position - start near the favourites button
+    const favButton = document.getElementById('favouriteBtn');
+    let startX, startY;
+    
+    if (favButton) {
+        const rect = favButton.getBoundingClientRect();
+        startX = rect.left + rect.width / 2;
+        startY = rect.top;
+    } else {
+        startX = window.innerWidth / 2;
+        startY = window.innerHeight / 2;
+    }
+    
+    // Add random offset
+    const xOffset = (Math.random() - 0.5) * 150;
+    const yOffset = (Math.random() - 0.5) * 50;
+    
+    heart.style.left = `${startX + xOffset}px`;
+    heart.style.top = `${startY + yOffset}px`;
+    
+    container.appendChild(heart);
+    
+    // Remove heart after animation
+    setTimeout(() => {
+        if (heart.parentNode) {
+            heart.remove();
+        }
+    }, 2500);
+}
+
+// 💔 SADNESS ANIMATION - CSS Drawn Broken Heart (Most reliable)
+function expressSadness() {
+    // Remove any existing sadness animations
+    const existingSadness = document.querySelector('.sadness-container');
+    if (existingSadness) {
+        existingSadness.remove();
+    }
+    
+    // Create sadness container with CSS heart + tears
+    const sadnessContainer = document.createElement('div');
+    sadnessContainer.className = 'sadness-container';
+    
+    sadnessContainer.innerHTML = `
+        <div class="heart-sad">
+            <div class="heart-left"></div>
+            <div class="heart-right"></div>
+            <div class="heart-crack"></div>
+            <div class="tear tear-1"></div>
+            <div class="tear tear-2"></div>
+            <div class="tear tear-3"></div>
+        </div>
+        <div class="sadness-message">
+            <i class="fas fa-heart-broken"></i> Removed from favourites
+        </div>
+    `;
+    
+    document.body.appendChild(sadnessContainer);
+    
+    // Remove after animation
+    setTimeout(() => {
+        if (sadnessContainer.parentNode) {
+            sadnessContainer.remove();
+        }
+    }, 2000);
+}
+
+// 💔 ALTERNATIVE: Font Awesome broken heart version
+function expressSadnessFA() {
+    const existingSadness = document.querySelector('.sadness-container');
+    if (existingSadness) {
+        existingSadness.remove();
+    }
+    
+    const sadnessContainer = document.createElement('div');
+    sadnessContainer.className = 'sadness-container';
+    
+    sadnessContainer.innerHTML = `
+        <div class="heart-sad-fa">
+            <i class="fas fa-heart-broken"></i>
+            <i class="fas fa-tint fa-tear" style="top: 30px; left: 35px;"></i>
+            <i class="fas fa-tint fa-tear" style="top: 40px; left: 50px; animation-delay: 0.3s;"></i>
+            <i class="fas fa-tint fa-tear" style="top: 35px; left: 65px; animation-delay: 0.6s;"></i>
+        </div>
+        <div class="sadness-message">
+            <i class="fas fa-heart-broken"></i> Removed
+        </div>
+    `;
+    
+    document.body.appendChild(sadnessContainer);
+    
+    setTimeout(() => {
+        if (sadnessContainer.parentNode) {
+            sadnessContainer.remove();
+        }
+    }, 2000);
+}
+
+// 💔 SADNESS ANIMATION - One grey beat, then fade
+function expressSadness() {
+    // Remove any existing sadness animations
+    const existingSadness = document.querySelector('.sadness-container');
+    if (existingSadness) {
+        existingSadness.remove();
+    }
+    
+    // Create sadness container with grey broken heart
+    const sadnessContainer = document.createElement('div');
+    sadnessContainer.className = 'sadness-container';
+    
+    sadnessContainer.innerHTML = `
+        <div class="heart-sad">
+            <i class="fas fa-heart-broken"></i>
+        </div>
+    `;
+    
+    document.body.appendChild(sadnessContainer);
+    
+    // Remove after animation
+    setTimeout(() => {
+        if (sadnessContainer.parentNode) {
+            sadnessContainer.remove();
+        }
+    }, 1800);
+}
+
+// 🛒 CART ANIMATION - Jump up and dash right
+function animateCartAdd() {
+    // Get the add to cart button position
+    const cartBtn = document.getElementById('addToCartBtn');
+    if (!cartBtn) return;
+    
+    const rect = cartBtn.getBoundingClientRect();
+    const startX = rect.left + rect.width / 2;
+    const startY = rect.top + rect.height / 2;
+    
+    // Create container if it doesn't exist
+    let container = document.querySelector('.cart-animation-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.className = 'cart-animation-container';
+        document.body.appendChild(container);
+    }
+    
+    // Create flying cart
+    const cart = document.createElement('div');
+    cart.className = 'cart-flyer added';
+    
+    // Use shopping bag icon (cart)
+    cart.innerHTML = '<i class="fas fa-shopping-bag"></i>';
+    
+    cart.style.left = `${startX}px`;
+    cart.style.top = `${startY}px`;
+    
+    container.appendChild(cart);
+    
+    // Remove after animation
+    setTimeout(() => {
+        if (cart.parentNode) {
+            cart.remove();
+        }
+        
+        // Clean up container if empty
+        if (container.children.length === 0) {
+            container.remove();
+        }
+    }, 800);
+}
+
+// 🛒 CART ANIMATION - Remove from cart (dash out left)
+function animateCartRemove() {
+    const cartBtn = document.getElementById('addToCartBtn');
+    if (!cartBtn) return;
+    
+    const rect = cartBtn.getBoundingClientRect();
+    const startX = rect.left + rect.width / 2;
+    const startY = rect.top + rect.height / 2;
+    
+    let container = document.querySelector('.cart-animation-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.className = 'cart-animation-container';
+        document.body.appendChild(container);
+    }
+    
+    const cart = document.createElement('div');
+    cart.className = 'cart-flyer remove dash-out';
+    cart.innerHTML = '<i class="fas fa-shopping-bag"></i>';
+    
+    cart.style.left = `${startX}px`;
+    cart.style.top = `${startY}px`;
+    
+    container.appendChild(cart);
+    
+    setTimeout(() => {
+        if (cart.parentNode) {
+            cart.remove();
+        }
+        if (container.children.length === 0) {
+            container.remove();
+        }
+    }, 700);
+}
 </script>
 <script src="/assets/js/cart-favourites.js"></script>
 </body>
