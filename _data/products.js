@@ -1672,7 +1672,7 @@ const products = [
     shortDescription: "Look like a boss lady at your next big event.",
     price: 70000,
     availability: true,
-    mainImages: ["Classy Satin Drape Dress_00.webp", "Classy Satin Drape Dress_03.webp", "Classy Satin Drape Dress_01.webp", "Classy Satin Drape Dress_02.webp", "Classy Satin Drape Dress_04.webp"],
+    mainImages: ["Classy Satin Drape Dress_01.webp", "Classy Satin Drape Dress_03.webp", "Classy Satin Drape Dress_00.webp", "Classy Satin Drape Dress_02.webp", "Classy Satin Drape Dress_04.webp"],
     secondaryImage: "sClassy Satin Drape Dress_00.webp",
     colors: [
     {
