@@ -1636,7 +1636,7 @@ const products = [
     shortDescription: "Look expensive and stunning at your next wedding or party.",
     price: 70000,
     availability: true,
-    mainImages: ["Elegant Satin Luxury Dress_00.webp", "Elegant Satin Luxury Dress_01.webp", "Elegant Satin Luxury Dress_02.webp", "Elegant Satin Luxury Dress_03.webp", "Elegant Satin Luxury Dress_04.webp", "Elegant Satin Luxury Dress_05.webp", "Elegant Satin Luxury Dress_06.webp"],
+    mainImages: ["Elegant Satin Luxury Dress_05.webp", "Elegant Satin Luxury Dress_01.webp", "Elegant Satin Luxury Dress_02.webp", "Elegant Satin Luxury Dress_03.webp", "Elegant Satin Luxury Dress_04.webp", "Elegant Satin Luxury Dress_00.webp", "Elegant Satin Luxury Dress_06.webp"],
     secondaryImage: "sElegant Satin Luxury Dress_00.webp",
     colors: [
     {
