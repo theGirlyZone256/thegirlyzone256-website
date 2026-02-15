@@ -218,20 +218,17 @@ class CartFavouritesManager {
       }
 
       // Favourite buttons
-      const favBtn = e.target.closest('.favourite-btn');
-      if (favBtn) {
-        const productId = favBtn.dataset.productId;
-        
-        // ONLY intercept if it has a productId AND is NOT a direct navigation link
-        if (productId && !favBtn.hasAttribute('href')) {
-          const product = this.getProductData(productId);
-          if (product) {
-            e.preventDefault(); // Stop navigation ONLY for toggling favourites
-            this.toggleFavourite(product);
-          }
+      if (e.target.closest('.favourite-btn')) {
+        const btn = e.target.closest('.favourite-btn');
+        const productId = btn.dataset.productId;
+        const product = this.getProductData(productId);
+        if (product) {
+          e.preventDefault();
+          this.toggleFavourite(product);
         }
-        // If it's a nav link (has href) or missing ID, the browser follows the link naturally
       }
+    });
+  }
 
   // GET PRODUCT DATA FROM 11TY GENERATED PAGE
   getProductData(productId) {
