@@ -116,7 +116,7 @@ body { font-family: Arial, Helvetica, sans-serif; color: var(--text-color); back
 .desktop-nav .nav-icon { font-size: 1.5rem !important; }
 
 .favourite-item-actions { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; align-items: center; }
-.checkout-btn { background: #25D366 !important; color: white !important; border: none; padding: 0.75rem 1.5rem; text-decoration: none; text-transform: uppercase; font-size: 0.9rem; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; min-width: max-content; }
+.checkout-btn { background: #25D366 !important; color: white !important; border: none; padding: 0.75rem 1.5rem; text-decoration: none; text-transform: uppercase; font-size: 0.9rem; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; min-width: max-content; }
 .favourite-item-actions { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; align-items: center; }
 .checkout-btn:hover { background: #128C7E !important; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); color: white !important; }
 .remove-favourite-btn { background: none; border: none; color: var(--primary-color); cursor: pointer; text-decoration: underline; font-size: 0.9rem; padding: 0.5rem 0; transition: all 0.3s ease; }
@@ -354,7 +354,7 @@ loadFavouritesRecommendations();
                     <!-- Action Buttons - EXACTLY as you requested -->
                     <div class="favourite-item-actions">
                         <a href="/product/${item.slug}/" class="checkout-btn favourite-page-btn">
-                            <i class="fas fa-external-link-alt"></i> View Details😋
+                            <i class="fas fa-external-link-alt"></i> View Details
                         </a>
                         <button class="remove-favourite-btn" onclick="removeFromFavourites(${item.id})">
                             Remove from Favourites
