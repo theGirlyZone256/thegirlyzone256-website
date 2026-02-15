@@ -1766,6 +1766,35 @@ const products = [
     tags: ["date", "party"],
     featured: true
   },
+  {
+    id: 57,
+    slug: "elegant-lace-party-dress",
+    title: "Elegant Lace Party Dress",
+    shortDescription: "Beautiful long dress with classy lace and open back.",
+    price: 50000,
+    availability: true,
+    mainImages: ["Elegant Lace Party Dress_00.webp", "Elegant Lace Party Dress_01.webp", "Elegant Lace Party Dress_02.webp", "Elegant Lace Party Dress_03.webp", "Elegant Lace Party Dress_04.webp"],
+    secondaryImage: "sElegant Lace Party Dress_00.webp",
+    colors: [
+    {
+      name: "Scarlet Red",
+      availability: true,
+      mainImages: ["Elegant Lace Party Dress_00.webp", "Elegant Lace Party Dress_01.webp", "Elegant Lace Party Dress_02.webp", "Elegant Lace Party Dress_03.webp", "Elegant Lace Party Dress_04.webp"],
+      secondaryImage: "sElegant Lace Party Dress_00.webp",
+      code: "#ff2400"
+    }
+    ],
+    category: "dresses",
+    mood: ["elegant", "party", "romantic"],
+    occasion: ["date", "party"],
+    sizeRange: ["medium"],
+    colorNames: ["red"],
+    material: "N/A",
+    searchKeywords: ["bodycon dress", "date", "dress", "floral", "long dress", "party", "red", "romantic"],
+    recommendations: [7, 56],
+    tags: ["dress", "long dress", "luxurious", "night", "party"],
+    featured: true
+  },
 
   
 ];
