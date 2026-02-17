@@ -124,7 +124,7 @@ body { font-family: Arial, Helvetica, sans-serif; color: var(--text-color); back
         width: 48px;
         height: 48px;
         top: -25px;
-        left: 8px;
+        right: 8px;
     }
 }
 /* Available colours hint – micro, brand pink, no layout shift */
@@ -742,6 +742,7 @@ html { scroll-behavior: smooth; }
     border: 1px solid #ddd;
     border-radius: 12px;
     cursor: pointer;
+    font-size: 0.75rem
 }
 
 #cancel-btn {
@@ -2354,6 +2355,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Open Modal
     eliteBtn.addEventListener('click', () => {
         eliteModal.style.display = 'flex';
+        whyBtn.style.display = 'inline-block';
         timeLeft = 10;
         timerDisplay.innerText = timeLeft;
         whyContent.classList.add('hidden');
