@@ -266,7 +266,7 @@ const products = [
     title: "Black Bodycon Party Dress",
     shortDescription: "Elegant slim-fit dress with a stylish pleated bottom.",
     price: 50000,
-    availability: true,
+    availability: false,
     mainImages: ["black-bodycon_00.webp", "black-bodycon_01.webp", "black-bodycon_02.webp", "black-bodycon_03.webp", "black-bodycon_04.webp", "black-bodycon_05.webp"],
     secondaryImage: "sblack-bodycon_01.webp",
     colors: [
@@ -846,7 +846,7 @@ const products = [
     title: "Classy Rust Ruffle Dress",
     shortDescription: "Elegant belted dress perfect for office, church, or special dates.",
     price: 35000,
-    availability: true,
+    availability: false,
     mainImages: ["Classy Rust Ruffle Dress_00.webp", "Classy Rust Ruffle Dress_01.webp", "Classy Rust Ruffle Dress_02.webp", "Classy Rust Ruffle Dress_03.webp"],
     secondaryImage: "sClassy Rust Ruffle Dress.webp",
     colors: [
@@ -1230,7 +1230,7 @@ const products = [
     title: "Green Daisy Wrap Skirt",
     shortDescription: "Bright green skirt with large, pretty daisy flower prints.",
     price: 25000,
-    availability: true,
+    availability: false,
     mainImages: ["Green Daisy Wrap Skirt_02.webp", "Green Daisy Wrap Skirt_00.webp", "Green Daisy Wrap Skirt_01.webp", "Green Daisy Wrap Skirt_04.webp"],
     secondaryImage: "sGreen Daisy Wrap Skirt.webp",
     colors: [
@@ -1498,7 +1498,7 @@ const products = [
     title: "Satin Gala Maxi Dress",
     shortDescription: "Look smart and elegant in this stylish, figure-hugging long dress.",
     price: 70000,
-    availability: true,
+    availability: false,
     mainImages: ["Satin Gala Maxi Dress_00.webp", "Satin Gala Maxi Dress_01.webp", "Satin Gala Maxi Dress_02.webp"],
     secondaryImage: "sSatin Gala Maxi Dress_00.webp",
     colors: [
@@ -1635,7 +1635,7 @@ const products = [
     title: "Elegant Satin Luxury Dress",
     shortDescription: "Look expensive and stunning at your next wedding or party.",
     price: 70000,
-    availability: true,
+    availability: false,
     mainImages: ["Elegant Satin Luxury Dress_05.webp", "Elegant Satin Luxury Dress_01.webp", "Elegant Satin Luxury Dress_02.webp", "Elegant Satin Luxury Dress_03.webp", "Elegant Satin Luxury Dress_04.webp", "Elegant Satin Luxury Dress_00.webp", "Elegant Satin Luxury Dress_06.webp"],
     secondaryImage: "sElegant Satin Luxury Dress_00.webp",
     colors: [
@@ -1671,7 +1671,7 @@ const products = [
     title: "Classy Satin Drape Dress",
     shortDescription: "Look like a boss lady at your next big event.",
     price: 70000,
-    availability: true,
+    availability: false,
     mainImages: ["Classy Satin Drape Dress_01.webp", "Classy Satin Drape Dress_03.webp", "Classy Satin Drape Dress_00.webp", "Classy Satin Drape Dress_02.webp", "Classy Satin Drape Dress_04.webp"],
     secondaryImage: "sClassy Satin Drape Dress_00.webp",
     colors: [
@@ -1700,7 +1700,7 @@ const products = [
     title: "Casual Luxe Lounge Dress",
     shortDescription: "Stay smart and comfortable in this trendy two-piece outfit.",
     price: 70000,
-    availability: true,
+    availability: false,
     mainImages: ["Casual Luxe Lounge Dress_02.webp", "Casual Luxe Lounge Dress_00.webp", "Casual Luxe Lounge Dress_02.webp", "Casual Luxe Lounge Dress_14.webp", "Casual Luxe Lounge Dress_01.webp", "Casual Luxe Lounge Dress_12.webp", "Casual Luxe Lounge Dress_06.webp", "Casual Luxe Lounge Dress_11.webp", "Casual Luxe Lounge Dress_13.webp", "Casual Luxe Lounge Dress_08.webp", "Casual Luxe Lounge Dress_09.webp", "Casual Luxe Lounge Dress_10.webp", "Casual Luxe Lounge Dress_03.webp", "Casual Luxe Lounge Dress_05.webp", "Casual Luxe Lounge Dress_04.webp", "Casual Luxe Lounge Dress_07.webp"],
     secondaryImage: "sCasual Luxe Lounge Dress_02.webp",
     colors: [
@@ -1743,7 +1743,7 @@ const products = [
     title: "Svelte Desire Dress",
     shortDescription: "Turn those heads.",
     price: 35000,
-    availability: true,
+    availability: false,
     mainImages: ["Svelte Desire Dress_00.webp", "Svelte Desire Dress_01.webp", "Svelte Desire Dress_02.webp", "Svelte Desire Dress_03.webp", "Svelte Desire Dress_04.webp"],
     secondaryImage: "sSvelte Desire Dress_03.webp",
     colors: [
