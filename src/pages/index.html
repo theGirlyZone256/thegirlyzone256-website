@@ -609,6 +609,14 @@ html { scroll-behavior: smooth; }
     position: relative;
     transition: all 0.3s ease;
     text-transform: uppercase;
+    -webkit-tap-highlight-color: transparent;
+    outline: none
+}
+
+.premium-pulse-btn:focus, 
+.premium-pulse-btn:active {
+    outline: none;
+    box-shadow: none; /* Only if a shadow appears on click */
 }
 
 /* DESKTOP ADJUSTMENT (Screens wider than 768px) */
