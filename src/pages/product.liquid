@@ -53,13 +53,13 @@ eleventyComputed:
   "@type": "Product",
   "name": "{{ product.title }}",
   "image": [
-    "https://thegirlyzone.netlify.app/assets/images/main/{{ product.mainImages[0] }}"
+    "https://thegirlyzone.com/assets/images/main/{{ product.mainImages[0] }}"
    ],
   "description": "{{ product.shortDescription }}",
   "sku": "{{ product.id }}",
   "offers": {
     "@type": "Offer",
-    "url": "https://thegirlyzone.netlify.app/product/{{ product.slug }}/",
+    "url": "https://thegirlyzone.com/product/{{ product.slug }}/",
     "priceCurrency": "UGX",
     "price": "{{ product.price }}",
     "availability": "https://schema.org/{% if product.availability %}InStock{% else %}OutOfStock{% endif %}",
@@ -81,19 +81,19 @@ eleventyComputed:
     
     <!-- 🎯 SOCIAL SHARING META TAGS -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://thegirlyzone.netlify.app/product/{{ product.slug }}/">
+    <meta property="og:url" content="https://thegirlyzone.com/product/{{ product.slug }}/">
     <meta property="og:title" content="{{ product.title }} | theGirlyZone Uganda">
     <meta property="og:description" content="{{ product.shortDescription }}">
-    <meta property="og:image" content="https://thegirlyzone.netlify.app/assets/images/main/{{ product.mainImages[0] }}">
+    <meta property="og:image" content="https://thegirlyzone.com/assets/images/main/{{ product.mainImages[0] }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="theGirlyZone Uganda">
     
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://thegirlyzone.netlify.app/product/{{ product.slug }}/">
+    <meta property="twitter:url" content="https://thegirlyzone.com/product/{{ product.slug }}/">
     <meta property="twitter:title" content="{{ product.title }} | theGirlyZone Uganda">
     <meta property="twitter:description" content="{{ product.shortDescription }}">
-    <meta property="twitter:image" content="https://thegirlyzone.netlify.app/assets/images/main/{{ product.mainImages[0] }}">
+    <meta property="twitter:image" content="https://thegirlyzone.com/assets/images/main/{{ product.mainImages[0] }}">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -1386,7 +1386,7 @@ window.buyNowProduct = function() {
         message += `   Color: ${product.selectedColor}%0A`;
     }
     
-    message += `   Link: https://thegirlyzone.netlify.app/product/${product.slug}/%0A%0A`;
+    message += `   Link: https://thegirlyzone.com/product/${product.slug}/%0A%0A`;
     message += `*TOTAL: UGX ${product.price.toLocaleString()}*%0A%0A`;
     message += "Thank you! 🎀";
 
