@@ -1859,7 +1859,7 @@ const products = [
     title: "Cherry Print Casual Set",
     shortDescription: "Stylish matching top and trousers for a cool, everyday look.",
     price: 50000,
-    availability: true,
+    availability: false,
     mainImages: ["Cherry Print Casual Set_01.webp", "Cherry Print Casual Set_00.webp", "Cherry Print Casual Set_02.webp"],
     secondaryImage: "sCherry Print Casual Set_01.webp",
     colors: [
@@ -1943,10 +1943,10 @@ const products = [
   {
     id: 63,
     slug: "checkered-fur-collar-bomber-jacket",
-    title: "Checkered Fur-Collar Bomber Jacket",
+    title: "Fur-Collar Bomber Jacket",
     shortDescription: "Warm checkered jacket with a soft, stylish fur collar.",
     price: 55000,
-    availability: true,
+    availability: false,
     mainImages: ["Checkered Fur-Collar Bomber Jacket_00.webp", "Checkered Fur-Collar Bomber Jacket_01.webp", "Checkered Fur-Collar Bomber Jacket_02.webp", "Checkered Fur-Collar Bomber Jacket_03.webp", "Checkered Fur-Collar Bomber Jacket_04.webp", "Checkered Fur-Collar Bomber Jacket_05.webp", "Checkered Fur-Collar Bomber Jacket_06.webp"],
     secondaryImage: "sCheckered Fur-Collar Bomber Jacket_01.webp",
     colors: [
@@ -2033,13 +2033,13 @@ const products = [
     title: "Elegant Ruched Cutout Gown",
     shortDescription: "Stylish long dress with a sexy side cutout design.",
     price: 35000,
-    availability: true,
+    availability: false,
     mainImages: ["Elegant Ruched Cutout Gown_00.webp", "Elegant Ruched Cutout Gown_01.webp", "Elegant Ruched Cutout Gown_03.webp", "Elegant Ruched Cutout Gown_04.webp", "Elegant Ruched Cutout Gown_05.webp", "Elegant Ruched Cutout Gown_06.webp", "Elegant Ruched Cutout Gown_07.webp"],
     secondaryImage: "sElegant Ruched Cutout Gown_02.webp",
     colors: [
     {
       name: "Olive",
-      availability: false,
+      availability: true,
       mainImages: ["Elegant Ruched Cutout Gown_00.webp", "Elegant Ruched Cutout Gown_01.webp", "Elegant Ruched Cutout Gown_03.webp", "Elegant Ruched Cutout Gown_04.webp", "Elegant Ruched Cutout Gown_05.webp", "Elegant Ruched Cutout Gown_06.webp", "Elegant Ruched Cutout Gown_07.webp"],
       secondaryImage: "sElegant Ruched Cutout Gown_02.webp",
       code: "#999d05"
