@@ -5,6 +5,14 @@
 [build.environment]
   NODE_VERSION = "18"
 
+
+  # Move everyone from the old netlify.app to the new .com
+[[redirects]]
+  from = "https://thegirlyzone.netlify.app/*"
+  to = "https://thegirlyzone.com/:splat"
+  status = 301
+  force = true
+
 # Clean URL redirects
 [[redirects]]
   from = "/cart"
