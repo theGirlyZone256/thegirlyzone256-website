@@ -1956,7 +1956,7 @@ const products = [
       mainImages: ["Checkered Fur-Collar Bomber Jacket_00.webp", "Checkered Fur-Collar Bomber Jacket_02.webp", "Checkered Fur-Collar Bomber Jacket_04.webp", "Checkered Fur-Collar Bomber Jacket_06.webp"],
       secondaryImage: "sCheckered Fur-Collar Bomber Jacket_01.webp",
       code: "#9f8879"
-    }
+    },
     {
       name: "Black",
       availability: true,
