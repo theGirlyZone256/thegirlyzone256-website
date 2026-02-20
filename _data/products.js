@@ -1953,20 +1953,27 @@ const products = [
     {
       name: "Eth-Brown",
       availability: true,
-      mainImages: ["Checkered Fur-Collar Bomber Jacket_00.webp", "Checkered Fur-Collar Bomber Jacket_01.webp", "Checkered Fur-Collar Bomber Jacket_02.webp", "Checkered Fur-Collar Bomber Jacket_03.webp", "Checkered Fur-Collar Bomber Jacket_04.webp", "Checkered Fur-Collar Bomber Jacket_05.webp", "Checkered Fur-Collar Bomber Jacket_06.webp"],
+      mainImages: ["Checkered Fur-Collar Bomber Jacket_00.webp", "Checkered Fur-Collar Bomber Jacket_02.webp", "Checkered Fur-Collar Bomber Jacket_04.webp", "Checkered Fur-Collar Bomber Jacket_06.webp"],
       secondaryImage: "sCheckered Fur-Collar Bomber Jacket_01.webp",
       code: "#9f8879"
+    }
+    {
+      name: "Black",
+      availability: true,
+      mainImages: ["Checkered Fur-Collar Bomber Jacket_01.webp", "Checkered Fur-Collar Bomber Jacket_03.webp", "Checkered Fur-Collar Bomber Jacket_05.webp"],
+      secondaryImage: "sCheckered Fur-Collar Bomber Jacket_01.webp",
+      code: "#000000"
     }
     ],
     category: "tops",
     mood: ["free", "smart"],
     occasion: ["casual", "date"],
     sizeRange: ["medium"],
-    colorNames: ["brown"],
+    colorNames: ["brown", "black"],
     material: "N/A",
     searchKeywords: ["casual", "comfortable", "date", "layering", "long sleeved", "sweater", "jacket"],
     recommendations: [5, 50],
-    tags: ["brown", "casual", "comfortable", "smart", "sweater"],
+    tags: ["brown", "casual", "comfortable", "smart", "sweater", "black"],
     featured: true
   },
   {
