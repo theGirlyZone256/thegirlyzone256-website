@@ -42,3 +42,9 @@ package = "@netlify/plugin-sitemap"
 
   [plugins.inputs]
   buildDir = "_site"
+
+# This tells Netlify: "If a page isn't found, show the out-of-stock page"
+[[redirects]]
+  from = "/*"
+  to = "/out-of-stock.html"
+  status = 404
