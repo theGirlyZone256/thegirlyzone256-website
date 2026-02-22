@@ -2034,7 +2034,8 @@ const products = [
     tags: ["beach", "casual", "comfortable", "dress", "floral"],
     featured: true
   },
-  {
+
+  /*{
     id: 66,
     slug: "elegant-ruched-cutout-gown",
     title: "Elegant Ruched Cutout Gown",
@@ -2062,7 +2063,7 @@ const products = [
     recommendations: [53, 54, 55],
     tags: ["date", "dress", "long dress"],
     featured: true
-  },
+  }, */
 
   
 ];
