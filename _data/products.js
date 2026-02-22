@@ -2035,36 +2035,6 @@ const products = [
     featured: true
   },
 
-  /*{
-    id: 66,
-    slug: "elegant-ruched-cutout-gown",
-    title: "Elegant Ruched Cutout Gown",
-    shortDescription: "Stylish long dress with a sexy side cutout design.",
-    price: 35000,
-    availability: true,
-    mainImages: ["Elegant Ruched Cutout Gown_00.webp", "Elegant Ruched Cutout Gown_01.webp", "Elegant Ruched Cutout Gown_03.webp", "Elegant Ruched Cutout Gown_04.webp", "Elegant Ruched Cutout Gown_05.webp", "Elegant Ruched Cutout Gown_06.webp", "Elegant Ruched Cutout Gown_07.webp"],
-    secondaryImage: "sElegant Ruched Cutout Gown_02.webp",
-    colors: [
-    {
-      name: "Olive",
-      availability: true,
-      mainImages: ["Elegant Ruched Cutout Gown_00.webp", "Elegant Ruched Cutout Gown_01.webp", "Elegant Ruched Cutout Gown_03.webp", "Elegant Ruched Cutout Gown_04.webp", "Elegant Ruched Cutout Gown_05.webp", "Elegant Ruched Cutout Gown_06.webp", "Elegant Ruched Cutout Gown_07.webp"],
-      secondaryImage: "sElegant Ruched Cutout Gown_02.webp",
-      code: "#999d05"
-    }
-    ],
-    category: "dresses",
-    mood: ["elegant", "smart"],
-    occasion: ["date", "party"],
-    sizeRange: ["medium"],
-    colorNames: ["green"],
-    material: "N/A",
-    searchKeywords: ["bodycon", "date", "dress", "long dress", "luxurious", "party"],
-    recommendations: [53, 54, 55],
-    tags: ["date", "dress", "long dress"],
-    featured: true
-  }, */
-
   
 ];
 
