@@ -94,40 +94,6 @@ body { font-family: Arial, Helvetica, sans-serif; color: var(--text-color); back
 .product-info { padding: 1rem; }
 .product-title { font-size: 0.8rem; margin-bottom: 0.5rem; text-transform: uppercase; }
 .product-price { font-weight: 500; margin-bottom: 0.5rem; }
-/* ELITE BADGE STYLES - ADD HERE */
-.product-info { 
-    position: relative !important; /* Essential for badge positioning */
-}
-
-.elite-status-badge {
-    position: absolute;
-    /* Pulls badge up to overlap the image/info divider */
-    top: -30px; 
-    right: 12px;
-    width: 58px; 
-    height: 58px;
-    z-index: 10;
-    
-    /* Stamp Aesthetics */
-    transform: rotate(-15deg);
-    filter: drop-shadow(0px 4px 5px rgba(0,0,0,0.25));
-    
-    /* Functional Safety */
-    pointer-events: none;
-    user-select: none;
-    -webkit-user-drag: none;
-    -webkit-tap-highlight-color: transparent;
-}
-
-/* Mobile responsive scaling */
-@media (max-width: 480px) {
-    .elite-status-badge {
-        width: 48px;
-        height: 48px;
-        top: -25px;
-        right: 8px;
-    }
-}
 /* Available colours hint – micro, brand pink, no layout shift */
 .available-colours-text {
     color: #ff004d;
@@ -1016,11 +982,6 @@ html { scroll-behavior: smooth; }
                 </button>
             </div>
             <div class="product-info" style="position: relative;">
-                
-                {% unless product.availability %}
-                    <img src="/assets/images/elite.webp" class="elite-status-badge" alt="Elite Exclusive">
-                {% endunless %}
-
                 <h3 class="product-title">{{ product.title }}</h3>
                 <p class="product-price">UGX {{ product.price | formatNumber }}</p>
                 
