@@ -26,18 +26,15 @@ permalink: /success/index.html
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background-color: #f9f9f9;
+            background-color: #ffffff;
             text-align: center;
         }
 
         .success-card {
-            background: white;
             padding: 3rem 2rem;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             max-width: 500px;
             width: 90%;
-            border: 1px solid var(--border-color);
+            /* completely flat – no background, border, or shadow */
         }
 
         .icon-circle {
@@ -76,12 +73,12 @@ permalink: /success/index.html
             border-radius: 4px;
             font-weight: 600;
             display: inline-block;
-            transition: all 0.2s ease; /* faster transition for tactile feel */
+            transition: all 0.2s ease;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             border: none;
             cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .back-btn:hover {
@@ -89,12 +86,11 @@ permalink: /success/index.html
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
         }
 
-        /* Tactile click effect */
         .back-btn:active {
             transform: translateY(2px) scale(0.98);
             box-shadow: 0 2px 5px rgba(212, 175, 55, 0.3);
-            background-color: #c19b2e; /* slightly darker golden */
-            transition: all 0.05s; /* instant feedback */
+            background-color: #c19b2e;
+            transition: all 0.05s;
         }
 
         @keyframes bounceIn {
@@ -109,7 +105,7 @@ permalink: /success/index.html
         <div class="icon-circle">
             <i class="fas fa-heart"></i>
         </div>
-        <h1>You're in, Girl!</h1>
+        <h1>You're in!</h1>
         <p>Thank you for subscribing. You are now part of our inner circle! Get ready for exclusive drops, style tips, and secret deals delivered straight to your inbox.</p>
         <a href="/" class="back-btn">Continue Shopping</a>
     </div>
