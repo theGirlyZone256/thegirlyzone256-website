@@ -5,14 +5,7 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# 1. Primary Domain Redirect
-[[redirects]]
-  from = "https://thegirlyzone.netlify.app/*"
-  to = "https://thegirlyzone.com/:splat"
-  status = 301
-  force = true
-
-# 2. Specific Page Mappings
+# 1. Page Mappings (Using specific matches only)
 [[redirects]]
   from = "/cart"
   to = "/pages/cart/index.html"
@@ -28,7 +21,7 @@
   to = "/success/index.html"
   status = 200
 
-# 3. Security
+# 2. Security Headers
 [[headers]]
   for = "/*"
   [headers.values]
@@ -36,16 +29,11 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
 
-# 4. Plugins
+# 3. Sitemap
 [[plugins]]
 package = "@netlify/plugin-sitemap"
   [plugins.inputs]
   buildDir = "_site"
 
-# 5. Global 404 Catch-all
-# We use /out-of-stock.html without a status 200 redirect above it
-# to ensure it only triggers when a file is truly missing.
-[[redirects]]
-  from = "/*"
-  to = "/out-of-stock.html"
-  status = 404
+# NOTE: The "/*" to "/out-of-stock.html" rule has been REMOVED.
+# This will force Netlify to show your real index.html.
