@@ -75,16 +75,24 @@ button, .btn, .action-btn, .submit-btn, .checkout-btn, .add-to-cart-btn { font-w
         <div class="notify-form">
             <h2>Get notified when it's back</h2>
             <!-- NETLIFY FORM - This will automatically work -->
-            <form name="restock-notifications" method="POST" data-netlify="true" action="/success/">
-                <input type="hidden" name="requested-product" id="requestedProduct">
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
-                </div>
-                <button type="submit" class="submit-btn">
-                    <i class="fas fa-bell"></i> Notify Me
-                </button>
-            </form>
+            <form name="restock-notifications" 
+      method="POST" 
+      data-netlify="true" 
+      action="/success/" 
+      netlify-honeypot="bot-field" 
+      id="restockForm">
+    
+    <p style="display:none;">
+        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+    </p>
+
+    <input type="hidden" name="subject" value="Restock Request for {{ product.title }}">
+
+    <div class="input-group">
+        <input type="email" name="email" placeholder="Enter your email address" required>
+        <button type="submit" class="submit-btn">Notify Me</button>
+    </div>
+</form>
             
             <div class="security-note">
                 <i class="fas fa-lock"></i>
@@ -92,60 +100,6 @@ button, .btn, .action-btn, .submit-btn, .checkout-btn, .add-to-cart-btn { font-w
             </div>
         </div>
     </div>
-    
-    <!-- Toast notification -->
-        <div class="toast" id="toast">
-        <i class="fas fa-check-circle"></i>
-        <div class="toast-content">
-            Thank you! We'll notify you when this product is back in stock. 
-            <br><small>Redirecting to homepage...</small>
-        </div>
-        <button class="close-toast" id="closeToast">&times;</button>
-    </div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Extract product name from URL for personalization
-        const referrer = document.referrer;
-        let productSlug = '';
-        
-        if (referrer.includes('/product/')) {
-            const url = new URL(referrer);
-            const pathSegments = url.pathname.split('/').filter(Boolean);
-            productSlug = pathSegments[pathSegments.length - 1];
-        }
-        
-        if (productSlug) {
-            document.getElementById('requestedProduct').value = productSlug;
-        }
-
-        // NETLIFY FORMS - Show loading state during submission
-        const form = document.querySelector('form[netlify]');
-        
-        if (form) {
-            form.addEventListener('submit', function() {
-                // Show loading state immediately when form is submitted
-                const submitBtn = this.querySelector('.submit-btn');
-                const originalText = submitBtn.innerHTML;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-                submitBtn.disabled = true;
-                
-                // Let Netlify handle the actual form submission
-                // The page will reload/redirect after Netlify processes the form
-            });
-        }
-
-        // Check for Netlify success parameters and auto-redirect to homepage
-        const urlParams = new URLSearchParams(window.location.search);
-        
-        // Close toast when X button is clicked
-        const closeToast = document.getElementById('closeToast');
-        if (closeToast) {
-            closeToast.addEventListener('click', function() {
-                document.getElementById('toast').classList.remove('show');
-            });
-        }
-    });
-</script>
+  
 </body>
 </html>    
