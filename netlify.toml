@@ -24,10 +24,6 @@
   to = "/pages/favourites/index.html"
   status = 200
 
-[[redirects]]
-  from = "/out-of-stock"
-  to = "/out-of-stock.html"
-  status = 200
 
 [[headers]]
   for = "/*"
