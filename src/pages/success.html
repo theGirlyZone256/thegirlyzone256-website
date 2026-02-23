@@ -1,3 +1,6 @@
+---
+permalink: /success/index.html
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +51,6 @@
             justify-content: center;
             font-size: 2.5rem;
             margin: 0 auto 1.5rem;
-            /* Animation matching your slideFadeIn style */
             animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
@@ -74,14 +76,25 @@
             border-radius: 4px;
             font-weight: 600;
             display: inline-block;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease; /* faster transition for tactile feel */
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: none;
+            cursor: pointer;
         }
 
         .back-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Tactile click effect */
+        .back-btn:active {
+            transform: translateY(2px) scale(0.98);
+            box-shadow: 0 2px 5px rgba(212, 175, 55, 0.3);
+            background-color: #c19b2e; /* slightly darker golden */
+            transition: all 0.05s; /* instant feedback */
         }
 
         @keyframes bounceIn {

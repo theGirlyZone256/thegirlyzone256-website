@@ -60,3 +60,9 @@ package = "@netlify/plugin-sitemap"
   from = "/restock-notifications"
   to = "/success"
   status = 301
+
+# Success Page Clean URL
+[[redirects]]
+  from = "/success"
+  to = "/success/"
+  status = 200
