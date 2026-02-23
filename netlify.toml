@@ -5,7 +5,7 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# 1. Page Mappings (Using specific matches only)
+# 1. Page Mappings
 [[redirects]]
   from = "/cart"
   to = "/pages/cart/index.html"
@@ -35,5 +35,11 @@ package = "@netlify/plugin-sitemap"
   [plugins.inputs]
   buildDir = "_site"
 
-# NOTE: The "/*" to "/out-of-stock.html" rule has been REMOVED.
-# This will force Netlify to show your real index.html.
+# 4. The 404 Custom Page (Fixed!)
+# By setting force = false, it won't hide your homepage anymore.
+# It will only pop up if someone types a broken URL.
+[[redirects]]
+  from = "/*"
+  to = "/out-of-stock.html"
+  status = 404
+  force = false
