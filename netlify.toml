@@ -5,27 +5,15 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# 1. Domain Migration
-[[redirects]]
-  from = "https://thegirlyzone.netlify.app/*"
-  to = "https://thegirlyzone.com/:splat"
-  status = 301
-  force = true
-
-# 2. Clean URL Path Mapping
+# Clean URL redirects
 [[redirects]]
   from = "/cart"
-  to = "/pages/cart/index.html"
+  to = "/pages/cart/"
   status = 200
 
 [[redirects]]
-  from = "/favourites"
-  to = "/pages/favourites/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/success"
-  to = "/success/index.html"
+  from = "/favourites" 
+  to = "/pages/favourites/"
   status = 200
 
 [[redirects]]
@@ -33,7 +21,6 @@
   to = "/out-of-stock.html"
   status = 200
 
-# 3. Security Headers
 [[headers]]
   for = "/*"
   [headers.values]
@@ -41,14 +28,9 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
 
-# 4. Plugins
+    # Automatically Generate Sitemap on Build
 [[plugins]]
 package = "@netlify/plugin-sitemap"
+
   [plugins.inputs]
   buildDir = "_site"
-
-# 5. Global 404 (MUST BE LAST)
-[[redirects]]
-  from = "/*"
-  to = "/out-of-stock.html"
-  status = 404
