@@ -5,26 +5,35 @@
 [build.environment]
   NODE_VERSION = "18"
 
-
-  # Move everyone from the old netlify.app to the new .com
+# 1. Domain Migration
 [[redirects]]
   from = "https://thegirlyzone.netlify.app/*"
   to = "https://thegirlyzone.com/:splat"
   status = 301
   force = true
 
-# Clean URL redirects
+# 2. Clean URL Path Mapping
 [[redirects]]
   from = "/cart"
   to = "/pages/cart/index.html"
   status = 200
 
 [[redirects]]
-  from = "/favourites" 
+  from = "/favourites"
   to = "/pages/favourites/index.html"
   status = 200
 
+[[redirects]]
+  from = "/success"
+  to = "/success/index.html"
+  status = 200
 
+[[redirects]]
+  from = "/out-of-stock"
+  to = "/out-of-stock.html"
+  status = 200
+
+# 3. Security Headers
 [[headers]]
   for = "/*"
   [headers.values]
@@ -32,33 +41,14 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
 
-    # Automatically Generate Sitemap on Build
+# 4. Plugins
 [[plugins]]
 package = "@netlify/plugin-sitemap"
-
   [plugins.inputs]
   buildDir = "_site"
 
-# This tells Netlify: "If a page isn't found, show the out-of-stock page"
+# 5. Global 404 (MUST BE LAST)
 [[redirects]]
   from = "/*"
   to = "/out-of-stock.html"
   status = 404
-
-# Force custom success page for Newsletter
-[[redirects]]
-  from = "/newsletter-subscriptions"
-  to = "/success"
-  status = 301
-
-# Force custom success page for Restock Notifications
-[[redirects]]
-  from = "/restock-notifications"
-  to = "/success"
-  status = 301
-
-# Success Page Clean URL
-[[redirects]]
-  from = "/success"
-  to = "/success/"
-  status = 200
