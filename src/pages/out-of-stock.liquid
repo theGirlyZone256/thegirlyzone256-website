@@ -75,7 +75,7 @@ button, .btn, .action-btn, .submit-btn, .checkout-btn, .add-to-cart-btn { font-w
         <div class="notify-form">
             <h2>Get notified when it's back</h2>
             <!-- NETLIFY FORM - This will automatically work -->
-            <form name="restock-notifications" netlify>
+            <form name="restock-notifications" netlify action="/success">
                 <input type="hidden" name="requested-product" id="requestedProduct">
                 <div class="form-group">
                     <label for="email">Email Address</label>
@@ -137,18 +137,6 @@ button, .btn, .action-btn, .submit-btn, .checkout-btn, .add-to-cart-btn { font-w
 
         // Check for Netlify success parameters and auto-redirect to homepage
         const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('success') === 'true' || urlParams.has('form')) {
-            // Show success toast
-            const toast = document.getElementById('toast');
-            if (toast) {
-                toast.classList.add('show');
-                
-                // Auto-redirect to homepage after 3 seconds
-                setTimeout(function() {
-                    window.location.href = '/';
-                }, 3000);
-            }
-        }
         
         // Close toast when X button is clicked
         const closeToast = document.getElementById('closeToast');
