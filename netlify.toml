@@ -16,12 +16,12 @@
 # Clean URL redirects
 [[redirects]]
   from = "/cart"
-  to = "/pages/cart/"
+  to = "/pages/cart/index.html"
   status = 200
 
 [[redirects]]
   from = "/favourites" 
-  to = "/pages/favourites/"
+  to = "/pages/favourites/index.html"
   status = 200
 
 [[redirects]]
