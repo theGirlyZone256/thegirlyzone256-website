@@ -101,5 +101,50 @@ button, .btn, .action-btn, .submit-btn, .checkout-btn, .add-to-cart-btn { font-w
         </div>
     </div>
   
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Extract product name from URL for personalization
+        const referrer = document.referrer;
+        let productSlug = '';
+        
+        if (referrer.includes('/product/')) {
+            const url = new URL(referrer);
+            const pathSegments = url.pathname.split('/').filter(Boolean);
+            productSlug = pathSegments[pathSegments.length - 1];
+        }
+        
+        if (productSlug) {
+            document.getElementById('requestedProduct').value = productSlug;
+        }
+
+        // NETLIFY FORMS - Show loading state during submission
+        const form = document.querySelector('form[netlify]');
+        
+        if (form) {
+            form.addEventListener('submit', function() {
+                // Show loading state immediately when form is submitted
+                const submitBtn = this.querySelector('.submit-btn');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+                submitBtn.disabled = true;
+                
+                // Let Netlify handle the actual form submission
+                // The page will reload/redirect after Netlify processes the form
+            });
+        }
+
+        // Check for Netlify success parameters and auto-redirect to homepage
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Close toast when X button is clicked
+        const closeToast = document.getElementById('closeToast');
+        if (closeToast) {
+            closeToast.addEventListener('click', function() {
+                document.getElementById('toast').classList.remove('show');
+            });
+        }
+    });
+</script>
 </body>
 </html>    
