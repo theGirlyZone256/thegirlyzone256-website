@@ -5,14 +5,14 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# 1. Domain Migration
+# 1. Primary Domain Redirect
 [[redirects]]
   from = "https://thegirlyzone.netlify.app/*"
   to = "https://thegirlyzone.com/:splat"
   status = 301
   force = true
 
-# 2. Clean URL Path Mapping
+# 2. Specific Page Mappings
 [[redirects]]
   from = "/cart"
   to = "/pages/cart/index.html"
@@ -28,12 +28,7 @@
   to = "/success/index.html"
   status = 200
 
-[[redirects]]
-  from = "/out-of-stock"
-  to = "/out-of-stock.html"
-  status = 200
-
-# 3. Security Headers
+# 3. Security
 [[headers]]
   for = "/*"
   [headers.values]
@@ -47,7 +42,9 @@ package = "@netlify/plugin-sitemap"
   [plugins.inputs]
   buildDir = "_site"
 
-# 5. Global 404 (MUST BE LAST)
+# 5. Global 404 Catch-all
+# We use /out-of-stock.html without a status 200 redirect above it
+# to ensure it only triggers when a file is truly missing.
 [[redirects]]
   from = "/*"
   to = "/out-of-stock.html"
