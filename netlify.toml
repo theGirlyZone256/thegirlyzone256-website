@@ -48,3 +48,15 @@ package = "@netlify/plugin-sitemap"
   from = "/*"
   to = "/out-of-stock.html"
   status = 404
+
+# Force custom success page for Newsletter
+[[redirects]]
+  from = "/newsletter-subscriptions"
+  to = "/success"
+  status = 301
+
+# Force custom success page for Restock Notifications
+[[redirects]]
+  from = "/restock-notifications"
+  to = "/success"
+  status = 301
