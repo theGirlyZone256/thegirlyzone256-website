@@ -1,7 +1,7 @@
 // Main (900x1200)px in webp format.
 // Hero (1600x900)px in webp format.
 // Secondary (600x800)px in webp format.
-// Missing IDs: 11
+// Missing IDs: 11, 13, 14
 
 // ======================================================================================================================
 // _data/products.js
@@ -363,35 +363,6 @@ const products = [
     tags: ["arm", "bag", "cotton", "tote"],
     featured: true
   },
-    /*{
-    id: 11,
-    slug: "the-gilded-rose",
-    title: "The Gilded Rose",
-    shortDescription: "Capture timeless beauty!",
-    price: 10000,
-    availability: true,
-    mainImages: ["the-gilded-rose_00.webp", "the-gilded-rose_01.webp", "the-gilded-rose_02.webp"],
-    secondaryImage: "s_the-gilded-rose_01.webp",
-    colors: [
-    {
-      name: "Metal Silver",
-      availability: true,
-      mainImages: ["the-gilded-rose_00.webp", "the-gilded-rose_01.webp", "the-gilded-rose_02.webp"],
-      secondaryImage: "s_the-gilded-rose_01.webp",
-      code: "#c0c0c0"
-    }
-    ],
-    category: "accessories",
-    mood: ["elegant"],
-    occasion: ["vacation", "casual", "party"],
-    sizeRange: ["n/a"],
-    colorNames: ["metal silver"],
-    material: "Metallic",
-    searchKeywords: ["floral", "jewelry", "necklace", "floral necklace"],
-    recommendations: [12, 13, 14, 15],
-    tags: ["floral", "luxurious", "jewelry", "necklace", "floral necklace"],
-    featured: true
-  },*/
   {
     id: 12,
     slug: "the-frost-foliage",
@@ -421,64 +392,7 @@ const products = [
     tags: ["elegant", "jewelry", "luxurious", "necklace", "silver"], 
     featured: true
   },
-  {
-    id: 13,
-    slug: "the-silver-talon",
-    title: "The Silver Talon",
-    shortDescription: "Elevate your style with this sleek, tapered pendant necklace.",
-    price: 10000,
-    availability: true,
-    mainImages: ["the-silver-talon_00.webp", "the-silver-talon_02.webp", "the-silver-talon_03.webp"],
-    secondaryImage: "sthe-silver-talon.webp",
-    colors: [
-    {
-      name: "Metallic Silver",
-      availability: true,
-      mainImages: ["the-silver-talon_00.webp", "the-silver-talon_02.webp", "the-silver-talon_03.webp"],
-      secondaryImage: "sthe-silver-talon.webp",
-      code: "#c0c0c0"
-    }
-    ],
-    category: "accessories",
-    mood: ["Free", "elegant"],
-    occasion: ["casual"],
-    sizeRange: ["n/a"],
-    colorNames: ["metallic silver"],
-    material: "Metallic",
-    searchKeywords: ["jewelry", "necklace"],
-    recommendations: [11, 12, 13, 15],
-    tags: ["jewelry", "luxurious", "necklace"],
-    featured: true
-  },
-  {
-    id: 14,
-    slug: "the-silver-cleat",
-    title: "The Silver Cleat",
-    shortDescription: "Showcase your passion with this finely detailed sneaker-themed pendant necklace.",
-    price: 10000,
-    availability: true,
-    mainImages: ["the-silver-cleat_02.webp", "the-silver-cleat_00.webp", "the-silver-cleat_03.webp"],
-    secondaryImage: "sthe-silver-cleat.webp",
-    colors: [
-    {
-      name: "Metallic Silver",
-      availability: true,
-      mainImages: ["the-silver-cleat_02.webp", "the-silver-cleat_00.webp", "the-silver-cleat_03.webp"],
-      secondaryImage: "sthe-silver-cleat.webp",
-      code: "#c0c0c0"
-    }
-    ],
-    category: "accessories",
-    mood: ["elegant"],
-    occasion: ["vacation", "casual"],
-    sizeRange: ["n/a"],
-    colorNames: ["metallic silver"],
-    material: "Metallic",
-    searchKeywords: ["jewelry", "necklace"],
-    recommendations: [11, 12, 13, 15],
-    tags: ["jewelry", "necklace"],
-    featured: true
-  },
+  
   {
     id: 15,
     slug: "the-silver-blade",
