@@ -1,6 +1,7 @@
 // Main (900x1200)px in webp format.
 // Hero (1600x900)px in webp format.
 // Secondary (600x800)px in webp format.
+// Missing IDs: 11
 
 // ======================================================================================================================
 // _data/products.js
@@ -362,7 +363,7 @@ const products = [
     tags: ["arm", "bag", "cotton", "tote"],
     featured: true
   },
-    {
+    /*{
     id: 11,
     slug: "the-gilded-rose",
     title: "The Gilded Rose",
@@ -390,7 +391,7 @@ const products = [
     recommendations: [12, 13, 14, 15],
     tags: ["floral", "luxurious", "jewelry", "necklace", "floral necklace"],
     featured: true
-  },
+  },*/
   {
     id: 12,
     slug: "the-frost-foliage",
