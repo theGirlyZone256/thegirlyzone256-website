@@ -6,7 +6,7 @@
 // ======================================================================================================================
 // _data/products.js
 const products = [
-  {
+ /* {
     // CORE IDENTIFIERS
     id: 10,
     slug: "ribbed-frill-wrap-dress",
@@ -56,7 +56,7 @@ const products = [
     tags: ["dress", "blue", "elegant", "green", "formal"],
     
     featured: true
-  },
+  },*/
   {
     id: 9,
     slug: "midnight-bloom-ruffle-mini",
