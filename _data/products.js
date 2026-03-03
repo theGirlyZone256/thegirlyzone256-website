@@ -1949,6 +1949,56 @@ const products = [
     tags: ["beach", "casual", "comfortable", "dress", "floral"],
     featured: true
   },
+  {
+    id: 66,
+    slug: "the-radiant-sunflower-maxi",
+    title: "The Radiant Sunflower Maxi",
+    shortDescription: "Show off your beauty and shine bright.",
+    price: 35000,
+    availability: true,
+    mainImages: ["The Radiant Sunflower Maxi_00.webp", "The Radiant Sunflower Maxi_01.webp", "The Radiant Sunflower Maxi_02.webp", "The Radiant Sunflower Maxi_03.webp", "The Radiant Sunflower Maxi_04.webp", "The Radiant Sunflower Maxi_05.webp", "The Radiant Sunflower Maxi_06.webp"],
+    secondaryImage: "sThe Radiant Sunflower Maxi_00.webp",
+    colors: [
+    {
+      name: "Azure Blue",
+      availability: true,
+      mainImages: ["The Radiant Sunflower Maxi_00.webp", "The Radiant Sunflower Maxi_05.webp"],
+      secondaryImage: "sThe Radiant Sunflower Maxi_00.webp",
+      code: "#8eb9d4"
+    },
+    {
+      name: "White",
+      availability: true,
+      mainImages: ["The Radiant Sunflower Maxi_01.webp", "The Radiant Sunflower Maxi_04.webp"],
+      secondaryImage: "sThe Radiant Sunflower Maxi_00.webp",
+      code: "#ffffff"
+    },
+    {
+      name: "Black",
+      availability: true,
+      mainImages: ["The Radiant Sunflower Maxi_02.webp"],
+      secondaryImage: "sThe Radiant Sunflower Maxi_00.webp",
+      code: "#212124"
+    },
+    {
+      name: "Green",
+      availability: true,
+      mainImages: ["The Radiant Sunflower Maxi_03.webp", "The Radiant Sunflower Maxi_06.webp"],
+      secondaryImage: "sThe Radiant Sunflower Maxi_00.webp",
+      code: "#83a20c"
+    }
+    ],
+    category: "dresses",
+    mood: ["elegant", "free"],
+    occasion: ["beach", "casual", "party", "vacation"],
+    sizeRange: ["medium"],
+    colorNames: ["black", "green", "white", "azure blue"],
+    material: "N/A",
+    searchKeywords: ["beach", "black", "blue", "casual", "comfortable", "dress", "floral", "green", "long", "party", "vacation", "white"],
+    recommendations: [52, 65],
+    tags: ["beach", "black", "blue", "casual", "comfortable", "dress", "elegant", "green", "long", "party"],
+    featured: true
+  },
 
   
 ];
