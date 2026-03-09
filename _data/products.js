@@ -1999,6 +1999,70 @@ const products = [
     tags: ["beach", "black", "blue", "casual", "comfortable", "dress", "elegant", "green", "long", "party"],
     featured: true
   },
+  {
+    id: 67,
+    slug: "clasp-off-shoulder-top",
+    title: "Clasp Off-Shoulder Top",
+    shortDescription: "Perfect for any stylish occasion, stand out!",
+    price: 25000,
+    availability: true,
+    mainImages: ["Clasp Off-Shoulder Top_00.webp", "Clasp Off-Shoulder Top_01.webp", "Clasp Off-Shoulder Top_02.webp", "Clasp Off-Shoulder Top_03.webp", "Clasp Off-Shoulder Top_04.webp", "Clasp Off-Shoulder Top_05.webp", "Clasp Off-Shoulder Top_06.webp", "Clasp Off-Shoulder Top_07.webp"],
+    secondaryImage: "sClasp Off-Shoulder Top_05.webp",
+    colors: [
+    {
+      name: "Blue",
+      availability: true,
+      mainImages: ["Clasp Off-Shoulder Top_00.webp"],
+      secondaryImage: "sClasp Off-Shoulder Top_05.webp",
+      code: "#4978a2"
+    },
+    {
+      name: "Cream",
+      availability: true,
+      mainImages: ["Clasp Off-Shoulder Top_05.webp"],
+      secondaryImage: "sClasp Off-Shoulder Top_05.webp",
+      code: "#eee8d6"
+    },
+    {
+      name: "Olive",
+      availability: true,
+      mainImages: ["Clasp Off-Shoulder Top_07.webp"],
+      secondaryImage: "sClasp Off-Shoulder Top_05.webp",
+      code: "#c9c043"
+    },
+    {
+      name: "Army Green",
+      availability: true,
+      mainImages: ["Clasp Off-Shoulder Top_03.webp", "Clasp Off-Shoulder Top_04.webp"],
+      secondaryImage: "sClasp Off-Shoulder Top_05.webp",
+      code: "#5a5129"
+    },
+    {
+      name: "Red",
+      availability: true,
+      mainImages: ["Clasp Off-Shoulder Top_01.webp", "Clasp Off-Shoulder Top_02.webp"],
+      secondaryImage: "sClasp Off-Shoulder Top_05.webp",
+      code: "#b91423"
+    },
+    {
+      name: "Black",
+      availability: true,
+      mainImages: ["Clasp Off-Shoulder Top_06.webp"],
+      secondaryImage: "sClasp Off-Shoulder Top_05.webp",
+      code: "#1e1a16"
+    }
+    ],
+    category: "tops",
+    mood: ["elegant", "free", "smart"],
+    occasion: ["casual", "date", "party"],
+    sizeRange: ["n/a"],
+    colorNames: ["black", "blue", "green", "red"],
+    material: "N/A",
+    searchKeywords: ["black", "blue", "casual", "green", "party", "red", "tops"],
+    recommendations: [52, 68],
+    tags: ["black", "blue", "casual", "comfortable", "date", "elegant", "green", "party"],
+    featured: true
+  },
 
   
 ];
