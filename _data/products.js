@@ -2063,6 +2063,49 @@ const products = [
     tags: ["black", "blue", "casual", "comfortable", "date", "elegant", "green", "party"],
     featured: true
   },
+  {
+    id: 68,
+    slug: "the-zari-rose-wrap",
+    title: "The Zari Rose Wrap",
+    shortDescription: "Effortless class and luxury for your next special occasion.",
+    price: 25000,
+    availability: true,
+    mainImages: ["The Zari Rose Wrap_00.webp", "The Zari Rose Wrap_01.webp", "The Zari Rose Wrap_02.webp", "The Zari Rose Wrap_03.webp", "The Zari Rose Wrap_04.webp", "The Zari Rose Wrap_05.webp", "The Zari Rose Wrap_06.webp"],
+    secondaryImage: "sThe Zari Rose Wrap_00.webp",
+    colors: [
+    {
+      name: "Vivid Pink",
+      availability: true,
+      mainImages: ["The Zari Rose Wrap_00.webp", "The Zari Rose Wrap_05.webp", "The Zari Rose Wrap_06.webp"],
+      secondaryImage: "sThe Zari Rose Wrap_00.webp",
+      code: "#c0054d"
+    },
+    {
+      name: "Brown",
+      availability: true,
+      mainImages: ["The Zari Rose Wrap_01.webp", "The Zari Rose Wrap_03.webp"],
+      secondaryImage: "sThe Zari Rose Wrap_00.webp",
+      code: "#b55b4d"
+    },
+    {
+      name: "Deep Cream",
+      availability: true,
+      mainImages: ["The Zari Rose Wrap_02.webp", "The Zari Rose Wrap_04.webp"],
+      secondaryImage: "sThe Zari Rose Wrap_00.webp",
+      code: "#d3c2a4"
+    }
+    ],
+    category: "tops",
+    mood: ["elegant", "smart"],
+    occasion: ["casual", "party", "vacation"],
+    sizeRange: ["medium"],
+    colorNames: ["brown", "pink", "cream"],
+    material: "N/A",
+    searchKeywords: ["casual", "comfortable", "date", "floral", "luxurious", "party", "tops", "smart"],
+    recommendations: [67, 69],
+    tags: ["brown", "casual", "comfortable", "date", "floral", "luxurious", "smart"],
+    featured: true
+  },
 
   
 ];
