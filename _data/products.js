@@ -2106,6 +2106,56 @@ const products = [
     tags: ["brown", "casual", "comfortable", "date", "floral", "luxurious", "smart"],
     featured: true
   },
+  {
+    id: 69,
+    slug: "sweetheart-ruched-top",
+    title: "Sweetheart Ruched Top",
+    shortDescription: "Get that snatched look in this chic heart-buttoned knit.",
+    price: 25000,
+    availability: true,
+    mainImages: ["Sweetheart Ruched Top_00.webp", "Sweetheart Ruched Top_01.webp", "Sweetheart Ruched Top_02.webp", "Sweetheart Ruched Top_03.webp", "Sweetheart Ruched Top_04.webp", "Sweetheart Ruched Top_05.webp", "Sweetheart Ruched Top_06.webp"],
+    secondaryImage: "sSweetheart Ruched Top_00.webp",
+    colors: [
+    {
+      name: "Brown",
+      availability: true,
+      mainImages: ["Sweetheart Ruched Top_00.webp"],
+      secondaryImage: "sSweetheart Ruched Top_00.webp",
+      code: "#964025"
+    },
+    {
+      name: "Pink",
+      availability: true,
+      mainImages: ["Sweetheart Ruched Top_01.webp"],
+      secondaryImage: "sSweetheart Ruched Top_00.webp",
+      code: "#ae1268"
+    },
+    {
+      name: "Black",
+      availability: true,
+      mainImages: ["Sweetheart Ruched Top_02.webp"],
+      secondaryImage: "sSweetheart Ruched Top_00.webp",
+      code: "#000000"
+    },
+    {
+      name: "White",
+      availability: true,
+      mainImages: ["Sweetheart Ruched Top_03.webp", "Sweetheart Ruched Top_04.webp", "Sweetheart Ruched Top_05.webp", "Sweetheart Ruched Top_06.webp"],
+      secondaryImage: "sSweetheart Ruched Top_00.webp",
+      code: "#fbfbfb"
+    }
+    ],
+    category: "tops",
+    mood: ["elegant", "smart"],
+    occasion: ["casual", "party", "vacation"],
+    sizeRange: ["medium"],
+    colorNames: ["brown", "pink", "black", "white"],
+    material: "N/A",
+    searchKeywords: ["black", "button up", "casual", "comfortable", "party", "pink", "white"],
+    recommendations: [68, 67],
+    tags: ["black", "brown", "casual", "elegant", "pink", "smart", "white"],
+    featured: true
+  },
 
   
 ];
