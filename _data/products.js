@@ -2111,7 +2111,7 @@ const products = [
     slug: "sweetheart-ruched-top",
     title: "Sweetheart Ruched Top",
     shortDescription: "Get that snatched look in this chic heart-buttoned knit.",
-    price: 25000,
+    price: 20000,
     availability: true,
     mainImages: ["Sweetheart Ruched Top_00.webp", "Sweetheart Ruched Top_01.webp", "Sweetheart Ruched Top_02.webp", "Sweetheart Ruched Top_03.webp", "Sweetheart Ruched Top_04.webp", "Sweetheart Ruched Top_05.webp", "Sweetheart Ruched Top_06.webp"],
     secondaryImage: "sSweetheart Ruched Top_00.webp",
