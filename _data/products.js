@@ -2156,6 +2156,42 @@ const products = [
     tags: ["black", "brown", "casual", "elegant", "pink", "smart", "white"],
     featured: true
   },
+  {
+    id: 70,
+    slug: "the-signature-box-satchel",
+    title: "The Signature Box Satchel",
+    shortDescription: "A chic, structured bag featuring rich textures and goldware.",
+    price: 20000,
+    availability: true,
+    mainImages: ["The Signature Box Satchel_00.webp", "The Signature Box Satchel_01.webp", "The Signature Box Satchel_02.webp", "The Signature Box Satchel_03.webp"],
+    secondaryImage: "sThe Signature Box Satchel_00.webp",
+    colors: [
+    {
+      name: "Azure Blue",
+      availability: true,
+      mainImages: ["The Signature Box Satchel_00.webp", "The Signature Box Satchel_02.webp"],
+      secondaryImage: "sThe Signature Box Satchel_00.webp",
+      code: "#6091cd"
+    },
+    {
+      name: "Lauren Brown",
+      availability: true,
+      mainImages: ["The Signature Box Satchel_01.webp", "The Signature Box Satchel_03.webp"],
+      secondaryImage: "sThe Signature Box Satchel_00.webp",
+      code: "#afa081"
+    }
+    ],
+    category: "bags",
+    mood: ["elegant", "smart"],
+    occasion: ["casual", "party"],
+    sizeRange: ["small"],
+    colorNames: ["blue", "brown"],
+    material: "Leather",
+    searchKeywords: ["blue", "smart", "bag"],
+    recommendations: [1, 67],
+    tags: ["bag", "blue", "brown", "smart"],
+    featured: true
+  },
 
   
 ];
