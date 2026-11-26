@@ -1,0 +1,75 @@
+---
+pagination:
+  data: categories.list
+  size: 1
+  alias: cat
+permalink: "/{{ cat.slug }}/index.html"
+layout: layout.liquid
+pageId: category
+headerAction: filters
+activeNav: none
+footerStyle: full
+eleventyComputed:
+  activeCat: "{{ cat.slug }}"
+  title: "{{ cat.seoTitle }}"
+  metaDesc: "{{ cat.seoDesc }}"
+---
+{% assign catProducts = products | byCategory: cat.slug %}
+
+<!-- Category SEO Breadcrumb + Collection Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}/" },
+    { "@type": "ListItem", "position": 2, "name": "{{ cat.name }}", "item": "{{ site.url }}/{{ cat.slug }}/" }
+  ]
+}
+</script>
+
+<section class="catalog-hero">
+  <div class="container">
+    <div class="catalog-hero__row">
+      <div>
+        <span class="section-eyebrow">Shop</span>
+        <h1 class="section-title">{{ cat.name }}</h1>
+      </div>
+      <span class="catalog-count" id="catalogCount">{{ catProducts.size }} {% if catProducts.size == 1 %}style{% else %}styles{% endif %}</span>
+    </div>
+    <div class="active-filters-strip" id="activeFiltersStrip" hidden></div>
+  </div>
+</section>
+
+<!-- Main Category Grid (Full width on mobile, outer top corners rounded) -->
+<section class="product-grid-wrap" id="resultsAnchor">
+  <div class="product-grid" id="productGrid" data-corner-grid>
+    {% if catProducts.size > 0 %}
+      {% for p in catProducts %}
+        {% include "card.liquid", item: p %}
+      {% endfor %}
+    {% else %}
+      <div class="catalog-empty">
+        <p class="catalog-empty__title">Fresh {{ cat.name }} drops arriving soon</p>
+        <p class="catalog-empty__sub">Explore our full boutique catalog while we restock this collection.</p>
+        <a href="/shop/" class="btn-solid-dark">Browse Shop All</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- Category-Locked Filter Escape Hatch ("From Other Categories") -->
+<section class="other-cat-wrap" id="otherCategoriesWrap" hidden>
+  <button type="button" class="other-cat-btn" id="otherCategoriesBtn">
+    <span>From Other Categories</span>
+    <span class="other-cat-btn__count" id="otherCategoriesCount">0</span>
+    <i class="fas fa-chevron-down"></i>
+  </button>
+
+  <div class="other-cat-section" id="otherCategoriesSection" hidden>
+    <div class="other-cat-divider"><span>From Other Categories</span></div>
+    <div class="product-grid-wrap">
+      <div class="product-grid" id="otherCategoriesGrid" data-corner-grid></div>
+    </div>
+  </div>
+</section>

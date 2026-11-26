@@ -1,0 +1,421 @@
+{%- comment -%}
+============================================================================
+FILE: _includes/layout.liquid
+PURPOSE: Single master shell for all routes on theGirlyZone.
+FRONT-MATTER SWITCHES:
+  • pageId:       "welcome" | "category" | "shop" | "product" | "favourites" | "cart" | "404"
+  • activeCat:    Category slug (only on Category pages, for category-first search)
+  • headerAction: "filters" | "share" | "share-wishlist" | "none"
+  • activeNav:    "home" | "favs" | "cart" | "none"
+  • footerStyle:  "full" | "compact" (default: "full")
+  • noindex:      true on Cart, Favourites, 404
+============================================================================
+{%- endcomment -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>{{ title | default: site.legalName }}</title>
+  <meta name="description" content="{{ metaDesc | default: 'Modern women’s fashion in Kampala — dresses, tops, skirts, sets & bags at Top City Plaza, Shop LT 78.' }}">
+  {% if noindex %}
+  <meta name="robots" content="noindex, follow">
+  {% else %}
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  {% endif %}
+
+  <!-- Open Graph & Social Previews -->
+  {% if ogImage %}{% assign shareImg = ogImage %}{% else %}{% assign shareImg = site.url | append: site.paths.brandLogo %}{% endif %}
+  <meta property="og:type" content="{{ ogType | default: 'website' }}">
+  <meta property="og:site_name" content="{{ site.legalName }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:title" content="{{ title | default: site.legalName }}">
+  <meta property="og:description" content="{{ metaDesc | default: 'Curated women’s fashion in Kampala with same-day delivery.' }}">
+  <meta property="og:image" content="{{ shareImg }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title | default: site.legalName }}">
+  <meta name="twitter:description" content="{{ metaDesc | default: 'Curated women’s fashion in Kampala with same-day delivery.' }}">
+  <meta name="twitter:image" content="{{ shareImg }}">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Non-blocking Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- Single Compiled Stylesheet -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Local Kampala Store JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ClothingStore",
+    "name": "{{ site.legalName }}",
+    "url": "{{ site.url }}",
+    "logo": "{{ site.url }}{{ site.paths.brandLogo }}",
+    "telephone": "{{ site.phones[0] }}",
+    "email": "{{ site.email }}",
+    "priceRange": "UGX 20,000 - UGX 70,000",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ site.location.shop }}, {{ site.location.landmark }}",
+      "addressLocality": "{{ site.location.city }}",
+      "addressCountry": "{{ site.location.country }}"
+    },
+    "sameAs": [
+      "{{ site.socials.facebook }}",
+      "{{ site.socials.instagram }}",
+      "{{ site.socials.tiktok }}"
+    ]
+  }
+  </script>
+
+  {% if extraHead %}{{ extraHead }}{% endif %}
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.ga4Id }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.ga4Id }}');
+  </script>
+</head>
+<body data-page="{{ pageId | default: 'welcome' }}"{% if activeCat %} data-category="{{ activeCat }}"{% endif %}>
+
+  <!-- ========================================================================
+       FIXED STATIC VECTOR BACKGROUND (z-index: 0 — stretches behind header)
+       ======================================================================== -->
+  <div class="site-bg-vectors" aria-hidden="true">
+    <svg viewBox="0 0 1440 1200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <!-- Top-left soft squircle ring (stretches behind header) -->
+      <rect x="-70" y="-60" width="340" height="340" rx="88" fill="none" stroke="#ff004d" stroke-opacity="0.065" stroke-width="2"/>
+      <!-- Top-right architectural outline -->
+      <rect x="1160" y="30" width="320" height="320" rx="80" fill="none" stroke="#111111" stroke-opacity="0.045" stroke-width="2" transform="rotate(14 1320 190)"/>
+      <!-- Mid-left subtle filled squircle -->
+      <rect x="65" y="420" width="210" height="210" rx="58" fill="#111111" fill-opacity="0.022" transform="rotate(-12 170 525)"/>
+      <!-- Center-right hairline arc -->
+      <circle cx="1180" cy="670" r="240" fill="none" stroke="#ff004d" stroke-opacity="0.05" stroke-width="1.5"/>
+      <!-- Lower-left geometric accent -->
+      <rect x="110" y="880" width="270" height="270" rx="72" fill="none" stroke="#111111" stroke-opacity="0.045" stroke-width="1.5" transform="rotate(9 245 1015)"/>
+      <!-- Lower-right muted squircle -->
+      <rect x="1080" y="960" width="240" height="240" rx="64" fill="#ff004d" fill-opacity="0.028" transform="rotate(-8 1200 1080)"/>
+    </svg>
+  </div>
+
+  <!-- ========================================================================
+       STICKY HEADER (Straight on PDP, curved bottom on mobile for other pages)
+       ======================================================================== -->
+  <header class="site-header{% if pageId == 'product' %} site-header--straight{% endif %}">
+    <div class="container header-inner">
+      <a href="/" class="brand-logo" aria-label="{{ site.name }} Home">
+        <img src="{{ site.paths.brandLogo }}" alt="{{ site.legalName }}" class="brand-logo__img">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="/" class="dnav-link{% if activeNav == 'home' %} is-active{% endif %}">
+          <i class="fas fa-home"></i><span>Home</span>
+        </a>
+        <a href="/shop/" class="dnav-link{% if pageId == 'shop' %} is-active{% endif %}">
+          <i class="fas fa-border-all"></i><span>Shop All</span>
+        </a>
+        <button type="button" class="dnav-link" data-open-drawer="searchDrawer">
+          <i class="fas fa-search"></i><span>Search</span>
+        </button>
+        {% if headerAction == 'filters' %}
+        <button type="button" class="dnav-link" data-open-drawer="filterDrawer">
+          <span class="icon-wrap">
+            <i class="fas fa-sliders-h"></i>
+            <span class="filter-dot js-filter-dot" hidden></span>
+          </span>
+          <span>Filter</span>
+        </button>
+        {% endif %}
+        <a href="/favourites/" class="dnav-link{% if activeNav == 'favs' %} is-active{% endif %}">
+          <span class="icon-wrap">
+            <i class="fas fa-heart"></i>
+            <span class="nav-badge nav-badge--fav js-fav-count" hidden>0</span>
+          </span>
+          <span>Favourites</span>
+        </a>
+        <a href="/cart/" class="dnav-link{% if activeNav == 'cart' %} is-active{% endif %}">
+          <span class="icon-wrap">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="nav-badge nav-badge--bag js-cart-count" hidden>0</span>
+          </span>
+          <span>Bag</span>
+        </a>
+      </nav>
+
+      <!-- Right-Side Contextual Action (Mobile & PDP Share) -->
+      <div class="header-actions">
+        {% if headerAction == 'filters' %}
+        <button type="button" class="header-action-btn mobile-only-flex" data-open-drawer="filterDrawer" aria-label="Open filters">
+          <span class="icon-wrap">
+            <i class="fas fa-sliders-h"></i>
+            <span class="filter-dot js-filter-dot" hidden></span>
+          </span>
+        </button>
+        {% elsif headerAction == 'share' %}
+        <button type="button" class="header-action-btn" id="pdpShareBtn" aria-label="Share product">
+          <i class="fas fa-share-nodes"></i>
+        </button>
+        {% elsif headerAction == 'share-wishlist' %}
+        <button type="button" class="header-action-btn" id="favShareBtn" aria-label="Share wishlist">
+          <i class="fas fa-share-nodes"></i>
+        </button>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       PAGE CONTENT
+       ======================================================================== -->
+  <main class="site-main">
+    {{ content }}
+  </main>
+
+  <!-- ========================================================================
+       FOOTER (Full Boutique Footer OR Compact PDP Footer — BitWare Credits)
+       ======================================================================== -->
+  {% if footerStyle == 'compact' %}
+  <footer class="site-footer site-footer--compact">
+    <div class="container compact-footer-inner">
+      <p class="footer-slogan">{{ site.tagline }}</p>
+      <div class="footer-rule"></div>
+      <p class="footer-copy">
+        &copy; All content on this website is owned by <strong>{{ site.name }}</strong> and <strong>{{ site.developer.name }}</strong>, and protected by copyright law.
+      </p>
+    </div>
+  </footer>
+  {% else %}
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <!-- Newsletter -->
+      <section class="footer-col footer-newsletter">
+        <h3 class="footer-heading">Don't Miss New Drops</h3>
+        <p class="footer-text">Join our inner circle for early access to limited Kampala arrivals.</p>
+        <form class="newsletter-form" name="newsletter-subscriptions" method="POST" data-netlify="true" action="/?newsletter_success=true">
+          <input type="email" name="email" class="newsletter-input" placeholder="Enter your email" required aria-label="Email address">
+          <button type="submit" class="newsletter-btn">Join</button>
+        </form>
+        <p class="footer-privacy"><i class="fas fa-lock"></i> We respect your privacy and never spam.</p>
+      </section>
+
+      <!-- Boutique Contact -->
+      <section class="footer-col">
+        <div class="footer-logo-box">
+          <img src="{{ site.paths.footerLogo }}" alt="{{ site.legalName }}" loading="lazy">
+        </div>
+        <h3 class="footer-heading">Visit &amp; Contact</h3>
+        <ul class="footer-list">
+          {% for phone in site.phones %}
+          <li><i class="fas fa-phone"></i> <a href="tel:{{ phone | remove: ' ' }}">{{ phone }}</a></li>
+          {% endfor %}
+          <li><i class="fas fa-envelope"></i> <a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          <li><i class="fas fa-map-marker-alt"></i> <span>{{ site.location.shop }}<br>{{ site.location.landmark }}, {{ site.location.city }}</span></li>
+          <li><i class="fas fa-clock"></i> <span>{{ site.hours.weekdays }}<br>{{ site.hours.sunday }}</span></li>
+        </ul>
+      </section>
+
+      <!-- Social Channels -->
+      <section class="footer-col">
+        <h3 class="footer-heading">Follow Us</h3>
+        <p class="footer-text">Daily styling reels &amp; restock alerts straight from Kampala.</p>
+        <div class="footer-socials">
+          <a href="{{ site.socials.instagram }}" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="{{ site.socials.tiktok }}" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="{{ site.socials.facebook }}" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="{{ site.socials.whatsappChannel }}" target="_blank" rel="noopener" aria-label="WhatsApp Channel"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </section>
+
+      <!-- BitWare Technologies Ltd Credits -->
+      <section class="footer-col">
+        <div class="footer-logo-box footer-logo-box--dev">
+          <img src="{{ site.paths.devLogo }}" alt="{{ site.developer.name }}" loading="lazy">
+        </div>
+        <h3 class="footer-heading">Crafted By</h3>
+        <p class="footer-dev-name"><strong>{{ site.developer.name }}</strong></p>
+        <ul class="footer-list">
+          <li>
+            <i class="fas fa-phone"></i>
+            <span>
+              <a href="tel:{{ site.developer.phones[0] | remove: ' ' }}">{{ site.developer.phones[0] }}</a>
+              &nbsp;|&nbsp;
+              <a href="tel:{{ site.developer.phones[1] | remove: ' ' }}">{{ site.developer.phones[1] }}</a>
+            </span>
+          </li>
+          <li><i class="fas fa-envelope"></i> <a href="mailto:{{ site.developer.email }}">{{ site.developer.email }}</a></li>
+        </ul>
+        <p class="footer-dev-tag"><em>{{ site.developer.tagline }}</em></p>
+      </section>
+    </div>
+
+    <div class="container footer-bottom">
+      <p class="footer-slogan">{{ site.tagline }}</p>
+      <p class="footer-copy">
+        &copy; All content on this website is owned by <strong>{{ site.name }}</strong> and <strong>{{ site.developer.name }}</strong>, and protected by copyright law. Reproduction or distribution without permission may result in legal action.
+      </p>
+    </div>
+  </footer>
+  {% endif %}
+
+  <!-- ========================================================================
+       MOBILE BOTTOM NAVIGATION (#ff004d dash underneath active icon only)
+       ======================================================================== -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+    <a href="/" class="mnav-item{% if activeNav == 'home' %} is-active{% endif %}">
+      <span class="icon-wrap"><i class="fas fa-home"></i></span>
+      <span>Home</span>
+    </a>
+    <button type="button" class="mnav-item" data-open-drawer="searchDrawer">
+      <span class="icon-wrap"><i class="fas fa-search"></i></span>
+      <span>Search</span>
+    </button>
+    <a href="/favourites/" class="mnav-item{% if activeNav == 'favs' %} is-active{% endif %}">
+      <span class="icon-wrap">
+        <i class="fas fa-heart"></i>
+        <span class="nav-badge nav-badge--fav js-fav-count" hidden>0</span>
+      </span>
+      <span>Favourites</span>
+    </a>
+    <a href="/cart/" class="mnav-item{% if activeNav == 'cart' %} is-active{% endif %}">
+      <span class="icon-wrap">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="nav-badge nav-badge--bag js-cart-count" hidden>0</span>
+      </span>
+      <span>Bag</span>
+    </a>
+  </nav>
+
+  <!-- ========================================================================
+       STRAIGHT-EDGED DRAWERS & SHARE MODAL
+       ======================================================================== -->
+  <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+
+  <!-- Search Drawer -->
+  <aside class="tgz-drawer" id="searchDrawer" aria-hidden="true" aria-label="Search Products">
+    <div class="drawer-head">
+      <h2 class="drawer-title">Search</h2>
+      <button type="button" class="drawer-close" data-close-drawer aria-label="Close search"><i class="fas fa-times"></i></button>
+    </div>
+    <form class="search-form" id="searchForm" autocomplete="off">
+      <div class="search-field">
+        <i class="fas fa-search search-field__icon"></i>
+        <input type="search" id="searchInput" class="search-field__input" placeholder="Dresses, cotton, silk, black...">
+        <button type="button" id="searchClearBtn" class="search-field__clear" aria-label="Clear search" hidden><i class="fas fa-times"></i></button>
+      </div>
+    </form>
+    <div class="drawer-body" id="searchResults">
+      <p class="drawer-hint">Search by style, color, fabric (e.g. <em>cotton</em>, <em>silk</em>), or occasion.</p>
+    </div>
+  </aside>
+
+  <!-- Filter Drawer (Straight edges, squircle Mood/Occasion chips, right-aligned UGX) -->
+  <aside class="tgz-drawer" id="filterDrawer" aria-hidden="true" aria-label="Filter Products">
+    <div class="drawer-head">
+      <h2 class="drawer-title">Filters</h2>
+      <button type="button" class="drawer-close" data-close-drawer aria-label="Close filters"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="drawer-body">
+      <section class="filter-group">
+        <h3 class="filter-label">MOODS</h3>
+        <div class="filter-chip-grid">
+          {% for mood in categories.filters.moods %}
+          <button type="button" class="filter-chip" data-filter-mood="{{ mood.id }}">
+            <span class="filter-chip__img">
+              <img src="{{ site.paths.filterImages }}{{ mood.image }}" alt="{{ mood.label }}" loading="lazy">
+            </span>
+            <span class="filter-chip__text">{{ mood.label }}</span>
+          </button>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="filter-group">
+        <h3 class="filter-label">OCCASIONS</h3>
+        <div class="filter-chip-grid">
+          {% for occ in categories.filters.occasions %}
+          <button type="button" class="filter-chip" data-filter-occ="{{ occ.id }}">
+            <span class="filter-chip__img">
+              <img src="{{ site.paths.filterImages }}{{ occ.image }}" alt="{{ occ.label }}" loading="lazy">
+            </span>
+            <span class="filter-chip__text">{{ occ.label }}</span>
+          </button>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="filter-group">
+        <h3 class="filter-label filter-label--right">PRICE (UGX)</h3>
+        <div class="price-pill-list">
+          {% for bracket in categories.filters.priceBrackets %}
+          <button type="button" class="price-pill" data-filter-price="{{ bracket.id }}">
+            <span class="price-pill__label">{{ bracket.label }}</span>
+            <span class="price-pill__dot" aria-hidden="true"></span>
+          </button>
+          {% endfor %}
+        </div>
+      </section>
+    </div>
+    <div class="filter-live-bar" id="filterLiveBar" aria-live="polite">
+        <span class="filter-live-bar__dot" aria-hidden="true"></span>
+        <span id="filterLiveText">Loading styles...</span>
+        </div>
+        <div class="drawer-foot">
+        <button type="button" class="btn-outline-dark" id="filterResetBtn">Reset</button>
+        <button type="button" class="btn-solid-dark" id="filterApplyBtn">Apply Filters</button>
+    </div>
+  </aside>
+
+  <!-- Share Modal (3-connected-dots share entry) -->
+  <div class="tgz-modal" id="shareModal" aria-hidden="true" role="dialog" aria-labelledby="shareModalTitle">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <h3 id="shareModalTitle" class="modal-title">Share</h3>
+          <p id="shareModalSub" class="modal-sub">Share with a friend</p>
+        </div>
+        <button type="button" class="drawer-close" data-close-drawer aria-label="Close share"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="share-grid">
+        <button type="button" class="share-tile share-tile--wa" data-share-platform="whatsapp">
+          <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
+        </button>
+        <button type="button" class="share-tile share-tile--fb" data-share-platform="facebook">
+          <i class="fab fa-facebook-f"></i><span>Facebook</span>
+        </button>
+        <button type="button" class="share-tile share-tile--x" data-share-platform="x">
+          <i class="fab fa-x-twitter"></i><span>X</span>
+        </button>
+        <button type="button" class="share-tile share-tile--mail" data-share-platform="email">
+          <i class="fas fa-envelope"></i><span>Email</span>
+        </button>
+      </div>
+      <button type="button" class="btn-solid-dark modal-copy-btn" data-share-platform="copy">
+        <i class="fas fa-link"></i> Copy Link
+      </button>
+    </div>
+  </div>
+
+  <!-- Global Cart / Favourites / Undo Toast -->
+  <div class="tgz-toast" id="tgzToast" role="status" aria-live="polite"></div>
+
+  <!-- Shared Runtime Brain + Page Controllers -->
+  <script src="/assets/js/engine.js" defer></script>
+  <script src="/assets/js/pages.js" defer></script>
+</body>
+</html>

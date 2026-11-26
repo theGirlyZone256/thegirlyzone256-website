@@ -1,0 +1,13 @@
+{
+  "name": "thegirlyzone-storefront",
+  "version": "3.0.0",
+  "description": "theGirlyZone Kampala — Eleventy E-Commerce Storefront by BitWare Technologies Ltd",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "build:strict": "set STRICT_IMAGES=true && eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

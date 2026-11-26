@@ -1,0 +1,70 @@
+{%- comment -%}
+============================================================================
+FILE: _includes/card.liquid
+PURPOSE: Server-rendered 3:4 product card with live squircle swatch dock
+         (>4 arrow paging) and strict black/green bag button.
+PARAMS:
+  • item         (required) Product object compiled by productEngine.js
+  • useSecondary (optional) true for "You Might Also Like" grids (600x800)
+  • hideBag      (optional) true to omit the bag button
+============================================================================
+{%- endcomment -%}
+{% assign availColors = item.colors | where: "inStock", true %}
+{% assign firstColor = availColors[0] %}
+{% assign secFile = item.secondaryImage | encodeImg %}
+{% assign mainRaw = firstColor.preview | default: item.defaultImage %}
+{% assign mainFile = mainRaw | encodeImg %}
+{% if useSecondary %}
+  {% assign cardImg = site.paths.secondaryImages | append: secFile %}
+{% else %}
+  {% assign cardImg = site.paths.mainImages | append: mainFile %}
+{% endif %}
+
+<article class="p-card" data-product-id="{{ item.id }}" data-selected-color="{{ firstColor.index | default: 0 }}">
+  <div class="p-media">
+    <a href="{{ item.url }}" class="p-media-link" data-pdp-link="{{ item.id }}">
+      <img src="{{ cardImg }}" alt="{{ item.title }}" loading="lazy" decoding="async" class="p-img">
+    </a>
+
+    <button type="button" class="p-fav-btn" data-fav-btn="{{ item.id }}" aria-label="Save {{ item.title }}">
+      <i class="far fa-heart"></i>
+    </button>
+
+    {% if availColors.size > 0 and useSecondary != true %}
+    <div class="p-swatch-dock" data-swatch-dock data-total="{{ availColors.size }}" data-page="0" data-dir="fwd">
+      <div class="p-swatch-track">
+        {% for c in availColors %}
+        <button type="button"
+          class="p-swatch{% if forloop.first %} is-active{% endif %}"
+          data-swatch-btn
+          data-pos="{{ forloop.index0 }}"
+          data-color-index="{{ c.index }}"
+          data-img="{{ site.paths.mainImages }}{{ c.preview | encodeImg }}"
+          style="background-color:{{ c.code }};{% if forloop.index0 >= 4 %}display:none;{% endif %}"
+          aria-label="{{ c.name }}"
+          title="{{ c.name }}"></button>
+        {% endfor %}
+      </div>
+      {% if availColors.size > 4 %}
+      <button type="button" class="p-swatch-arrow" data-swatch-arrow aria-label="More colors">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="p-body">
+    <p class="p-eyebrow">{{ item.subCategory | replace: "-", " " }}{% if item.moods[0] %} &bull; {{ item.moods[0] }}{% endif %}</p>
+    <h3 class="p-title"><a href="{{ item.url }}" data-pdp-link="{{ item.id }}">{{ item.title }}</a></h3>
+    <div class="p-foot">
+      <span class="p-price">UGX {{ item.price | formatUGX }}</span>
+      {% unless hideBag %}
+      <button type="button" class="p-bag-btn" data-bag-btn="{{ item.id }}" aria-label="Add {{ item.title }} to bag">
+        <i class="fas fa-plus bag-ico bag-ico--plus" aria-hidden="true"></i>
+        <i class="fas fa-shopping-bag bag-ico bag-ico--bag" aria-hidden="true"></i>
+      </button>
+      {% endunless %}
+    </div>
+  </div>
+</article>

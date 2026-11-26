@@ -1,0 +1,60 @@
+---
+layout: layout.liquid
+permalink: /favourites/index.html
+pageId: favourites
+headerAction: share-wishlist
+activeNav: favs
+footerStyle: full
+noindex: true
+title: "My Favourites | theGirlyZone Uganda"
+metaDesc: "Your saved looks and wishlist at theGirlyZone Uganda."
+---
+
+<section class="container">
+  <div class="page-head">
+    <div>
+      <span class="section-eyebrow">Saved</span>
+      <h1 class="section-title">MY FAVOURITES</h1>
+    </div>
+  </div>
+
+  <!-- Live Summary Bar -->
+  <div class="fav-summary" id="favSummaryBar" hidden>
+    <div class="fav-summary__stats">
+      <span class="fav-summary__count" id="favTotalCount">0 saved looks</span>
+      <span class="fav-summary__val" id="favTotalValue">UGX 0</span>
+    </div>
+      <button type="button" class="btn-hint" id="favHintBtn">
+        <i class="fas fa-gift" aria-hidden="true"></i>
+        <span>Drop a Hint</span>
+      </button>
+  </div>
+</section>
+
+<!-- Saved 3:4 Lookbook Grid -->
+<section class="product-grid-wrap" style="padding-bottom:28px;">
+  <div class="product-grid" id="favGrid" data-corner-grid hidden></div>
+</section>
+
+<!-- Empty State -->
+<section class="empty-state" id="favEmpty" hidden>
+  <div class="empty-state__icon"><i class="far fa-heart"></i></div>
+  <h2 class="empty-state__title">Your wishlist is empty</h2>
+  <p class="empty-state__sub">Tap the heart on any look—or double-tap a product photo—to save pieces here for later.</p>
+  <div class="empty-pills">
+    {% for cat in categories.list %}
+    <a href="/{{ cat.slug }}/" class="btn-outline-dark">{{ cat.name }}</a>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Live Recommendations Based on Saved Items -->
+<section class="pdp-recs" id="favRecsSection" hidden style="padding-bottom:44px;">
+  <div class="container pdp-recs__head">
+    <span class="section-eyebrow">Picked for your wishlist</span>
+    <h2 class="section-title">You Might Also Like</h2>
+  </div>
+  <div class="product-grid-wrap">
+    <div class="product-grid" id="favRecsGrid" data-corner-grid></div>
+  </div>
+</section>

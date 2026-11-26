@@ -1,0 +1,42 @@
+---
+permalink: /catalog.json
+layout: null
+eleventyExcludeFromCollections: true
+---
+{% assign liveProducts = products | where: "availability", true %}
+{
+  "v": "{{ 'now' | date: '%Y%m%d%H%M' }}-{{ liveProducts.size }}",
+  "paths": {{ site.paths | json }},
+  "whatsapp": "{{ site.whatsappNumber }}",
+  "siteUrl": "{{ site.url }}",
+  "categories": {{ categories.list | json }},
+  "filters": {{ categories.filters | json }},
+  "items": [
+    {% for p in liveProducts %}
+    {
+      "id": {{ p.id }},
+      "slug": {{ p.slug | json }},
+      "url": {{ p.url | json }},
+      "title": {{ p.title | json }},
+      "desc": {{ p.desc | json }},
+      "price": {{ p.price }},
+      "bracket": {{ p.priceBracket | json }},
+      "cat": {{ p.category | json }},
+      "sub": {{ p.subCategory | json }},
+      "moods": {{ p.moods | json }},
+      "occasions": {{ p.occasions | json }},
+      "sizes": {{ p.sizes | json }},
+      "thumb": {{ p.secondaryImage | json }},
+      "img": {{ p.defaultImage | json }},
+      "colors": [
+        {% for c in p.colors %}
+        [{{ c.name | json }}, {{ c.code | json }}, {{ c.preview | json }}, {{ c.inStock }}]{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ],
+      "similar": {{ p.similarIds | json }},
+      "pairWith": {{ p.pairWithIds | json }},
+      "q": {{ p.searchBlob | json }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}

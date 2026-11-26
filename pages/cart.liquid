@@ -1,0 +1,119 @@
+---
+layout: layout.liquid
+permalink: /cart/index.html
+pageId: cart
+headerAction: none
+activeNav: cart
+footerStyle: full
+noindex: true
+title: "Shopping Bag | theGirlyZone Uganda"
+metaDesc: "Review your selected looks and complete your order directly on WhatsApp."
+---
+
+<!-- One-Time Notice on Page Open -->
+<div class="cart-notice" id="cartNoCardNotice" role="status" aria-live="polite">
+    <i class="fas fa-lock-open" aria-hidden="true"></i>
+    <span>No Payment details needed!</span>
+</div>
+
+<section class="container cart-wrap">
+  <div class="page-head">
+    <div>
+      <span class="section-eyebrow">Your</span>
+      <h1 class="section-title">SHOPPING BAG</h1>
+    </div>
+    <span class="cart-cap-pill" id="cartCapPill">0 / 10 items</span>
+  </div>
+
+  <!-- Bag Items -->
+  <div class="cart-list" id="cartList" hidden></div>
+
+  <!-- Compact Totals + WhatsApp Checkout -->
+  <div class="cart-totals" id="cartTotalsBox" hidden>
+    <div class="cart-total-row">
+      <span class="cart-total-row__label">Total</span>
+      <strong class="cart-total-row__val" id="cartTotal">UGX 0</strong>
+    </div>
+
+    <!-- Mobile Only (<768px): Full-Width Translucent Pill Slider -->
+    <div class="wa-slider-shell" id="cartWaSliderShell">
+      <p class="wa-slider-title">Complete Order via WhatsApp</p>
+      <div class="wa-slider-track" id="waSliderTrack" role="slider" tabindex="0"
+           aria-label="Slide bag to WhatsApp to complete order"
+           aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <!-- Clipped translucent pill body + green progress fill -->
+        <div class="wa-slider-bg" aria-hidden="true">
+          <div class="wa-slider-glow" id="waSliderGlow"></div>
+        </div>
+
+        <!-- Animated directional guide arrows -->
+        <div class="wa-slider-arrows" id="waSliderArrows" aria-hidden="true">
+          <i class="fas fa-chevron-right"></i>
+          <i class="fas fa-chevron-right"></i>
+          <i class="fas fa-chevron-right"></i>
+        </div>
+
+        <!-- Draggable Shopping Bag Thumb -->
+        <div class="wa-slider-thumb" id="waSliderThumb" aria-hidden="true">
+          <i class="fas fa-shopping-bag"></i>
+        </div>
+
+        <!-- Right-End WhatsApp Target + Celebratory Burst Rings -->
+        <div class="wa-slider-target" id="waSliderTarget" aria-hidden="true">
+          <span class="wa-burst-ring wa-burst-ring--1"></span>
+          <span class="wa-burst-ring wa-burst-ring--2"></span>
+          <i class="fab fa-whatsapp"></i>
+        </div>
+      </div>
+
+      <!-- Hide-in-out Translucent Guide Alert (tucked behind slider) -->
+      <div class="wa-slider-hint" id="waSliderHint" aria-hidden="true">
+        <span>Slide > to Complete Order</span>
+      </div>
+    </div>
+
+    <!-- Desktop Only (>=768px): Clean WA Logo Left + CTA Right -->
+    <button type="button" class="cart-wa-desktop-btn" id="cartWhatsappBtn">
+      <span class="cart-wa-desktop-btn__ico" aria-hidden="true"><i class="fab fa-whatsapp"></i></span>
+      <span class="cart-wa-desktop-btn__txt">Complete Order via WhatsApp</span>
+    </button>
+  </div>
+
+  <!-- Alternative Phone Order Dropdown (auto-hides when cart is empty) -->
+  <details class="cart-call-drop">
+    <summary class="cart-call-drop__trigger">
+      <span class="cart-call-drop__left">
+        <i class="fas fa-phone-alt" aria-hidden="true"></i>
+        <span>..or give us a call on:</span>
+      </span>
+      <i class="fas fa-chevron-down cart-call-drop__chev" aria-hidden="true"></i>
+    </summary>
+
+    <div class="cart-call-drop__list">
+      <a href="tel:+256777645472" class="cart-call-item">
+        <span class="cart-call-item__num">+256 777 645 472</span>
+        <span class="cart-call-item__cta"><i class="fas fa-phone" aria-hidden="true"></i> Call</span>
+      </a>
+      <a href="tel:+256756588826" class="cart-call-item">
+        <span class="cart-call-item__num">+256 756 588 826</span>
+        <span class="cart-call-item__cta"><i class="fas fa-phone" aria-hidden="true"></i> Call</span>
+      </a>
+      <a href="tel:+256744868456" class="cart-call-item">
+        <span class="cart-call-item__num">+256 744 868 456</span>
+        <span class="cart-call-item__cta"><i class="fas fa-phone" aria-hidden="true"></i> Call</span>
+      </a>
+      <a href="tel:+256752066276" class="cart-call-item">
+        <span class="cart-call-item__num">+256 752 066 276</span>
+        <span class="cart-call-item__cta"><i class="fas fa-phone" aria-hidden="true"></i> Call</span>
+      </a>
+    </div>
+  </details>
+
+  <!-- Empty Bag State -->
+  <div class="empty-state" id="cartEmpty" hidden>
+    <div class="empty-state__icon"><i class="fas fa-shopping-bag"></i></div>
+    <h2 class="empty-state__title">Your bag is empty</h2>
+    <p class="empty-state__sub">Start exploring our Kampala boutique drops and add your favourite pieces.</p>
+    <a href="/shop/" class="btn-solid-dark">Shop All Styles</a>
+  </div>
+</section>

@@ -1,0 +1,84 @@
+---
+layout: layout.liquid
+permalink: /index.html
+pageId: welcome
+headerAction: filters
+activeNav: home
+footerStyle: full
+title: "theGirlyZone Uganda | Modern Women's Fashion in Kampala"
+metaDesc: "Shop trendy dresses, skirts, tops, 2-piece sets, and handbags in Kampala. Visit Top City Plaza, Shop LT 78 or order directly via WhatsApp."
+---
+
+<!-- Hero Slider (auto-loads all images from assets/images/hero-section/) -->
+<section class="hero-section" aria-label="Featured Collections">
+  <div class="hero-frame">
+    {% for img in hero %}
+    <div class="hero-slide{% if forloop.first %} is-active{% endif %}">
+      <img
+        src="{{ site.paths.heroImages }}{{ img | encodeImg }}"
+        alt="theGirlyZone Kampala — Featured Look {{ forloop.index }}"
+        {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+    </div>
+    {% endfor %}
+
+    {% if hero.size > 1 %}
+    <div class="hero-dots" aria-label="Hero slides">
+      {% for img in hero %}
+      <button type="button" class="hero-dot{% if forloop.first %} is-active{% endif %}" aria-label="Slide {{ forloop.index }}"></button>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- Shop by CATEGORIES (6 Dedicated 3:4 Category Cards + Full-Width Shop All Stack) -->
+<section class="welcome-cats">
+  <div class="container">
+    <div class="section-heading">
+      <span class="section-eyebrow">Shop by</span>
+      <h1 class="section-title">CATEGORIES</h1>
+    </div>
+
+    <div class="cat-grid">
+      {% for cat in categories.list %}
+      {% assign catCount = products | countCategory: cat.slug %}
+      <a href="/{{ cat.slug }}/" class="cat-card js-reveal">
+        <div class="cat-card__media">
+          <img
+            src="{{ site.paths.categoryImages }}{{ cat.image }}"
+            alt="{{ cat.name }} at theGirlyZone Kampala"
+            class="js-cat-card-img"
+            loading="lazy"
+            decoding="async">
+          {% if catCount > 0 %}
+          <span class="cat-card__badge">{{ catCount }} styles</span>
+          {% endif %}
+        </div>
+        <div class="cat-card__meta">
+          <div style="min-width:0;">
+            <h2 class="cat-card__name">{{ cat.name }}</h2>
+            <p class="cat-card__sub">{{ cat.subtitle }}</p>
+          </div>
+          <span class="cat-card__arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+      {% endfor %}
+
+      <!-- 7th Full-Width Card: ONLY 3-Card Angled Book Stack + Shop All Button -->
+      <a href="/shop/" class="shop-all-banner js-reveal" aria-label="Shop All Styles">
+        <div class="book-stack-stage" aria-hidden="true">
+          <div class="book-page book-page--1">
+            <img src="{{ site.paths.categoryImages }}{{ categories.list[0].image }}" alt="" class="js-stack-img" loading="lazy">
+          </div>
+          <div class="book-page book-page--2">
+            <img src="{{ site.paths.categoryImages }}{{ categories.list[1].image }}" alt="" class="js-stack-img" loading="lazy">
+          </div>
+          <div class="book-page book-page--3">
+            <img src="{{ site.paths.categoryImages }}{{ categories.list[2].image }}" alt="" class="js-stack-img" loading="lazy">
+          </div>
+        </div>
+        <span class="shop-all-cta">Shop All <i class="fas fa-arrow-right"></i></span>
+      </a>
+    </div>
+  </div>
+</section>

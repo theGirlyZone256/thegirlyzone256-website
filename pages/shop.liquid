@@ -1,0 +1,43 @@
+---
+layout: layout.liquid
+permalink: /shop/index.html
+pageId: shop
+headerAction: filters
+activeNav: none
+footerStyle: full
+title: "Shop All Styles | theGirlyZone Uganda"
+metaDesc: "Browse every live dress, top, skirt, 2-piece set, and handbag available today at theGirlyZone Kampala."
+---
+{% assign liveProducts = products | where: "availability", true %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Shop All", "item": "{{ site.url }}/shop/" }
+  ]
+}
+</script>
+
+<section class="catalog-hero">
+  <div class="container">
+    <div class="catalog-hero__row">
+      <div>
+        <span class="section-eyebrow">Explore</span>
+        <h1 class="section-title">SHOP ALL</h1>
+      </div>
+      <span class="catalog-count" id="catalogCount">{{ liveProducts.size }} styles</span>
+    </div>
+    <div class="active-filters-strip" id="activeFiltersStrip" hidden></div>
+  </div>
+</section>
+
+<section class="product-grid-wrap" id="resultsAnchor" style="padding-bottom:44px;">
+  <div class="product-grid" id="productGrid" data-corner-grid>
+    {% for p in liveProducts %}
+      {% include "card.liquid", item: p %}
+    {% endfor %}
+  </div>
+</section>

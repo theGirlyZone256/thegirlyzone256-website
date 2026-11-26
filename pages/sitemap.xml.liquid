@@ -1,0 +1,34 @@
+---
+permalink: /sitemap.xml
+layout: null
+eleventyExcludeFromCollections: true
+---
+{% assign liveProducts = products | where: "availability", true %}
+{% assign today = "" | isoDate %}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ site.url }}/</loc>
+    <lastmod>{{ today }}</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>{{ site.url }}/shop/</loc>
+    <lastmod>{{ today }}</lastmod>
+    <priority>0.9</priority>
+  </url>
+  {% for cat in categories.list %}
+  <url>
+    <loc>{{ site.url }}/{{ cat.slug }}/</loc>
+    <lastmod>{{ today }}</lastmod>
+    <priority>0.85</priority>
+  </url>
+  {% endfor %}
+  {% for p in liveProducts %}
+  <url>
+    <loc>{{ site.url }}{{ p.url }}</loc>
+    <lastmod>{{ today }}</lastmod>
+    <priority>0.8</priority>
+  </url>
+  {% endfor %}
+</urlset>

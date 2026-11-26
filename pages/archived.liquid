@@ -1,0 +1,39 @@
+---
+pagination:
+  data: archive
+  size: 1
+  alias: archivedItem
+permalink: "/product/{{ archivedItem.slug }}/index.html"
+layout: layout.liquid
+pageId: product
+headerAction: none
+activeNav: none
+footerStyle: compact
+eleventyComputed:
+  title: "{{ archivedItem.title }} (Sold Out) | theGirlyZone Uganda"
+  metaDesc: "{{ archivedItem.title }} is currently sold out. Explore similar in-stock styles in Kampala at theGirlyZone."
+---
+{% assign fallbackItems = products | byCategory: archivedItem.category %}
+
+<section class="empty-state">
+  <div class="empty-state__icon"><i class="fas fa-tag"></i></div>
+  <h1 class="empty-state__title">{{ archivedItem.title }} is Sold Out</h1>
+  <p class="empty-state__sub">This piece found a home, but we have fresh in-stock looks waiting in {{ archivedItem.category | capitalize }}.</p>
+  <a href="/{{ archivedItem.category }}/" class="btn-solid-dark">Shop {{ archivedItem.category | capitalize }}</a>
+</section>
+
+{% if fallbackItems.size > 0 %}
+<section class="pdp-recs" style="margin-top:0;padding-bottom:44px;">
+  <div class="container pdp-recs__head">
+    <span class="section-eyebrow">Available Today</span>
+    <h2 class="section-title">Similar Looks</h2>
+  </div>
+  <div class="product-grid-wrap">
+    <div class="product-grid" data-corner-grid>
+      {% for item in fallbackItems limit: 4 %}
+        {% include "card.liquid", item: item, useSecondary: true %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

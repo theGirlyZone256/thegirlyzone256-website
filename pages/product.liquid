@@ -1,0 +1,261 @@
+---
+pagination:
+  data: products
+  size: 1
+  alias: product
+permalink: "/product/{{ product.slug }}/index.html"
+layout: layout.liquid
+pageId: product
+headerAction: share
+activeNav: none
+footerStyle: compact
+ogType: product
+eleventyComputed:
+  title: "{{ product.title }} | theGirlyZone Uganda"
+  metaDesc: "{{ product.desc }}"
+  ogImage: "{{ site.url }}{{ site.paths.mainImages }}{{ product.defaultImage | encodeImg }}"
+---
+{% assign similarItems = products | byIds: product.similarIds %}
+{% assign pairItems = products | byIds: product.pairWithIds %}
+{% assign availColors = product.colors | where: "inStock", true %}
+
+<!-- Product + Breadcrumb JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": {{ product.title | json }},
+  "image": [
+    {% for slide in product.gallery %}
+    "{{ site.url }}{{ site.paths.mainImages }}{{ slide.file | encodeImg }}"{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ],
+  "description": {{ product.desc | json }},
+  {% if product.fabrics.size > 0 %}"material": {{ product.fabrics | join: ", " | json }},{% endif %}
+  "brand": { "@type": "Brand", "name": "{{ site.name }}" },
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ site.url }}{{ product.url }}",
+    "priceCurrency": "UGX",
+    "price": {{ product.price }},
+    "availability": "https://schema.org/{% if product.availability %}InStock{% else %}OutOfStock{% endif %}",
+    "itemCondition": "https://schema.org/NewCondition"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}/" },
+    { "@type": "ListItem", "position": 2, "name": "{{ product.category | capitalize }}", "item": "{{ site.url }}/{{ product.category }}/" },
+    { "@type": "ListItem", "position": 3, "name": {{ product.title | json }}, "item": "{{ site.url }}{{ product.url }}" }
+  ]
+}
+</script>
+
+<!-- Embedded Compiled Product Payload for pages.js -->
+<script type="application/json" id="pdpProductData">{{ product | json }}</script>
+
+<!-- Non-Destructive Double-Tap Fly-In Notice (Gallery-in-view only, Max 5x) -->
+<div class="double-tap-notice" id="doubleTapNotice" aria-hidden="true">
+  <i class="fas fa-heart"></i>
+  <span>Double-tap to like</span>
+</div>
+
+<article class="pdp-shell">
+  <div class="container pdp-layout">
+    <!-- Left Column: Uncropped 3:4 Gallery + Morphing Dots + 3:4 Thumbnail Strip -->
+    <div class="pdp-gallery-col">
+      <div class="pdp-gallery" id="pdpGallery">
+        <a href="/{{ product.category }}/" class="pdp-back-btn" aria-label="Back to {{ product.category }}">
+          <i class="fas fa-arrow-left"></i>
+        </a>
+        <div class="pdp-slides" id="pdpSlides">
+          {% for slide in product.gallery %}
+          <div class="pdp-slide" data-slide-idx="{{ forloop.index0 }}">
+            <img
+              src="{{ site.paths.mainImages }}{{ slide.file | encodeImg }}"
+              alt="{{ product.title }} — photo {{ forloop.index }}"
+              {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+          </div>
+          {% endfor %}
+        </div>
+        <button type="button" class="pdp-arrow pdp-arrow--prev" id="pdpPrevBtn" aria-label="Previous photo">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button type="button" class="pdp-arrow pdp-arrow--next" id="pdpNextBtn" aria-label="Next photo">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <!-- Slider Dots + Occasional Double-Tap Hint -->
+      <div class="pdp-dots-band">
+        <div class="pdp-dots" id="pdpDots"></div>
+        <span class="pdp-dots-hint" id="pdpDotsHint">Double-tap photo to save to favourites</span>
+      </div>
+
+      <!-- 3:4 Thumbnail Strip -->
+      <div class="pdp-thumbs" id="pdpThumbs"></div>
+    </div>
+
+    <!-- Right Column: Editorial Info, Selectors, Actions & Details -->
+    <div class="pdp-info-col">
+      <p class="pdp-cat-crumb">
+        <a href="/{{ product.category }}/">{{ product.category }}</a> &bull; {{ product.subCategory | replace: "-", " " }}
+      </p>
+      <h1 class="pdp-title">{{ product.title }}</h1>
+      <p class="pdp-price">UGX {{ product.price | formatUGX }}</p>
+      <p class="pdp-desc">{{ product.desc }}</p>
+
+    {% if availColors.size > 0 %}
+      <div class="pdp-selector">
+        <div class="pdp-selector__head">
+          <span>Color: <strong id="pdpColorName">{{ availColors[0].name }}</strong></span>
+        </div>
+        <div class="pdp-swatches">
+          {% for c in availColors %}
+          <button
+            type="button"
+            class="pdp-swatch{% if forloop.first %} is-active{% endif %}"
+            data-pdp-swatch="{{ c.index }}"
+            style="background-color:{{ c.code }};"
+            title="{{ c.name }}"
+            aria-label="{{ c.name }}"></button>
+          {% endfor %}
+        </div>
+        {% if availColors.size > 1 %}
+        <button type="button" class="pdp-all-photos" id="pdpAllPhotosBtn" hidden>
+          <i class="fas fa-images" aria-hidden="true"></i>
+          <span>See All Other Colors</span>
+        </button>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      <div class="pdp-selector">
+        {% if product.hasSizes %}
+        <div class="pdp-selector__head">
+          <span>Size</span>
+        </div>
+        <div class="pdp-sizes">
+          {% for sz in product.sizes %}
+          <button type="button" class="pdp-size-pill{% if product.sizes.size == 1 %} is-active{% endif %}" data-pdp-size="{{ sz }}">{{ sz }}</button>
+          {% endfor %}
+        </div>
+        {% else %}
+        {% assign waFitText = "I need to know the available sizes for " | append: site.url | append: product.url %}
+        <a
+          href="https://wa.me/{{ site.whatsappNumber }}?text={{ waFitText | url_encode | replace: '+', '%20' }}"
+          target="_blank"
+          rel="noopener"
+          class="pdp-fit-note pdp-fit-note--link">
+          <i class="fab fa-whatsapp pdp-fit-note__wa" aria-hidden="true"></i>
+          <span>{{ product.fitNote }}</span>
+          <i class="fas fa-arrow-right pdp-fit-note__go" aria-hidden="true"></i>
+        </a>
+        {% endif %}
+      </div>
+
+      {% if product.availability %}
+      <div class="pdp-actions">
+        <button type="button" class="pdp-buy-btn" id="pdpBuyNowBtn">
+          <i class="fab fa-whatsapp"></i> Buy Now
+        </button>
+        <button type="button" class="pdp-bag-btn" id="pdpBagBtn" data-bag-btn="{{ product.id }}" aria-label="Add to bag">
+          <i class="fas fa-plus bag-ico bag-ico--plus" aria-hidden="true"></i>
+          <i class="fas fa-shopping-bag bag-ico bag-ico--bag" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="pdp-fav-btn" id="pdpFavBtn" data-fav-btn="{{ product.id }}" aria-label="Save to favourites">
+          <i class="far fa-heart"></i>
+        </button>
+      </div>
+      {% else %}
+      <div class="pdp-fit-note" style="margin:20px 0;font-weight:700;color:#ff004d;">
+        This piece is currently sold out. Explore similar looks below.
+      </div>
+      {% endif %}
+
+      <!-- Reassurance Strip (Plane / Diamond / Pin) -->
+      <div class="pdp-trust">
+        <div class="pdp-trust__item">
+          <i class="fas fa-plane"></i>
+          <span>Trusted Delivery</span>
+        </div>
+        <div class="pdp-trust__item">
+          <i class="fas fa-gem"></i>
+          <span>Quality Assured</span>
+        </div>
+        <div class="pdp-trust__item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Top City Plaza, LT 78</span>
+        </div>
+      </div>
+
+      <!-- Expandable Product Details -->
+      <div class="pdp-accordions">
+        <div class="pdp-acc-item is-open">
+          <button type="button" class="pdp-acc-btn" aria-expanded="true">
+            <span>Style Details</span><i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="pdp-acc-panel">
+            <p><strong>Category:</strong> {{ product.category | capitalize }} ({{ product.subCategory | replace: "-", " " }})</p>
+            <p><strong>Mood:</strong> {{ product.moods | join: ", " | capitalize }}</p>
+            <p><strong>Occasion:</strong> {{ product.occasions | join: ", " | capitalize }}</p>
+          </div>
+        </div>
+        <div class="pdp-acc-item">
+          <button type="button" class="pdp-acc-btn" aria-expanded="false">
+            <span>Delivery &amp; Shop Pickup</span><i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="pdp-acc-panel">
+            <p>Same-day boda delivery across Kampala once confirmed on WhatsApp, or walk in for pickup at {{ site.location.shop }} ({{ site.location.landmark }}).</p>
+          </div>
+        </div>
+        <div class="pdp-acc-item">
+          <button type="button" class="pdp-acc-btn" aria-expanded="false">
+            <span>Quality Inspection</span><i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="pdp-acc-panel">
+            <p>Every garment and bag is checked for stitching, zippers, and finish right before release so what arrives matches what you saw.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Same-Category Recommendations ("You Might Also Like") -->
+  {% if similarItems.size > 0 %}
+  <section class="pdp-recs">
+    <div class="container pdp-recs__head">
+      <span class="section-eyebrow">Picked for you</span>
+      <h2 class="section-title">You Might Also Like</h2>
+    </div>
+    <div class="product-grid-wrap">
+      <div class="product-grid" data-corner-grid>
+        {% for item in similarItems %}
+          {% include "card.liquid", item: item, useSecondary: true %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Cross-Category Pair-With Engine ("Complete The Look") -->
+  {% if pairItems.size > 0 %}
+  <section class="pdp-recs">
+    <div class="container pdp-recs__head">
+      <span class="section-eyebrow">Style it with</span>
+      <h2 class="section-title">Complete The Look</h2>
+    </div>
+    <div class="product-grid-wrap">
+      <div class="product-grid" data-corner-grid>
+        {% for item in pairItems %}
+          {% include "card.liquid", item: item, useSecondary: true %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+</article>
