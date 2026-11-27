@@ -13,7 +13,7 @@ module.exports = {
   ga4Id: "G-9KVBZGRJ6L",
 
   // Boutique Contacts & WhatsApp Checkout
-  whatsappNumber: "256744868456",
+  whatsappNumber: "256788484694",
   phones: ["+256 777 645 472", "+256 756 588 826", "+256 752 066 276"],
   email: "shop.thegirlyzone@gmail.com",
   location: {

@@ -176,7 +176,7 @@
     },
 
     whatsappNumber() {
-      return (this.data && this.data.whatsapp) || "256744868456";
+      return (this.data && this.data.whatsapp) || "256788484694";
     }
   };
 
