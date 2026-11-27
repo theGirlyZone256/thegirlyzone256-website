@@ -737,7 +737,7 @@ const rawProducts = [
   },
   {
     id: 61,
-    title: "ChisRosy Woven Chain Bag",
+    title: "ChrisRosy Woven Chain Bag",
     desc: "Soft, woven leather that feels great for any outing.",
     price: 85000,
     taxonomy: ["bags", "hand-bag"],
