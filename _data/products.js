@@ -52,19 +52,6 @@ const rawProducts = [
     ]
   },
   {
-    id: 5,
-    title: "Nike Tote Delight",
-    desc: "Durable woven cotton carryall built with roomy everyday storage and comfortable shoulder straps.",
-    price: 25000,
-    taxonomy: ["bags", "totes"],
-    vibes: [["smart"], ["casual", "vacation"]],
-    colors: [
-      ["Pink Haze",  "#caa5bf", ["00", "01", "02"]],
-      ["Blue Topaz", "#565fa3", ["03"]],
-      ["Black Onyx", "#000000", ["04"]]
-    ]
-  },
-  {
     id: 6,
     title: "Violet Bloom Wrap Skirt",
     desc: "Breezy cotton wrap maxi skirt dusted in soft lavender florals for effortless daytime movement.",
@@ -664,7 +651,92 @@ const rawProducts = [
       ["Azure Blue",   "#6091cd", ["00", "02"]],
       ["Lauren Brown", "#afa081", ["01", "03"]]
     ]
-  }
+  },
+  {
+    id: 56,
+    title: "Belted Plaid Midi Dress",
+    desc: "Soft, breathable cotton with crisp texture for effortless elegance.",
+    price:55000,
+    taxonomy: ["dresses", "long-dresses"],
+    vibes: [["smart"], ["office"]],
+    colors: [
+      ["Inch Grey", "#979382", ["00", "01", "02", "03", "04"]]
+    ]
+  },
+  {
+    id: 57,
+    title: "Scarf Tie Tote Bag",
+    desc: "Soft, sturdy leather that feels great for daily use.",
+    price: 80000,
+    taxonomy: ["bags", "totes"],
+    vibes: [["elegant", "smart"], ["casual", "office"]],
+    sizes: ["L"],
+    colors: [
+      ["Grey Blue", "#3e465a", ["00", "01", "02", "03", "04"]]
+    ]
+  },
+  {
+    id: 58,
+    title: "Charm Chain Dome Bag",
+    desc: "Soft, sturdy leather-feel material made for daily use.",
+    price: 85000,
+    taxonomy: ["bags", "hand-bag"],
+    vibes: [["elegant", "smart", "romantic"], ["casual", "date", "party"]],
+    sizes: ["M"],
+    colors: [
+      ["Muted Crimson", "#a81441", ["00", "02", "04", "05", "06"]],
+      ["Dark Blue",     "#0e1426", ["01", "03"]]
+    ]
+  },
+  {
+    id: 59,
+    title: "Teddy Charm Tote Bag",
+    desc: "Smooth, soft leather with extra space for daily use.",
+    price: 75000,
+    taxonomy: ["bags", "hand-bag"],
+    vibes: [["elegant", "smart", "free"], ["casual", "date", "office"]],
+    sizes: ["L"],
+    colors: [
+      ["Grey Pink",   "#603043", ["00", "04"]],
+      ["Grey Orange", "#b9652b", ["01"]],
+      ["Dark Brown",  "#603f36", ["02"]],
+      ["Light Brown", "#895d3a", ["03"]]
+    ]
+  },
+  {
+    id: 60,
+    title: "Bow Front Mini Bag",
+    desc: "Smooth, firm leather that feels great for any outing.",
+    price: 95000,
+    taxonomy: ["bags", "hand-bag"],
+    vibes: [["elegant", "smart", "free", "romantic"], ["casual", "date", "vacation"]],
+    sizes: ["S"],
+    colors: [
+      ["Soft Pink",    "#cc9389", ["00"]],
+      ["Cold Black",   "#10131e", ["01"]],
+      ["Vivid Pink",   "#a30041", ["02"]],
+      ["Pastel Cream", "#cbbaa4", ["03"]],
+      ["Brown",        "#915001", ["04"]]
+    ]
+  },
+  {
+    id: 61,
+    title: "ChisRosy Woven Chain Bag",
+    desc: "Soft, woven leather that feels great for any outing.",
+    price: 85000,
+    taxonomy: ["bags", "hand-bag"],
+    vibes: [["smart", "free"], ["casual", "office"]],
+    sizes: ["S"],
+    colors: [
+      ["Purple",    "#603043", ["00"]],
+      ["Grey Blue", "#2e3654", ["01"]],
+      ["Brown",     "#895d3a", ["02"]],
+      ["Warm Grey", "#4d4943", ["03"]]
+    ]
+  },
+
+
 ];
+// Missing IDs: 5
 
 module.exports = enrichProducts(rawProducts);
