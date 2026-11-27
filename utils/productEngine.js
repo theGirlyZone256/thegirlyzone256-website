@@ -290,6 +290,8 @@ function enrichProducts(rawProducts) {
       price: raw.price,
       priceBracket: getPriceBracket(raw.price),
       availability,
+      pinned: Boolean(raw.pinned),
+      pinRank: typeof raw.pinned === "number" && raw.pinned > 0 ? raw.pinned : (raw.pinned === true ? 1000 : Infinity),
       freshnessRank: index,
       category,
       subCategory,
@@ -372,9 +374,13 @@ function enrichProducts(rawProducts) {
 
     product.pairWithIds = [...pinned, ...autoPairs].slice(0, 4);
 
-    // Strip internal helper property before exporting
+// Strip internal helper property before exporting
     delete product.manualPairWith;
   });
+
+  // Float pinned products to the top (pinned: 1, 2, 3... first -> pinned: true -> newest arrivals)
+  compiled.sort((a, b) => a.pinRank - b.pinRank || a.freshnessRank - b.freshnessRank);
+  compiled.forEach(p => delete p.pinRank);
 
   console.log(`✅👌 [theGirlyZone ProductEngine] Validated & compiled ${compiled.length} products (${liveProducts.length} live).`);
   return compiled;

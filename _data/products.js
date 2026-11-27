@@ -52,6 +52,21 @@ const rawProducts = [
     ]
   },
   {
+    id: 5,
+    title: "Halter Neck Ruffle Dress",
+    desc: "Light, soft cotton that feels cool and flowy.",
+    pinned: 1,
+    price: 45000,
+    taxonomy: ["dresses", "short-dresses"],
+    vibes: [["elegant", "romantic", "free"], ["casual", "vacation", "party", "date"]],
+    colors: [
+      ["Deep Yellow",     "#ffca10", ["00"]],
+      ["Crimson Red",     "#82051f", ["01"]],
+      ["Black",           "#222327", ["02"]],
+      ["Gradient Yellow", "#ffe952", ["03"]]
+    ]
+  },
+  {
     id: 6,
     title: "Violet Bloom Wrap Skirt",
     desc: "Breezy cotton wrap maxi skirt dusted in soft lavender florals for effortless daytime movement.",
@@ -597,6 +612,7 @@ const rawProducts = [
     id: 52,
     title: "The Radiant Sunflower Maxi",
     desc: "Sun-kissed floral maxi dress cut in an airy, ankle-grazing silhouette for effortless warm-weather wear.",
+    pinned: 2,
     price: 35000,
     taxonomy: ["dresses", "long-dresses"],
     vibes: [["elegant", "free"], ["casual", "party", "vacation"]],
@@ -734,9 +750,49 @@ const rawProducts = [
       ["Warm Grey", "#4d4943", ["03"]]
     ]
   },
+  {
+    id: 62,
+    title: "Polka Dot Bubble Dress",
+    desc: "Smooth, airy cotton offering soft comfort and playful volume.",
+    price: 40000,
+    taxonomy: ["dresses", "short dresses"],
+    vibes: [["elegant", "smart", "free"], ["casual", "vacation", "party", "date"]],
+    colors: [
+      ["Matte Black", "#070b11", ["00", "01", "02", "03", "04", "05"]]
+    ]
+  },
+  {
+    id: 63,
+    title: "One Shoulder Long Dress",
+    desc: "Soft, stretchy; feels firm and comfortable.",
+    price: 40000,
+    taxonomy: ["dresses", "long-dresses"],
+    vibes: [["elegant", "smart"], ["party", "date"]],
+    colors: [
+      ["Olive Green", "#babe08", ["00", "01", "02", "03", "04"]]
+    ]
+  },
+  {
+    id: 64,
+    title: "Tie Waist Button Dress",
+    desc: "Soft, comfy cotton that feels great for everyday wear.",
+    price: 40000,
+    taxonomy: ["dresses", "long-dresses"],
+    vibes: [["elegant", "smart"], ["party", "office", "casual"]],
+    colors: [
+      ["Pixelated Grey", "#2f2e37", ["00", "01", "02"]]
+    ]
+  },
 
 
 ];
-// Missing IDs: 5
+//========================================================================================================//
+// Missing IDs: "none" //
+
+/*Other Flags n wat they do:
+bestseller: true/false - This gives produts ranking boost inside the auto recommendation algorithm.
+manualRecommendations: -Just like it speaks fro itself; you can use it to manually recommend products for a specific product. It will override the auto recommendation algorithm.
+pinned: true/false - This will pin the product to the top of the product listing page. It will override the auto recommendation algorithm.
+ */
 
 module.exports = enrichProducts(rawProducts);
