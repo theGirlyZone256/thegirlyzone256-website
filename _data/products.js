@@ -464,7 +464,7 @@ const rawProducts = [
     title: "Cosy Fleece Half-Zip Sweater",
     desc: "Plush cotton-fleece pullover featuring a high half-zip collar for warm, laid-back layering.",
     price: 35000,
-    taxonomy: ["tops", "shirts"],
+    taxonomy: ["tops", "sweaters"],
     vibes: [["free"], ["casual", "vacation"]],
     colors: [
       ["White", "#ffffff", ["01", "05"]],
@@ -574,7 +574,7 @@ const rawProducts = [
     title: "Checkered Fur-Collar Bomber Jacket",
     desc: "Structured checkered bomber jacket finished with a plush faux-fur collar for crisp evening layering.",
     price: 55000,
-    taxonomy: ["tops", "shirts"],
+    taxonomy: ["tops", "jackets"],
     vibes: [["free", "smart"], ["casual", "date"]],
     sizes: ["M"],
     thumb: "01",
